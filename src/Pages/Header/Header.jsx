@@ -9,7 +9,7 @@ function Header() {
                 <div className="grid wide">
                     <div className="header__higher" style={{ display: "flex" }}>
                         <div className="header__higher-info">
-                            <div className="header__higher-info-mail">
+                            <div className="header__higher-info-mail" style={{ paddingLeft : "3rem" }}>
                                 <i className="fa-solid fa-envelope"></i>
                                 <span>petsla.vn@gmail.com</span>
                             </div>
@@ -25,7 +25,7 @@ function Header() {
 
                             </div>
                         </div>
-                        <div className="header__higher-btn-wrap">
+                        <div className="header__higher-btn-wrap" style={{ paddingRight : "3rem" }}>
                             <div className="btn-language-wrap">
                                 <i className="fa-solid fa-earth-americas"></i>
                             </div>
@@ -40,7 +40,7 @@ function Header() {
                 </div>
             </div>
             <header className="header">
-                <div className="header__top grid wide">
+                <div className="header__top grid wide" style={{ padding : "0 3rem" }}>
                     <div className="header__wrap">
                         <div className="header__logo">
 
@@ -58,29 +58,29 @@ function Header() {
                     </div>
                 </div>
             </header>
-            <div className="header__nav grid wide">
+            <div className="header__nav grid wide" style={{ padding : "0 3rem" }}>
                 <ul className="header__nav-list">
-                    <li className="header__nav-item">
+                    <li className="header__nav-item header__nav-item-link">
 
                             Home
 
                     </li>
-                    <li className="header__nav-item">
+                    <li className="header__nav-item header__nav-item-link">
 
                             Shop
 
                     </li>
-                    <li className="header__nav-item">
+                    <li className="header__nav-item header__nav-item-link">
 
                             Cart
 
                     </li>
-                    <li className="header__nav-item">
+                    <li className="header__nav-item header__nav-item-link">
 
                             Contact
 
                     </li>
-                    <li className="header__nav-item">
+                    <li className="header__nav-item header__nav-item-link">
 
                             Account
 
