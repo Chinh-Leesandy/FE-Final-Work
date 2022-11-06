@@ -1,6 +1,7 @@
 import './Register.css'
 import React, { useState, useRef, useContext } from 'react'
 const Register = () => {
+
     let check = true
     return (
         <div className="Background">
@@ -56,7 +57,7 @@ const Register = () => {
                 <div className='Register_Action'>
                     <button 
                         type="submit" 
-                        class="btn_submit">
+                        className="btn_submit">
                         Register
                     </button>
                     <div className='Register_With'>
@@ -66,12 +67,12 @@ const Register = () => {
                     </div>
                     <button 
                         type="submit" 
-                        class="Register_Gg">
+                        className="Register_Gg">
                         Register with Google
                     </button>
                     <button 
                         type="submit" 
-                        class="Register_Fb">
+                        className="Register_Fb">
                         Register with Facebook
                     </button>
                 </div>
