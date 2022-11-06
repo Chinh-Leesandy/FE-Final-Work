@@ -1,24 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import axios from "axios";
 import "./ProductList.css";
+import { useDispatch, useSelector } from "react-redux"
+import { callApi, sortNameAZ } from "../../../Stores/productSlice";
 // import  from "bootstrap-icons"
 // import "bootstrap/dist/css/bootstrap.css";
 export default function ProductList() {
-  const [item, setItem] = useState([]);
+  const product = useSelector(state => state.product).product;
+  const dispatch = useDispatch();
   useEffect(() => {
     axios
       .get("https://petsla-api.herokuapp.com/products")
       .then((res) => {
         const products = res.data;
-        setItem([...products]);
+        dispatch(callApi(products))
       })
       .catch((err) => console.log(err));
+
   }, []);
 
-  console.log(item);
   return (
     <div className="product-list">
-      {item.map((res) => (
+      {product.map((res) => (
         <div className="product-container" key={res.id}>
           <div className="products">
             <React.Fragment>
@@ -43,11 +46,11 @@ export default function ProductList() {
                   <div className="price">{res.price.toLocaleString()} đ</div>
                   <div className="btn-product-content">
                     <div className="buy button-wrap">
-                      <i class="bi bi-bag"></i>
+                      <i className="bi bi-bag"></i>
                       <span>Buy Now</span>
                     </div>
                     <div className="car button-wrap">
-                      <i class="bi bi-cart3"></i>
+                      <i className="bi bi-cart3"></i>
                       <span> Add to Cart</span>
                     </div>
                   </div>
@@ -60,3 +63,4 @@ export default function ProductList() {
     </div>
   );
 }
+
