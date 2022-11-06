@@ -1,5 +1,6 @@
 import "./Login.css";
 import React, { useState, useRef, useContext } from "react";
+import { Link } from "react-router-dom";
 const Login = () => {
   let check = true;
   let change = () => {
@@ -12,7 +13,11 @@ const Login = () => {
         <div className="Login_Header">
           <span className="Title">Login</span>
           <div className="Div_Exit">
-            <span className="Login_Exit">x</span>
+            <span className="Login_Exit">
+            <Link to="/Shop">
+              x
+            </Link>
+            </span>
           </div>
         </div>
         <div className="Login_Body">
@@ -69,7 +74,9 @@ const Login = () => {
         </div>
         <div className="Login_footer">
           <div className="change-to-register">
-            Do not have an account? Register
+          <Link to="/Register">
+          Do not have an account? Register
+          </Link>
           </div>
           <div className="forgot-password">Forgot password?</div>
         </div>

@@ -2,7 +2,7 @@ import React, { useEffect} from "react";
 import axios from "axios";
 import "./ProductList.css";
 import { useDispatch, useSelector } from "react-redux"
-import { callApi, sortNameAZ } from "../../../Stores/productSlice";
+import { callApi } from "../../../Stores/productSlice";
 // import  from "bootstrap-icons"
 // import "bootstrap/dist/css/bootstrap.css";
 export default function ProductList() {

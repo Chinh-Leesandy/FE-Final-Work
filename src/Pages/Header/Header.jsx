@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom";
 
 import "./Header.css"
 
@@ -33,7 +34,10 @@ function Header() {
                                 <i className="fa-solid fa-moon"></i>
                             </div>
                             <div className="btn-auth-wrap">
-                                <i className="fa-solid fa-arrow-right-to-bracket"></i>
+                                <Link to="/Login">
+                                    <i className="fa-solid fa-arrow-right-to-bracket"></i>
+                                </Link>
+                                
                             </div>
                         </div>
                     </div>
