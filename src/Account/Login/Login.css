@@ -1,0 +1,144 @@
+.Background{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-color: rgba(6, 0, 0, 0.2);
+}
+.Login{
+    position: absolute;
+    background-color: white;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+.Login_Header{
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+.Title{
+    font-size: 32px;
+    font-weight: 500;
+}
+.Div_Exit{
+    display: flex;
+    align-items: center;
+}
+.Login_Exit{
+    font-size: 30px;
+    cursor: pointer;
+    color:rgb(95, 94, 94);
+    font-weight: 500;
+}
+.Login_Exit:hover{
+    color: black;
+}
+/* //// */
+.Login_Body{
+    padding: 16px 24px;
+}
+.Use-Pass{
+    width: 100%;
+    margin-top: 15px;
+}
+.form-control{
+    width: 92%;
+    padding: 6px 12px;
+    color: #212529;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.Remember{
+    margin-top: 10px;
+}
+.TickRemember{
+    display: flex;
+    justify-content: flex-start;
+}
+.form-check-input{
+    margin-top: 5px;
+    margin-left: 1px;
+    width: 15px;
+    height: 15px;
+}
+/* ////////// */
+.Login_Action{
+    margin: 0 0 24px;
+    padding: 0 24px;
+}
+.btn_submit{
+    background-color: #e69646;
+    border: none;
+    width: 100%;
+    color: #fafafa;
+    margin: 8px 0 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.Login_With{
+    margin: 1rem 0;
+    display: flex;
+    opacity: .2;
+    align-items: center;
+}
+.separate{
+    height: 1px;
+    width: 100%;
+    background-color: #888;
+}
+.separate_text{
+    text-transform: uppercase;
+    margin: 0 7px;
+}
+.Login_Gg{
+    background-color: #dc3545;
+    border: none;
+    width: 100%;
+    color: #fafafa;
+    margin: 8px 0 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.Login_Fb{
+    background-color: #0d6efd;
+    border: none;
+    width: 100%;
+    color: #fafafa;
+    margin: 16px 0 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+/* //// */
+.Login_footer{
+    text-align: center;
+    margin: 25px;
+
+}
+.change-to-register{
+    cursor: pointer;
+    opacity: .6;
+    transition: .2s;
+    margin-top: 0.5rem;
+}
+.change-to-register:hover{
+    opacity: .9;
+}
+.forgot-password{
+    cursor: pointer;
+    opacity: .6;
+    transition: .2s;
+    margin-top: 0.5rem;
+}
+.forgot-password:hover{
+    opacity: .9;
+}
