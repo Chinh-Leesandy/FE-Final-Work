@@ -1,5 +1,6 @@
 import './Register.css'
 import React, { useState, useRef, useContext } from 'react'
+import { Link } from 'react-router-dom'
 const Register = () => {
 
     let check = true
@@ -11,7 +12,11 @@ const Register = () => {
                         Register
                     </span>
                     <div className='Div_Exit'>
-                        <span className='Register_Exit'>x</span>
+                        <span className='Register_Exit'>
+                            <Link to="/Shop">
+                            x
+                            </Link>
+                        </span>
                     </div>
                 </div>
                 <div className='Register_Body'>
@@ -77,7 +82,11 @@ const Register = () => {
                     </button>
                 </div>
                 <div className='Register_footer'>
-                    <div className="change-to-register" >Already have an account? Login</div>
+                    <div className="change-to-register" >
+                        <Link to="/Login">
+                        Already have an account? Login
+                        </Link>
+                        </div>
                 </div>
             </form>
         </div>
