@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import React, { useEffect } from "react";
+// import React from "react";
 const productSlice = createSlice({
   name: "product",
   initialState: {
@@ -9,27 +9,25 @@ const productSlice = createSlice({
     callApi(state, data) {
       state.product = data.payload;
     },
-    sortNameAZ(state, data) {
-      state.product = state.product.sort((a, b) =>
-        a.product_name.localeCompare(b.product_name)
-      );
-    },
-    sortNameZA(state, data) {
+    sort(state, data) {
+      if (data.payload === "0") {
+        state.product = state.product.
+        console.log(state.productRelevance)
+      } else if (data.payload === "1") {
+        state.product = state.product.sort((a, b) =>
+          a.product_name.localeCompare(b.product_name)
+        );
+      } else if (data.payload === "2") {
         state.product = state.product.sort((a, b) =>
           b.product_name.localeCompare(a.product_name)
         );
-      },
-    sortLowHight(state, data){
-        state.product = state.product.sort((a, b) =>
-        a.price.localeCompare(b.price)
-      ); 
-    },
-    sortHightLow(state, data){
-        state.product = state.product.sort((a, b) =>
-        b.price.localeCompare(a.price)
-      ); 
+      } else if (data.payload === "3") {
+        state.product = state.product.sort((a, b) => a.price - b.price);
+      } else if (data.payload === "4") {
+        state.product = state.product.sort((a, b) => b.price - a.price);
+      }
     },
   },
 });
-export const { callApi, sortNameAZ } = productSlice.actions;
+export const { callApi, sort } = productSlice.actions;
 export default productSlice.reducer;
