@@ -1,4 +1,6 @@
-// import logo from './logo.svg';
+import './App.css';
+import Footer from './Pages/Footer/Footer';
+import Header from './Pages/Header/Header';
 import "./App.css";
 // import Login from './Account/Login/Login';
 import Register from "./Account/Register/Register";
@@ -10,7 +12,9 @@ function App() {
     <Provider store = {store}>
       <div className="App">
         <Register></Register>
+        <Header/>
         <ProductList />
+        <Footer/>
       </div>
     </Provider>
   );
