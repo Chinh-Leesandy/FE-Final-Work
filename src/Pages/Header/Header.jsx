@@ -56,7 +56,10 @@ function Header() {
                             <i className="header__search__icon fa-solid fa-magnifying-glass"></i>
                         </div>
                         <div className="header__cart" >
-                            <i className="header__cart__icon fa-solid fa-cart-shopping"></i>
+                            <Link to="/MenuCart" >
+                                 <i className="header__cart__icon fa-solid fa-cart-shopping"></i>
+                            </Link>
+                           
                             <div className="header__cart__count-items"> 0 </div>
                         </div>
                     </div>
