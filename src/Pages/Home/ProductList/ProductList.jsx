@@ -16,7 +16,6 @@ export default function ProductList() {
         dispatch(callApi(products))
       })
       .catch((err) => console.log(err));
-
   }, []);
 
   return (
