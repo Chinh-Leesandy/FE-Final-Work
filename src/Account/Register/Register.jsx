@@ -1,6 +1,8 @@
 import './Register.css'
 import React, { useState, useRef, useContext } from 'react'
+import { Link } from 'react-router-dom'
 const Register = () => {
+
     let check = true
     return (
         <div className="Background">
@@ -10,7 +12,11 @@ const Register = () => {
                         Register
                     </span>
                     <div className='Div_Exit'>
-                        <span className='Register_Exit'>x</span>
+                        <span className='Register_Exit'>
+                            <Link to="/Shop">
+                            x
+                            </Link>
+                        </span>
                     </div>
                 </div>
                 <div className='Register_Body'>
@@ -56,7 +62,7 @@ const Register = () => {
                 <div className='Register_Action'>
                     <button 
                         type="submit" 
-                        class="btn_submit">
+                        className="btn_submit">
                         Register
                     </button>
                     <div className='Register_With'>
@@ -66,17 +72,21 @@ const Register = () => {
                     </div>
                     <button 
                         type="submit" 
-                        class="Register_Gg">
+                        className="Register_Gg">
                         Register with Google
                     </button>
                     <button 
                         type="submit" 
-                        class="Register_Fb">
+                        className="Register_Fb">
                         Register with Facebook
                     </button>
                 </div>
                 <div className='Register_footer'>
-                    <div className="change-to-register" >Already have an account? Login</div>
+                    <div className="change-to-register" >
+                        <Link to="/Login">
+                        Already have an account? Login
+                        </Link>
+                        </div>
                 </div>
             </form>
         </div>
