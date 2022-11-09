@@ -79,7 +79,9 @@
     line-height: 1.5em;
     border: 1px solid #ced4da;
 }
-
+.header__search :focus{
+    outline: outset 3px #c2dbfe;
+}
 .header__search__icon {
     height: 100%;
     background-color: #e69646;
