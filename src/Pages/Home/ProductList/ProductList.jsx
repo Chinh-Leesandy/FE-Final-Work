@@ -6,7 +6,7 @@ import { callApi } from "../../../Stores/productSlice";
 // import  from "bootstrap-icons"
 // import "bootstrap/dist/css/bootstrap.css";
 export default function ProductList() {
-  const product = useSelector(state => state.product).product;
+  const product = useSelector(state => state.product.product);
   const dispatch = useDispatch();
   useEffect(() => {
     axios
