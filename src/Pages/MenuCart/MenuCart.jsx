@@ -1,16 +1,12 @@
 import React from "react";
-
+import {useSelector} from 'react-redux'
 import "./MenuCart.css"
 import { keyLocalStorage } from "../../App";
+import { Link } from "react-router-dom";
 
 export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
-    
-    function CloseMenuCart() {
-        setStyleMenuCart(preStyleMenuCart => {
-            const styleMenuCart = {...preStyleMenuCart, right: "-400px"}
-            return styleMenuCart
-        })
-    }
+    const listItems = useSelector(state => state.product.listItems);
+   
     // function RemoveItem(e) {
     //     let item = getItem(e.target)
     //     setListItems(preListItems => {
@@ -52,17 +48,20 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
     // }
     return (
     <React.Fragment>
-        <div className="background-wrap-menu-cart" style={{width: window.innerWidth, height: window.innerWidth,
-        display: `${(styleMenuCart.right == "-400px")?("none"):("block")}`}} onClick = {CloseMenuCart}>
-        </div>
-        <div className="menu-cart-wrap" style={{right: styleMenuCart.right, height: "100%"}}>
+        {/* <div className="background-wrap-menu-cart" style={{width: window.innerWidth, height: window.innerWidth,
+        display: `${(styleMenuCart.right == "-400px")?("none"):("block")}`}} >
+        </div> */}
+        <div className="menu-cart-wrap" >
             <div className="menu-cart">
                 <div className="menu-cart__header">
                     <div className="menu-cart__header-title">
-                        Cart: {countItems} Items 
+                        Cart: 1 Items 
                     </div>
-                    <div className="menu-cart__header-close" onClick={CloseMenuCart}>
+                    <div className="menu-cart__header-close" >
+                        <Link to="/Shop">
                     <i className ="fa-solid fa-xmark btnclose"></i>
+
+                        </Link>
                     </div>
                 </div>
                 <div className = "menu-cart__body">
@@ -100,7 +99,7 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                                         <div className = "product-total-price">{(value*key.price).toLocaleString('vi')}đ</div>
                                     </div>
                                 </div>
-                                <div className="product-button-close" onClick={RemoveItem}>
+                                <div className="product-button-close" >
                                     <i className ="fa-solid fa-xmark btnclose"></i>
                                 </div>
                             </div>
@@ -117,7 +116,7 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                 }
                 </div>
                 <div className="menu-cart__footer">
-                    <button type = "button" className="menu-cart-btn btn-primary">Checkout ({totalPrice})</button>
+                    <button type = "button" className="menu-cart-btn btn-primary">Checkout </button>
                     <button type = "button" className="menu-cart-btn btn-view-cart">View Cart</button>
                 </div>
             </div> 

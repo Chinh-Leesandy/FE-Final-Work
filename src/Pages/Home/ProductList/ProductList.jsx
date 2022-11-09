@@ -7,7 +7,6 @@ import { callApi , addProduct} from "../../../Stores/productSlice";
 // import "bootstrap/dist/css/bootstrap.css";
 export default function ProductList() {
   const product = useSelector(state => state.product.product);
-    const listItem = useSelector(state => state.product.listItems);
   const dispatch = useDispatch();
   useEffect(() => {
     axios
