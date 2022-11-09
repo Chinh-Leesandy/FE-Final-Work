@@ -4,6 +4,7 @@ const productSlice = createSlice({
   name: "product",
   initialState: {
     product: [],
+    listItems : [],
   },
   reducers: {
     callApi(state, data) {
@@ -27,7 +28,10 @@ const productSlice = createSlice({
         state.product = state.product.sort((a, b) => b.price - a.price);
       }
     },
+    addProduct(state,data){
+      state.listItems.push(data.payload);
+    }
   },
 });
-export const { callApi, sort } = productSlice.actions;
+export const { callApi, sort, addProduct } = productSlice.actions;
 export default productSlice.reducer;

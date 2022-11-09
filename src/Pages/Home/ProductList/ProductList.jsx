@@ -2,7 +2,7 @@ import React, { useEffect} from "react";
 import axios from "axios";
 import "./ProductList.css";
 import { useDispatch, useSelector } from "react-redux"
-import { callApi } from "../../../Stores/productSlice";
+import { callApi , addProduct} from "../../../Stores/productSlice";
 // import  from "bootstrap-icons"
 // import "bootstrap/dist/css/bootstrap.css";
 export default function ProductList() {
@@ -17,7 +17,9 @@ export default function ProductList() {
       })
       .catch((err) => console.log(err));
   }, []);
-
+  const handleClick = (element)=> {
+    dispatch(addProduct(element))
+  }
   return (
     <div className="product-list">
       {product.map((res) => (
@@ -48,7 +50,7 @@ export default function ProductList() {
                       <i className="bi bi-bag"></i>
                       <span>Buy Now</span>
                     </div>
-                    <div className="car button-wrap">
+                    <div className="car button-wrap"  onClick={()=> handleClick(res)} >
                       <i className="bi bi-cart3"></i>
                       <span> Add to Cart</span>
                     </div>
