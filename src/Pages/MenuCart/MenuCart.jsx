@@ -61,19 +61,7 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                     <i className ="fa-solid fa-xmark btnclose"></i>
 
                         </Link>
-        <div className="background-wrap-menu-cart" style={{width: window.innerWidth, height: window.innerWidth,
-        display: `${(styleMenuCart.right == "-400px")?("none"):("block")}`}} onClick = {CloseMenuCart}>
-        </div>
-        <div className="menu-cart-wrap" style={{right: styleMenuCart.right, height: "100%"}}>
-            <div className="menu-cart">
-                <div className="menu-cart__header">
-                    <div className="menu-cart__header-title">
-                        Cart: {countItems} Items 
-                    </div>
-                    <div className="menu-cart__header-close" onClick={CloseMenuCart}>
-                    <i className ="fa-solid fa-xmark btnclose"></i>
-                    </div>
-                </div>
+                  </div>
                 <div className = "menu-cart__body">
                 {
                     (
@@ -131,6 +119,7 @@ export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
                 </div>
             </div> 
         </div>
+      </div>
     </React.Fragment>
-    )
+  );
 }
