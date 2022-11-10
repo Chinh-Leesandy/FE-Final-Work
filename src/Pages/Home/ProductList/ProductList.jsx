@@ -25,6 +25,8 @@ export default function ProductList() {
   };
   const select = (event) => {
     setNewsPerPage(event.target.value);
+    window.scrollTo(0, 0);
+    setCurrentPage(1);
   };
   const indexOfLastNews = currentPage * newsPerPage;
   const indexOfFirstNews = indexOfLastNews - newsPerPage;
@@ -92,6 +94,7 @@ export default function ProductList() {
                 return (
                   <li key={number} id={number} className="active_wrap pagination-wrap">
                     {number}
+                    {window.scrollTo(0, 0)}
                   </li>
                 );
               } else {
