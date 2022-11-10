@@ -30,6 +30,7 @@ const productSlice = createSlice({
     },
     addProduct(state,data){
       state.listItems.push(data.payload);
+      
     }
   },
 });
