@@ -30,6 +30,7 @@ const productSlice = createSlice({
         state.product = state.product.sort((a, b) => b.price - a.price);
       }
     },
+
     addProduct(state, data) {
       let dem = 0;
       state.listItems.forEach(element => {
@@ -80,6 +81,9 @@ const productSlice = createSlice({
         }
 
       })
+
+    addProduct(state,data){
+      state.listItems.push(data.payload);
     }
   },
 });

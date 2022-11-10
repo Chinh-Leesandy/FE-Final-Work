@@ -7,6 +7,7 @@ import "./Header.css";
 function Header() {
   const [styleMenuCart,setStyleMenuCart] = useState({right: "-400px"})
   const count = useSelector(state => state.product.count);
+
     function ClickOpenMenuCart() {
         setStyleMenuCart(preStyleMenuCart => {
             const styleMenuCart = {...preStyleMenuCart, right: "0px"}
