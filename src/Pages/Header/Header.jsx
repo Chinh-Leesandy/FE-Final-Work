@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import MenuCart from "../MenuCart/MenuCart";
 
 import "./Header.css";
 
 function Header() {
+  const [styleMenuCart,setStyleMenuCart] = useState({right: "-400px"})
+    function ClickOpenMenuCart() {
+        setStyleMenuCart(preStyleMenuCart => {
+            const styleMenuCart = {...preStyleMenuCart, right: "0px"}
+            return styleMenuCart
+        })
+    }
   return (
     <React.Fragment>
       <div
@@ -72,10 +80,8 @@ function Header() {
               />
               <i className="header__search__icon fa-solid fa-magnifying-glass"></i>
             </div>
-            <div className="header__cart">
-              <Link to="/MenuCart">
+            <div className="header__cart" onClick={ClickOpenMenuCart}>
                 <i className="header__cart__icon fa-solid fa-cart-shopping"></i>
-              </Link>
 
               <div className="header__cart__count-items"> 0 </div>
             </div>
@@ -91,7 +97,9 @@ function Header() {
           <li className="header__nav-item header__nav-item-link">Account</li>
         </ul>
       </div>
+      <MenuCart styleMenuCart = {styleMenuCart} setStyleMenuCart = {setStyleMenuCart} />
     </React.Fragment>
+    
   );
 }
 export default Header;
