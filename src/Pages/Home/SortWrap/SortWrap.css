@@ -1,13 +1,12 @@
-
-  .header_wrap {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1rem 5rem;
-  }
-  .sort_select{
-    display: flex;
-  }
-  .form-label{
-    width: 80px;
-    padding-top: 5px;
-  }
+.header_wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 5rem;
+}
+.sort_select {
+  display: flex;
+}
+.form-label {
+  width: 80px;
+  padding-top: 5px;
+}

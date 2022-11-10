@@ -1,35 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Nunito",sans-serif;
-}
 
-* i {
-    border: 0;
-}
-
-* a {
-    text-decoration: none;
-}
-
-.buy-icon {
-    margin-right: .3125rem;
-}
-
-
-/* Grid layout */
 .grid {
     display: block;
     width: 100%;
     padding: 0;
 }
-
-.container {
-    padding: 0 0.75em;
-    margin: 0 auto;
-}
-
 .row {
     display: flex;
     flex-wrap: wrap;
