@@ -12,7 +12,7 @@ const productSlice = createSlice({
     },
     sort(state, data) {
       if (data.payload === "0") {
-        state.product = state.product.
+        state.product = state.product
         console.log(state.productRelevance)
       } else if (data.payload === "1") {
         state.product = state.product.sort((a, b) =>
