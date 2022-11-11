@@ -115,4 +115,4 @@ export default function MenuCart({ styleMenuCart, setStyleMenuCart }) {
             </div>
         </React.Fragment>
     )
-
+}
