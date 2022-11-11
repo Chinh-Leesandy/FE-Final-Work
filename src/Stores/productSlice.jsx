@@ -82,9 +82,6 @@ const productSlice = createSlice({
 
       })
     },
-    addProduct(state, data) {
-      state.listItems.push(data.payload);
-    }
   },
 });
 export const { callApi, sort, addProduct, removeItem, increaseItem, decreaseItem } = productSlice.actions;
