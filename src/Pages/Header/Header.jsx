@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MenuCart from "../MenuCart/MenuCart";
-
+import { useSelector } from "react-redux";
 import "./Header.css";
 
 function Header() {
   const [styleMenuCart,setStyleMenuCart] = useState({right: "-400px"})
+  const count = useSelector(state => state.product.count);
+
     function ClickOpenMenuCart() {
         setStyleMenuCart(preStyleMenuCart => {
             const styleMenuCart = {...preStyleMenuCart, right: "0px"}
@@ -83,7 +85,7 @@ function Header() {
             <div className="header__cart" onClick={ClickOpenMenuCart}>
                 <i className="header__cart__icon fa-solid fa-cart-shopping"></i>
 
-              <div className="header__cart__count-items"> 0 </div>
+              <div className="header__cart__count-items"> {count} </div>
             </div>
           </div>
         </div>

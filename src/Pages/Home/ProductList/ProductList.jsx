@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ProductList.css";
 import { useDispatch, useSelector } from "react-redux";
-import { callApi, addProduct } from "../../../Stores/productSlice";
+import { callApi, addProduct, productItems } from "../../../Stores/productSlice";
+// import ProductItem from "../ProductItem/ProductItem";
 export default function ProductList() {
   const product = useSelector((state) => state.product.product);
   const dispatch = useDispatch();
@@ -35,11 +36,16 @@ export default function ProductList() {
   for (let i = 1; i <= Math.ceil(product.length / newsPerPage); i++) {
     pageNumbers.push(i);
   }
+  const infoProducts = (element) => {
+    dispatch(productItems(element))
+  }
+  // const ProductItems = useSelector(state => state.product.productItem);
+  //   console.log(ProductItems)
   return (
     <>
       <div className="product-list">
         {currentProducts.map((res) => (
-          <div className="product" key={res.id}>
+          <div className="product" key={res.id} onClick = {() => infoProducts(res)}>
             <React.Fragment>
               <div className="col l-3 m-4 s-6">
                 <div className="product-item">
@@ -108,6 +114,7 @@ export default function ProductList() {
           </ul>
         </div>
       </div>
+      {/* <ProductItem/> */}
     </>
   );
 }
