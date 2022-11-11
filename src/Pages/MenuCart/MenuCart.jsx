@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "./MenuCart.css";
-import { keyLocalStorage } from "../../App";
-import { Link } from "react-router-dom";
+// import { keyLocalStorage } from "../../App";
+// import { Link } from "react-router-dom";
 
 export default function MenuCart({styleMenuCart,setStyleMenuCart}) {
     const listItems = useSelector(state => state.product.listItems);
