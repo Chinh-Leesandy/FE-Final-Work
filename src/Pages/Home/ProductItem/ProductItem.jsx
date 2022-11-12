@@ -3,13 +3,12 @@ import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
 import { useSelector } from "react-redux";
 function ProductItem() {
-    const ProductItems = useSelector((state) => state.product.productItem);
-    console.log(ProductItems)
+    const res = useSelector((state) => state.product.productItem);
+    console.log(res)
   return (
     <React.Fragment>
       <Header></Header>
       <div className="product-detail-page">
-        {ProductItems.map((res) => (
           <div className="productItem" key={res.id}>
             <div className="product-detail container">
               <div className="product_items">
@@ -25,7 +24,6 @@ function ProductItem() {
               </div>
             </div>
           </div>
-        ))}
       </div>
       <Footer></Footer>
     </React.Fragment>

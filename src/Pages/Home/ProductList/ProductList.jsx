@@ -3,6 +3,7 @@ import axios from "axios";
 import "./ProductList.css";
 import { useDispatch, useSelector } from "react-redux";
 import { callApi, addProduct, productItems } from "../../../Stores/productSlice";
+import { Link } from "react-router-dom";
 // import ProductItem from "../ProductItem/ProductItem";
 export default function ProductList() {
   const product = useSelector((state) => state.product.product);
@@ -47,6 +48,7 @@ export default function ProductList() {
         {currentProducts.map((res) => (
           <div className="product" key={res.id} onClick = {() => infoProducts(res)}>
             <React.Fragment>
+              <Link to="/ProductItem">
               <div className="col l-3 m-4 s-6">
                 <div className="product-item">
                   <div
@@ -79,6 +81,7 @@ export default function ProductList() {
                   </div>
                 </div>
               </div>
+              </Link>
             </React.Fragment>
           </div>
         ))}

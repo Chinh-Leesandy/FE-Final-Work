@@ -7,7 +7,7 @@ const productSlice = createSlice({
     listItems: [],
     count: 0,
     totalPrice: 0,
-    productItem : [],
+    productItem : {},
   },
   reducers: {
     callApi(state, data) {
