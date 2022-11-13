@@ -5,15 +5,15 @@ import { useSelector } from "react-redux";
 import "./Header.css";
 
 function Header() {
-  const [styleMenuCart,setStyleMenuCart] = useState({right: "-400px"})
-  const count = useSelector(state => state.product.count);
+  const [styleMenuCart, setStyleMenuCart] = useState({ right: "-400px" });
+  const count = useSelector((state) => state.product.count);
 
-    function ClickOpenMenuCart() {
-        setStyleMenuCart(preStyleMenuCart => {
-            const styleMenuCart = {...preStyleMenuCart, right: "0px"}
-            return styleMenuCart
-        })
-    }
+  function ClickOpenMenuCart() {
+    setStyleMenuCart((preStyleMenuCart) => {
+      const styleMenuCart = { ...preStyleMenuCart, right: "0px" };
+      return styleMenuCart;
+    });
+  }
   return (
     <React.Fragment>
       <div
@@ -66,24 +66,28 @@ function Header() {
         <div className="header__top" style={{ padding: "0 3rem" }}>
           <div className="header__wrap">
             <div className="header__logo">
-              <img
-                className="header__logo__img"
-                src={
-                  "https://www.leoasher.dev/static/media/logofull.f2aa3784.png"
-                }
-                alt="Logo Pesla"
-              />
+              <a href="/Shop">
+                <img
+                  className="header__logo__img"
+                  src={
+                    "https://www.leoasher.dev/static/media/logofull.f2aa3784.png"
+                  }
+                  alt="Logo Pesla"
+                />
+              </a>
             </div>
             <div className="header__search">
-              <input
-                className="header__search__input"
-                placeholder="Everything here is better than your ex"
-                type="text"
-              />
-              <i className="header__search__icon fa-solid fa-magnifying-glass"></i>
+              <form>
+                <input
+                  className="header__search__input"
+                  placeholder="Everything here is better than your ex"
+                  type="text"
+                />
+                <i className="header__search__icon fa-solid fa-magnifying-glass"></i>
+              </form>
             </div>
             <div className="header__cart" onClick={ClickOpenMenuCart}>
-                <i className="header__cart__icon fa-solid fa-cart-shopping"></i>
+              <i className="header__cart__icon fa-solid fa-cart-shopping"></i>
               <div className="header__cart__count-items"> {count} </div>
             </div>
           </div>
@@ -92,15 +96,17 @@ function Header() {
       <div className="header__nav" style={{ padding: "0 3rem" }}>
         <ul className="header__nav-list">
           <li className="header__nav-item header__nav-item-link">Home</li>
-            <li className="header__nav-item header__nav-item-link">Shop</li>
+          <li className="header__nav-item header__nav-item-link">Shop</li>
           <li className="header__nav-item header__nav-item-link">Cart</li>
           <li className="header__nav-item header__nav-item-link">Contact</li>
           <li className="header__nav-item header__nav-item-link">Account</li>
         </ul>
       </div>
-      <MenuCart styleMenuCart = {styleMenuCart} setStyleMenuCart = {setStyleMenuCart} />
+      <MenuCart
+        styleMenuCart={styleMenuCart}
+        setStyleMenuCart={setStyleMenuCart}
+      />
     </React.Fragment>
-    
   );
 }
 export default Header;
