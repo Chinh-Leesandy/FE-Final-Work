@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./MenuCart.css"
-import { keyLocalStorage } from "../../App";
-import { Link } from "react-router-dom";
+// import { keyLocalStorage } from "../../App";
+// import { Link } from "react-router-dom";
 import {increaseItem, decreaseItem, removeItem } from "../../Stores/productSlice";
 function getItem(target) {
     let item = target
