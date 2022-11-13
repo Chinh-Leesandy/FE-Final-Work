@@ -8,6 +8,8 @@ import { Provider } from "react-redux";
 import Sortwrap from "./Pages/Home/SortWrap/Sortwrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./Account/Login/Login";
+import MenuCart from "./Pages/MenuCart/MenuCart";
+import ProductItem from "./Pages/Home/ProductItem/ProductItem";
  function Shop() {
   return (
     <div>
@@ -25,6 +27,8 @@ function App() {
         <Route path="/Register" element = {<Register />} />
         <Route path="/Login" element = {<Login />} />
         <Route path="/Shop" element = {<Shop/>} />
+        <Route path="/MenuCart" element = {<MenuCart/>} />
+        <Route path="/ProductItem" element = {<ProductItem/>} />
       </Routes>
     </div>
   );
