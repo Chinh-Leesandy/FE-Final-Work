@@ -1,43 +1,49 @@
 import React from "react";
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
+import "./ProductItem.css";
 import { useSelector } from "react-redux";
 function ProductItem() {
-    const res = useSelector((state) => state.product.productItem);
-    console.log(res)
+  const item = useSelector((state) => state.product.productItem);
+  console.log(item);
   return (
     <React.Fragment>
       <Header></Header>
-      <div className="product-detail-page">
-          <div className="productItem" key={res.id}>
-            <div className="product-detail container">
-              <div className="product_items">
-                <div
-                  className="avt"
-                  style={{
-                    backgroundImage: `url(https://petsla-api.herokuapp.com${res.images})`,
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                    paddingTop: "100%",
-                  }}
-                ></div>
-                <div className="product-detail-infor">
-                  <h2 className="product-title">{res.product_name}</h2>
-                  <div className="product-price">
-                    <span>{res.price.toLocaleString()} đ</span>
+      <div className="product-container">
+        <div className="product-wrap">
+          {item != undefined && (
+            <React.Fragment>
+              <div className="product__img-wrap">
+                <img
+                  className="product__img"
+                  src={`https://petsla-api.herokuapp.com${item.images}`}
+                />
+              </div>
+              <div className="product__info-wrap">
+                <div className="product__title">
+                  <h2>{item.product_name}</h2>
+                </div>
+                <div className="product__price">{item.price} đ</div>
+                <div className="product__btn-wrap">
+                  <div className="product__btn-buy-wrap">
+                    <button className="product__btn product__btn-buy">
+                      Buy Now
+                    </button>
                   </div>
-                  <div className="btn_wrap">
-                    <button className="buy-now">Buy Now</button>
-                    <button className="cart">Add to Cart</button>
-                  </div>
-                  <div className="product-desc">
-                    <h3 className="product-desc-title">Thông tin sản phẩm</h3>
-                    <div className="detail">{res.description}</div>
+                  <div className="product__btn-buy-wrap">
+                    <button className="product__btn product__btn-add">
+                      Add to Cart
+                    </button>
                   </div>
                 </div>
+                <div className="info">
+                  <h3 style={{marginTop: "0.75rem",fontSize:"1.125rem", fontWeight: "600"}}>Thông tin sản phẩm</h3>
+                  <div className="info-title">{item.description}</div>
+                </div>
               </div>
-            </div>
-          </div>
+            </React.Fragment>
+          )}
+        </div>
       </div>
       <Footer></Footer>
     </React.Fragment>

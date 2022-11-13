@@ -56,7 +56,7 @@ const productSlice = createSlice({
     },
     removeItem(state, id) {
       const idx = state.listItems.findIndex(element => {
-        return element.value.id === id.payload
+        return element.value.id == id.payload
 
       })
       state.count -= state.listItems[idx].count;
@@ -65,7 +65,7 @@ const productSlice = createSlice({
     },
     increaseItem(state, id) {
       state.listItems.forEach(element => {
-        if (element.value.id === id.payload) {
+        if (element.value.id == id.payload) {
           element.count += 1;
           state.count += 1;
           state.totalPrice += element.value.price;
@@ -75,7 +75,7 @@ const productSlice = createSlice({
     },
     decreaseItem(state, id) {
       state.listItems.forEach(element => {
-        if (element.value.id === id.payload) {
+        if (element.value.id == id.payload) {
           element.count -= 1;
           state.count -= 1;
           state.totalPrice += element.value.price;
