@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./MenuCart.css"
 // import { keyLocalStorage } from "../../App";
@@ -43,7 +43,7 @@ export default function MenuCart({ styleMenuCart, setStyleMenuCart }) {
         <React.Fragment>
             <div className="background-wrap-menu-cart" style={{
                 width: window.innerWidth, height: window.innerWidth,
-                display: `${(styleMenuCart.right == "-400px") ? ("none") : ("block")}`
+                display: `${(styleMenuCart.right === "-400px") ? ("none") : ("block")}`
             }} onClick={CloseMenuCart}>
             </div>
             <div className="menu-cart-wrap" style={{ right: styleMenuCart.right, height: "100%" }}>
@@ -70,7 +70,7 @@ export default function MenuCart({ styleMenuCart, setStyleMenuCart }) {
                                                 <span>{items.count}</span>
                                                 {
                                                     (
-                                                        items.count == 1 &&
+                                                        items.count === 1 &&
                                                         <button className="quantity-btn">
                                                             <i className="fa-solid fa-minus"></i>
                                                         </button>

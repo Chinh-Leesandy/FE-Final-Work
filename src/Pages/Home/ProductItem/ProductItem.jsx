@@ -21,6 +21,20 @@ function ProductItem() {
                     paddingTop: "100%",
                   }}
                 ></div>
+                <div className="product-detail-infor">
+                  <h2 className="product-title">{res.product_name}</h2>
+                  <div className="product-price">
+                    <span>{res.price.toLocaleString()} đ</span>
+                  </div>
+                  <div className="btn_wrap">
+                    <button className="buy-now">Buy Now</button>
+                    <button className="cart">Add to Cart</button>
+                  </div>
+                  <div className="product-desc">
+                    <h3 className="product-desc-title">Thông tin sản phẩm</h3>
+                    <div className="detail">{res.description}</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
