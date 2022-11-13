@@ -33,21 +33,21 @@ export default function Footer() {
             </footer>
             <div className="bottom__nav-mobile" style={{display:"none"}}>
                 <ul className="bottom__nav-list-mobile">
-                    <li className="bottom__nav-item-mobile col mb-3">
+                    <li className="bottom__nav-item-mobile">
                            
                             <i className="fa-solid fa-house"></i>
                             <div>Home</div>
                     </li>
-                    <li className="bottom__nav-item-mobile col mb-3">
+                    <li className="bottom__nav-item-mobile">
                    
                             <i className="fa-solid fa-shop"></i>
                             <div>Shop</div>
                     </li>
-                    <li className="bottom__nav-item-mobile col mb-3">
+                    <li className="bottom__nav-item-mobile">
                             <i className="fa-solid fa-cart-shopping"></i>
                             <div>Cart</div>
                     </li>
-                    <li className="bottom__nav-item-mobile col mb-3">
+                    <li className="bottom__nav-item-mobile">
                             <i className="fa-solid fa-arrow-right-to-bracket"></i>
                             <div>Contact</div>
                     </li>
