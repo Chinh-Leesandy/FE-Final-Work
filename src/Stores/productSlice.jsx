@@ -7,6 +7,7 @@ const productSlice = createSlice({
     listItems: [],
     count: 0,
     totalPrice: 0,
+    productItem : {},
   },
   reducers: {
     callApi(state, data) {
@@ -55,7 +56,7 @@ const productSlice = createSlice({
     },
     removeItem(state, id) {
       const idx = state.listItems.findIndex(element => {
-        return element.value.id == id.payload
+        return element.value.id === id.payload
 
       })
       state.count -= state.listItems[idx].count;
@@ -64,7 +65,7 @@ const productSlice = createSlice({
     },
     increaseItem(state, id) {
       state.listItems.forEach(element => {
-        if (element.value.id == id.payload) {
+        if (element.value.id === id.payload) {
           element.count += 1;
           state.count += 1;
           state.totalPrice += element.value.price;
@@ -74,7 +75,7 @@ const productSlice = createSlice({
     },
     decreaseItem(state, id) {
       state.listItems.forEach(element => {
-        if (element.value.id == id.payload) {
+        if (element.value.id === id.payload) {
           element.count -= 1;
           state.count -= 1;
           state.totalPrice += element.value.price;
@@ -82,7 +83,10 @@ const productSlice = createSlice({
 
       })
     },
+    productItems(state, data){
+        state.productItem = data.payload;
+    }
   },
 });
-export const { callApi, sort, addProduct, removeItem, increaseItem, decreaseItem } = productSlice.actions;
+export const { callApi, sort, addProduct, removeItem, increaseItem, decreaseItem, productItems } = productSlice.actions;
 export default productSlice.reducer;
