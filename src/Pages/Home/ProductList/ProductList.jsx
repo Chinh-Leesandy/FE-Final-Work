@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ProductList.css";
 import { useDispatch, useSelector } from "react-redux";
-import { callApi, addProduct, productItems } from "../../../Stores/productSlice";
+import {
+  callApi,
+  addProduct,
+  addIdProductItems,
+} from "../../../Stores/productSlice";
 import { Link } from "react-router-dom";
 // import ProductItem from "../ProductItem/ProductItem";
 export default function ProductList() {
@@ -38,8 +42,8 @@ export default function ProductList() {
     pageNumbers.push(i);
   }
   const infoProducts = (element) => {
-    dispatch(productItems(element))
-  }
+    dispatch(addIdProductItems(element));
+  };
   // const ProductItems = useSelector(state => state.product.productItem);
   //   console.log(ProductItems)
   return (
@@ -50,19 +54,23 @@ export default function ProductList() {
             <React.Fragment>
               <div className="col l-3 m-4 s-6">
                 <div className="product-item">
-                <Link to="/ProductItem">
-                  <div onClick = {() => infoProducts(res)}
-                    className="avt"
-                    style={{
-                      backgroundImage: `url(https://petsla-api.herokuapp.com${res.images})`,
-                      backgroundSize: "cover",
-                      backgroundRepeat: "no-repeat",
-                      paddingTop: "100%",
-                    }}
-                  ></div>
+                  <Link to="/ProductItem">
+                    <div
+                      onClick={() => infoProducts(res)}
+                      className="avt"
+                      style={{
+                        backgroundImage: `url(https://petsla-api.herokuapp.com${res.images})`,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        paddingTop: "100%",
+                      }}
+                    ></div>
                   </Link>
                   <div className="product-content">
-                    <div onClick = {() => infoProducts(res)} className="text-product-content">
+                    <div
+                      onClick={() => infoProducts(res)}
+                      className="text-product-content"
+                    >
                       <span className="title">{res.product_name}</span>
                     </div>
                     <div className="price">{res.price.toLocaleString()} đ</div>
@@ -88,7 +96,9 @@ export default function ProductList() {
       </div>
       <div className="footer_wrap">
         <div className="news-per-page">
-          <label className="form-title" htmlFor="item/page">Item/Page</label>
+          <label className="form-title" htmlFor="item/page">
+            Item/Page
+          </label>
           <select className="select-page" defaultValue="0" onChange={select}>
             {/* <option value="0" disabled>12</option> */}
             <option value="12">12</option>
@@ -98,22 +108,43 @@ export default function ProductList() {
         </div>
         <div className="pagination-custom">
           <ul className="page-numbers">
+            {/* <div className="btn-pagination">
+              <i class="bi bi-chevron-double-left"></i>
+            </div> */}
+            <div className="btn-pagination" >
+              <i style={{fontWeight : "600"}} class="bi bi-chevron-left"></i>
+            </div>
             {pageNumbers.map((number) => {
               if (currentPage === number) {
                 return (
-                  <li key={number} id={number} className="active_wrap pagination-wrap">
+                  <li
+                    key={number}
+                    id={number}
+                    className="active_wrap pagination-wrap"
+                  >
                     {number}
-                    {window.scrollTo(0, 0)}
+                   
                   </li>
                 );
               } else {
                 return (
-                  <li className="pagination-wrap" key={number} id={number} onClick={chosePage}>
+                  <li
+                    className="pagination-wrap"
+                    key={number}
+                    id={number}
+                    onClick={chosePage}
+                  >
                     {number}
                   </li>
                 );
               }
             })}
+            <div className="btn-pagination" >
+              <i class="bi bi-chevron-right"></i>
+            </div>
+            {/* <div className="btn-pagination">
+              <i class="bi bi-chevron-double-right"></i>
+            </div> */}
           </ul>
         </div>
       </div>

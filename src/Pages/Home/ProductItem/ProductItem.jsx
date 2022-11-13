@@ -1,11 +1,33 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
 import "./ProductItem.css";
+import axios from "axios";
 import { useSelector } from "react-redux";
 function ProductItem() {
-  const item = useSelector((state) => state.product.productItem);
-  console.log(item);
+   const item = useSelector(state => state.product.idProductItem)
+  // const items = useSelector((state) => state.product.idProductItem);
+  // const [item,setItem] = useState({});
+  // useEffect(() => {
+  //     fetch(`https://petsla-api.herokuapp.com/product/${items}`)
+  //     .then(response => response.json())
+  //     .then(value => {
+  //         const item = value;
+  //         setItem(item)
+  //     })
+  // },[]) 
+  
+  // const id = localStorage.getItem('items');
+  // const [item,setItem] = useState({});
+  //   useEffect(() => {
+  //       fetch(`https://petsla-api.herokuapp.com/product/${id}`)
+  //       .then(response => response.json())
+  //       .then(value => {
+  //           const item = value
+  //           setItem(item)
+  //       })
+  //   },[]) 
+  //   console.log(item);
   return (
     <React.Fragment>
       <Header></Header>

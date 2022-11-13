@@ -7,7 +7,7 @@
     color: inherit;
 }
 .product-content{
-    padding: 5px;
+    padding: 10px;
 }
 .product-list{
     display: flex;
@@ -119,8 +119,21 @@ i{
     color: black;
     text-align: center;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 .active_wrap{
     background-color: #e69646;
     color: #fefefe;
+}
+.btn-pagination{
+    display: flex;
+    align-items: center;
+    padding: 4px 2px;
+    border: 1px solid black;
+    background-color: #fefefe;
+    color: #e69646;
+}
+.pagination-custom{
+    padding : 5px;
 }
