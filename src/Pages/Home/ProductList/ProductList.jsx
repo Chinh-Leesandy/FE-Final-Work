@@ -48,9 +48,9 @@ export default function ProductList() {
         {currentProducts.map((res) => (
           <div className="product" key={res.id}>
             <React.Fragment>
-              <Link to="/ProductItem">
               <div className="col l-3 m-4 s-6">
                 <div className="product-item">
+                <Link to="/ProductItem">
                   <div onClick = {() => infoProducts(res)}
                     className="avt"
                     style={{
@@ -60,6 +60,7 @@ export default function ProductList() {
                       paddingTop: "100%",
                     }}
                   ></div>
+                  </Link>
                   <div className="product-content">
                     <div onClick = {() => infoProducts(res)} className="text-product-content">
                       <span className="title">{res.product_name}</span>
@@ -81,7 +82,6 @@ export default function ProductList() {
                   </div>
                 </div>
               </div>
-              </Link>
             </React.Fragment>
           </div>
         ))}
