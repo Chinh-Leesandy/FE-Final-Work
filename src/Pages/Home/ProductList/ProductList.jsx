@@ -46,12 +46,12 @@ export default function ProductList() {
     <>
       <div className="product-list">
         {currentProducts.map((res) => (
-          <div className="product" key={res.id} onClick = {() => infoProducts(res)}>
+          <div className="product" key={res.id}>
             <React.Fragment>
               <Link to="/ProductItem">
               <div className="col l-3 m-4 s-6">
                 <div className="product-item">
-                  <div
+                  <div onClick = {() => infoProducts(res)}
                     className="avt"
                     style={{
                       backgroundImage: `url(https://petsla-api.herokuapp.com${res.images})`,
@@ -61,7 +61,7 @@ export default function ProductList() {
                     }}
                   ></div>
                   <div className="product-content">
-                    <div className="text-product-content">
+                    <div onClick = {() => infoProducts(res)} className="text-product-content">
                       <span className="title">{res.product_name}</span>
                     </div>
                     <div className="price">{res.price.toLocaleString()} đ</div>
