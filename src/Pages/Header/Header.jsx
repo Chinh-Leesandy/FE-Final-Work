@@ -88,7 +88,7 @@ function Header() {
 
                     </li>
                     <li className="header__nav-item header__nav-item-link">
-
+                            {/* <Link to={"/Infor"}></Link>/ */}
                             Account
 
                     </li>

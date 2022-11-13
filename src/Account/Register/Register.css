@@ -52,6 +52,51 @@
     border-radius: 4px;
     font-size: 14px;
 }
+.passwordSignup
+{
+    width: 92%;
+    padding: 6px 12px;
+    color: #212529;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.firstNameSignup
+{
+    width: 92%;
+    padding: 6px 12px;
+    color: #212529;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.lastNameSignup
+{
+    width: 92%;
+    padding: 6px 12px;
+    color: #212529;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.emailSignup
+{
+    width: 92%;
+    padding: 6px 12px;
+    color: #212529;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.usernameSignup
+{
+    width: 92%;
+    padding: 6px 12px;
+    color: #212529;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
 .form-check-input{
     margin-top: 5px;
     margin-left: 1px;
