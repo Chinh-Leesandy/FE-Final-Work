@@ -1,12 +1,66 @@
 import './Register.css'
 import React, { useState, useRef, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import ApiCaller from "../Utills/ApiCaller";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 const Register = () => {
 
-    let check = true
+const [ipFirstname,setIpFirstName] = useState("")
+    const [ipLastName,setIpLasttName] = useState("")
+    const [ipEmail,setIpEmail] = useState("")
+    const [ipUserName,setIpUserName] = useState("")
+    const [ipPass,setIpPass] = useState("")
+    const MySwal = withReactContent(Swal)
+    function handleSubmit(e){
+        e.preventDefault()
+        let res = {
+            first_name: ipFirstname,
+            last_name: ipLastName,
+            email: ipEmail,
+            username: ipUserName,
+            password: ipPass
+        }
+        ApiCaller("/register/",'POST',res).then(e => {
+            setIpFirstName("")
+            setIpLasttName("")
+            setIpPass("")
+            setIpEmail("")
+            setIpUserName("")
+            // MySwal.fire({
+            //     title: <strong>Thành Công!</strong>,
+            //     html: <i>You clicked the button!</i>,
+            //     icon: 'success'
+            // })
+            alert("Đăng kí thành công !")
+        }).catch(e => {
+            // MySwal.fire({
+            //     title: <strong>Lỗi không đăng ký được!</strong>,
+            //     html: <i>You clicked the button!</i>,
+            //     icon: 'error'
+            // })
+            alert("Đăng kí không thành công !")
+        })
+    }
+    function onChange(e){
+       
+        if(e.target.className === "firstNameSignup"){
+            setIpFirstName(e.target.value)
+        }
+        else if(e.target.className === "lastNameSignup"){
+            setIpLasttName(e.target.value)
+        }else if(e.target.className === "emailSignup"){
+            setIpEmail(e.target.value)
+        }else if(e.target.className === "usernameSignup"){
+            setIpUserName(e.target.value)
+        }else if(e.target.className === "passwordSignup"){
+            setIpPass(e.target.value)
+        }
+    }
+//
     return (
         <div className="Background">
-            <form className='Register'  style={{display: check ? "block" : "none"}}>
+            <form className='Register' onSubmit={(e) => handleSubmit(e)}>
                 <div className='Register_Header'>
                     <span className='Title'>
                         Register
@@ -21,40 +75,55 @@ const Register = () => {
                 </div>
                 <div className='Register_Body'>
                     <div className='Use-Pass'>
-                        <input name="firstName" 
-                        placeholder="firstName" 
+                        <input
+                        className="firstNameSignup"
+                        placeholder="FirstName" 
                         type="text" 
-                        id="firstName" 
-                        className="form-control"/>
+                        // className="form-control firstName"
+                        required value={ipFirstname} 
+                        onChange={ (e) => onChange(e)}
+                        />
                     </div>
                     <div className='Use-Pass'>
-                        <input name="lastName" 
-                        placeholder="lastName" 
+                        <input  
+                        className="lastNameSignup"
+                        placeholder="LastName" 
                         type="text" 
-                        id="lastName" 
-                        className="form-control"/>
+                        // className="form-control lastName"
+                        required value={ipLastName} 
+                        onChange={ (e) => onChange(e)}
+                        />
                     </div>
                     {/*  */}
                     <div className='Use-Pass'>
-                        <input name="email" 
-                        placeholder="email" 
-                        type="text" 
-                        id="email" 
-                        className="form-control"/>
+                        <input
+                        className="emailSignup"
+                        placeholder="Email" 
+                        type="email" 
+                        // className="form-control email"
+                        required value={ipEmail} 
+                        onChange={ (e) => onChange(e)}
+                        />
                     </div>
                     <div className='Use-Pass'>
-                        <input name="usename" 
-                        placeholder="usename" 
-                        type="text" 
-                        id="usename" 
-                        className="form-control"/>
+                        <input 
+                        className="usernameSignup"
+                        placeholder="Usename" 
+                        type="text"  
+                        // className="form-control usename"
+                        required value={ipUserName} 
+                        onChange={ (e) => onChange(e)}
+                        />
                     </div>
                     <div className='Use-Pass'>
-                        <input name="password" 
-                        placeholder="password" 
-                        type="password" 
-                        id="password" 
-                        className="form-control"/>
+                        <input 
+                        className="passwordSignup"
+                        placeholder="Password" 
+                        type="password"  
+                        // className="form-control password"
+                        required value={ipPass} 
+                        onChange={ (e) => onChange(e)}
+                        />
                     </div>
                     {/*  */}
                     
@@ -91,5 +160,6 @@ const Register = () => {
             </form>
         </div>
     )
+
 }
 export default Register
