@@ -52,7 +52,6 @@ const productSlice = createSlice({
         state.count += 1;
         state.totalPrice += data.payload.price;
       }
-
     },
     removeItem(state, id) {
       const idx = state.listItems.findIndex(element => {
@@ -70,8 +69,8 @@ const productSlice = createSlice({
           state.count += 1;
           state.totalPrice += element.value.price;
         }
-
       })
+      
     },
     decreaseItem(state, id) {
       state.listItems.forEach(element => {

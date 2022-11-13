@@ -84,7 +84,6 @@ function Header() {
             </div>
             <div className="header__cart" onClick={ClickOpenMenuCart}>
                 <i className="header__cart__icon fa-solid fa-cart-shopping"></i>
-
               <div className="header__cart__count-items"> {count} </div>
             </div>
           </div>

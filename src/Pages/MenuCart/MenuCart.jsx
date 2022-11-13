@@ -2,9 +2,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./MenuCart.css"
-// import { keyLocalStorage } from "../../App";
-// import { Link } from "react-router-dom";
-import {increaseItem, decreaseItem, removeItem } from "../../Stores/productSlice";
+import { increaseItem, decreaseItem, removeItem } from "../../Stores/productSlice";
 function getItem(target) {
     let item = target
     while (!item.classList.contains("menu-cart-item")) {
@@ -32,12 +30,12 @@ export default function MenuCart({ styleMenuCart, setStyleMenuCart }) {
         let item = getItem(e.target)
         dispatch(increaseItem(item.getAttribute("id")));
         console.log(item.getAttribute("id"))
-        };
-        function DecreaseItem(e) {
-            let item = getItem(e.target)
-            dispatch(decreaseItem(item.getAttribute("id")));
-            console.log(item.getAttribute("id"))
-            };
+    };
+    function DecreaseItem(e) {
+        let item = getItem(e.target)
+        dispatch(decreaseItem(item.getAttribute("id")));
+        console.log(item.getAttribute("id"))
+    };
     console.log(listItems)
     return (
         <React.Fragment>
