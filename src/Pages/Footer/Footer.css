@@ -73,7 +73,11 @@
     }
     .bottom__nav-item-mobile {
         text-align: center;
+        width: 25%;
         padding: 0.6em 0em;
+    }
+    .bottom__nav-item-mobile:hover {
+        color: #e69646;
     }
     .bottom__nav-item-mobile a {
         text-decoration: none;

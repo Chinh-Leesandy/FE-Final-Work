@@ -63,7 +63,7 @@ function Header() {
         </div>
       </div>
       <header className="header">
-        <div className="header__top grid wide" style={{ padding: "0 3rem" }}>
+        <div className="header__top" style={{ padding: "0 3rem" }}>
           <div className="header__wrap">
             <div className="header__logo">
               <img
@@ -89,7 +89,7 @@ function Header() {
           </div>
         </div>
       </header>
-      <div className="header__nav grid wide" style={{ padding: "0 3rem" }}>
+      <div className="header__nav" style={{ padding: "0 3rem" }}>
         <ul className="header__nav-list">
           <li className="header__nav-item header__nav-item-link">Home</li>
             <li className="header__nav-item header__nav-item-link">Shop</li>
