@@ -8,5 +8,13 @@
 }
 .form-label {
   width: 80px;
-  padding-top: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+.form-select{
+  padding: 5px;
+}
+.form-select :focus{
+   outline : outset 3px #c2dbfe;
 }

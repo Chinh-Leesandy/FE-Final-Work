@@ -1,15 +1,62 @@
 import "./Login.css";
 import React, { useState, useRef, useContext } from "react";
-import { Link } from "react-router-dom";
-const Login = () => {
+import { connect } from 'react-redux';
+import { Link, useNavigate } from "react-router-dom";
+import * as actions from '../action/index';
+import ApiCaller from "../Utills/ApiCaller";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+const Login = (props) => {
   let check = true;
   let change = () => {
     if (check === true) check = false;
     if (check === false) check = true;
   };
+  // const navigate = useNavigate();
+  //   const [inputUserName, setInputUsername] = useState("")
+  //   const [inputPassWord, setInputPassWord] = useState("")
+  //   const [isLoading,setLoading] = useState(false)
+  //   const MySwal = withReactContent(Swal)
+  //   async function HandlerSubmit(e) {
+  //       e.preventDefault();
+  //       let user = {
+  //           username: inputUserName,
+  //           password: inputPassWord
+            
+  //       }
+  //       setLoading(true)
+  //       ApiCaller('/login/', 'POST', user).then(res => {
+  //           setLoading(false)
+  //           props.onLogin(res.data.token)
+  //           props.onCHangeStatus(true)
+  //           setInputUsername("")
+  //           setInputPassWord("")
+  //           MySwal.fire({
+  //               title: <strong>Thành Công!</strong>,
+  //               html: <i>You clicked the button!</i>,
+  //               icon: 'success'
+  //           })
+  //           navigate("/")
+  //       })
+  //           .catch(err => {
+  //               setLoading(false)
+  //               MySwal.fire({
+  //                   title: <strong>Tài khoản mật khẩu không chính xác!</strong>,
+  //                   html: <i>You clicked the button!</i>,
+  //                   icon: 'error'
+  //               })
+  //           })
+  //   }
+  //   function onChange(e) {
+  //       if (e.target.name === "username") {
+  //           setInputUsername(e.target.value)
+  //       } else {
+  //           setInputPassWord(e.target.value)
+  //       }
+  //   }
   return (
     <div className="Background">
-      <form className="Login" style={{ display: check ? "block" : "none" }}>
+      <form className="Login" style={{ display: check ? "block" : "none" }} >
         <div className="Login_Header">
           <span className="Title">Login</span>
           <div className="Div_Exit">
@@ -85,3 +132,19 @@ const Login = () => {
   );
 };
 export default Login;
+// const mapStateToProps = (state) => {
+//   return {
+
+//   }
+// }
+// const mapDispatchToProps = (dispatch, props) => {
+//   return {
+//       onLogin: (token) => {
+//           dispatch(actions.saveLogin(token))
+//       },
+//       onCHangeStatus : (status) => {
+//           dispatch(actions.changeStatus(status))
+//       }
+//   }
+// }
+// export default connect(mapStateToProps, mapDispatchToProps)(Login)
