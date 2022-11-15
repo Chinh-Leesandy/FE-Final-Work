@@ -14,7 +14,6 @@ const productSlice = createSlice({
   reducers: {
     callApi(state, actions) {
       state.product = actions.payload;
-      state.Products = actions.payload;
     },
     setSort(state, actions) {
       state.Sort = actions.payload;
