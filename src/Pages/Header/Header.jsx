@@ -8,7 +8,8 @@ import { setSearchText } from "../../Stores/FilterSlice";
 function Header() {
   const [styleMenuCart, setStyleMenuCart] = useState({ right: "-400px" });
   const count = useSelector((state) => state.product.count);
-  const ClickOpenMenuCart = () => {
+
+  function ClickOpenMenuCart() {
     setStyleMenuCart((preStyleMenuCart) => {
       const styleMenuCart = { ...preStyleMenuCart, right: "0px" };
       return styleMenuCart;
@@ -92,14 +93,6 @@ function Header() {
             </div>
             <div className="header__search">
               <form action="">
-                {/* <Input.Search
-                  value={keyword}
-                  onChange={handleInputChange}
-                  onSearch={handleSearch}
-                  // onKeyPress={handleKeyPress}
-                  placeholder="Everything here is better than your ex"
-                  enterButton
-                /> */}
                 <input
                   onChange={handleInputChange}
                   className="header__search__input"
