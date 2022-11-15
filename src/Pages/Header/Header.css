@@ -105,6 +105,28 @@
     border-radius: 3px;
     align-items: center;
 }
+button.ant-btn.ant-btn-primary.ant-input-search-button {
+    height: 100%;
+    background-color: #e69646;
+    color: #fafafa;
+    width: 4.75em;
+    padding: 6px 20px;
+    line-height: 1.5em;
+    border: 1px solid #e69646;
+    border-radius: 3px;
+    align-items: center;
+}
+input.ant-input {
+    padding: 6px 12px;
+    width: 43em;
+    border-radius: 0.25em;
+    font-size: 1em;
+    line-height: 1.5em;
+    border: 1px solid #ced4da;
+}
+span.anticon.anticon-search {
+    font-size: 1.25rem;
+}
 
 .header__cart {
     display: flex;

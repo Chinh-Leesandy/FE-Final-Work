@@ -1,19 +1,33 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MenuCart from "../MenuCart/MenuCart";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./Header.css";
-
+// import {Input} from 'antd'
+import { setSearchText } from "../../Stores/FilterSlice";
 function Header() {
   const [styleMenuCart, setStyleMenuCart] = useState({ right: "-400px" });
   const count = useSelector((state) => state.product.count);
-
-  function ClickOpenMenuCart() {
+  const ClickOpenMenuCart = () => {
     setStyleMenuCart((preStyleMenuCart) => {
       const styleMenuCart = { ...preStyleMenuCart, right: "0px" };
       return styleMenuCart;
     });
-  }
+  };
+  const [keyword, setKeyword] = useState("");
+  const handleInputChange = (e) => {
+    setKeyword(e.target.value);
+  };
+  const dispatch = useDispatch();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    dispatch(setSearchText(keyword));
+  };
+  // const handleKeyPress = (event) => {
+  //   if(event.key === 'Enter'){
+  //     console.log('enter press here! ')
+  //   }
+  // }
   return (
     <React.Fragment>
       <div
@@ -77,13 +91,25 @@ function Header() {
               </a>
             </div>
             <div className="header__search">
-              <form>
+              <form action="">
+                {/* <Input.Search
+                  value={keyword}
+                  onChange={handleInputChange}
+                  onSearch={handleSearch}
+                  // onKeyPress={handleKeyPress}
+                  placeholder="Everything here is better than your ex"
+                  enterButton
+                /> */}
                 <input
+                  onChange={handleInputChange}
                   className="header__search__input"
                   placeholder="Everything here is better than your ex"
                   type="text"
                 />
-                <i className="header__search__icon fa-solid fa-magnifying-glass"></i>
+                  <button onClick={handleSearch} type="submit">
+                  <i className="header__search__icon fa-solid fa-magnifying-glass"></i>
+                  </button>
+                  
               </form>
             </div>
             <div className="header__cart" onClick={ClickOpenMenuCart}>
