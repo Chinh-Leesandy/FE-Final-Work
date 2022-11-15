@@ -114,10 +114,11 @@ i{
 }
 .pagination-wrap{
     padding: 4px 12px;
-    border: 1px solid black;
+    border: 0.5px solid rgb(231, 213, 213);
     background-color: #fefefe;
     color: black;
     text-align: center;
+    line-height: 1.7rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -129,8 +130,8 @@ i{
 .btn-pagination{
     display: flex;
     align-items: center;
-    padding: 4px 2px;
-    border: 1px solid black;
+    padding: 2px 4px;
+    border: 1px solid rgb(231, 213, 213);
     background-color: #fefefe;
     color: #e69646;
 }
