@@ -1,4 +1,5 @@
 import React, {  } from "react";
+import { Link } from "react-router-dom";
 
 import "./Footer.css";
 export default function Footer() {
@@ -14,11 +15,13 @@ export default function Footer() {
                             <div className="about-us">
                                 <h3>Về PetLa</h3>
                                 <p>
-                                    PetsLa ra đời với sứ mệnh Pets hóa thế giới loài người bằng cách mang đến cho cộng đồng những content thú vị, đáng yêu về pets.
+                                    PetsLa ra đời với sứ mệnh Pets hóa thế giới loài người <br></br>
+                                    bằng cách mang đến cho cộng đồng những content thú <br></br>
+                                    vị, đáng yêu về pets.
                                 </p>
                             </div>
                         </div>
-                        <div className="col l-4 c-4 mb-0"></div>
+                        <div className="col l-4 c-4 mb-12"></div>
                         <div className="col l-4 c-4 mb-12">
                             <div className="follow-us">
                                 <h3>Follow Us</h3>
@@ -33,20 +36,26 @@ export default function Footer() {
             </footer>
             <div className="bottom__nav-mobile" style={{display:"none"}}>
                 <ul className="bottom__nav-list-mobile">
+                    <Link to="/">
                     <li className="bottom__nav-item-mobile">
                            
                             <i className="fa-solid fa-house"></i>
                             <div>Home</div>
                     </li>
+                    </Link>
+                    <Link to="/Shop">
                     <li className="bottom__nav-item-mobile">
                    
                             <i className="fa-solid fa-shop"></i>
                             <div>Shop</div>
                     </li>
+                    </Link>
+                    <Link to="/Cart">
                     <li className="bottom__nav-item-mobile">
                             <i className="fa-solid fa-cart-shopping"></i>
                             <div>Cart</div>
                     </li>
+                    </Link>
                     <li className="bottom__nav-item-mobile">
                             <i className="fa-solid fa-arrow-right-to-bracket"></i>
                             <div>Contact</div>
