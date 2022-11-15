@@ -8,32 +8,16 @@ const productSlice = createSlice({
     count: 0,
     totalPrice: 0,
     idProductItem : {},
-    Products : [],
+    Products : [], //luu tru du lieu product goc
+    Sort : "0"
   },
   reducers: {
     callApi(state, actions) {
       state.product = actions.payload;
-      state.Products = actions.payload;
     },
-    sort(state, actions) {
-      if (actions.payload === "0") {
-        state.product = state.Products
-        console.log(state.productRelevance)
-      } else if (actions.payload === "1") {
-        state.product = state.product.sort((a, b) =>
-          a.product_name.localeCompare(b.product_name)
-        );
-      } else if (actions.payload === "2") {
-        state.product = state.product.sort((a, b) =>
-          b.product_name.localeCompare(a.product_name)
-        );
-      } else if (actions.payload === "3") {
-        state.product = state.product.sort((a, b) => a.price - b.price);
-      } else if (actions.payload === "4") {
-        state.product = state.product.sort((a, b) => b.price - a.price);
-      }
+    setSort(state, actions) {
+      state.Sort = actions.payload;
     },
-
     addProduct(state, actions) {
       let dem = 0;
       state.listItems.forEach(element => {
@@ -85,11 +69,9 @@ const productSlice = createSlice({
       })
     },
     addIdProductItems(state, actions){
-        state.idProductItem = actions.payload;
-        // localStorage.setItem('items',JSON.stringify( data.payload));
-
-    }
+      state.idProductItem = actions.payload;
+    },
   },
 });
-export const { callApi, sort, addProduct, removeItem, increaseItem, decreaseItem, addIdProductItems } = productSlice.actions;
+export const { callApi, setSort, addProduct, removeItem, increaseItem, decreaseItem, addIdProductItems} = productSlice.actions;
 export default productSlice.reducer;

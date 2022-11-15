@@ -1,11 +1,11 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
-import { sort } from '../../../Stores/productSlice';
+import { setSort } from '../../../Stores/productSlice';
 import "./SortWrap.css"
 export default function Sortwrap (){
     const dispatch = useDispatch();
     const handleSelect = (e) => {
-        dispatch(sort(e.target.value))
+        dispatch(setSort(e.target.value))
     }
     return (
         <div className="header_sortWrap">

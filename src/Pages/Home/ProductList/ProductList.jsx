@@ -7,10 +7,12 @@ import {
   addProduct,
   addIdProductItems,
 } from "../../../Stores/productSlice";
+import { mainProduct } from "../../../Stores/Selector";
 import { Link } from "react-router-dom";
 // import ProductItem from "../ProductItem/ProductItem";
 export default function ProductList() {
-  const product = useSelector((state) => state.product.product);
+  const productList = useSelector(mainProduct);
+  const product = [...productList];
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const [newsPerPage, setNewsPerPage] = useState(12);
@@ -28,6 +30,7 @@ export default function ProductList() {
   };
   const chosePage = (event) => {
     setCurrentPage(Number(event.target.id));
+    window.scrollTo(0, 0);
   };
   const select = (event) => {
     setNewsPerPage(event.target.value);
@@ -46,6 +49,7 @@ export default function ProductList() {
   };
   // const ProductItems = useSelector(state => state.product.productItem);
   //   console.log(ProductItems)
+  console.log(productList);
   return (
     <>
       <div className="product-list">
@@ -111,9 +115,9 @@ export default function ProductList() {
             {/* <div className="btn-pagination">
               <i class="bi bi-chevron-double-left"></i>
             </div> */}
-            <div className="btn-pagination" >
-              <i style={{fontWeight : "600"}} class="bi bi-chevron-left"></i>
-            </div>
+              <div className="btn-pagination">
+                <i class="bi bi-chevron-left"></i>
+              </div>
             {pageNumbers.map((number) => {
               if (currentPage === number) {
                 return (
@@ -123,7 +127,6 @@ export default function ProductList() {
                     className="active_wrap pagination-wrap"
                   >
                     {number}
-                   
                   </li>
                 );
               } else {
@@ -139,9 +142,10 @@ export default function ProductList() {
                 );
               }
             })}
-            <div className="btn-pagination" >
-              <i class="bi bi-chevron-right"></i>
-            </div>
+              <div className="btn-pagination">
+                <i class="bi bi-chevron-right"></i>
+              </div>
+
             {/* <div className="btn-pagination">
               <i class="bi bi-chevron-double-right"></i>
             </div> */}
