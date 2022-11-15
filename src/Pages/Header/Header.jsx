@@ -92,14 +92,14 @@ function Header() {
               </a>
             </div>
             <div className="header__search">
-              <form action="">
+              <form action="" className="form__search">
                 <input
                   onChange={handleInputChange}
                   className="header__search__input"
                   placeholder="Everything here is better than your ex"
                   type="text"
                 />
-                  <button onClick={handleSearch} type="submit">
+                  <button onClick={handleSearch} type="submit" className="btn__search-submit">
                   <i className="header__search__icon fa-solid fa-magnifying-glass"></i>
                   </button>
                   
