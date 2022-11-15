@@ -99,10 +99,10 @@ function Header() {
                   placeholder="Everything here is better than your ex"
                   type="text"
                 />
-                  <button onClick={handleSearch} type="submit" className="btn__search-submit">
+                <button onClick={handleSearch} type="submit" className="btn__search-submit">
                   <i className="header__search__icon fa-solid fa-magnifying-glass"></i>
-                  </button>
-                  
+                </button>
+
               </form>
             </div>
             <div className="header__cart" onClick={ClickOpenMenuCart}>
@@ -114,9 +114,15 @@ function Header() {
       </header>
       <div className="header__nav" style={{ padding: "0 3rem" }}>
         <ul className="header__nav-list">
-          <li className="header__nav-item header__nav-item-link">Home</li>
-          <li className="header__nav-item header__nav-item-link">Shop</li>
-          <li className="header__nav-item header__nav-item-link">Cart</li>
+          <Link to="/">
+            <li className="header__nav-item header__nav-item-link">Home</li>
+          </Link>
+          <Link to="/Shop">
+            <li className="header__nav-item header__nav-item-link">Shop</li>
+          </Link>
+          <Link to="/Cart">
+            <li className="header__nav-item header__nav-item-link">Cart</li>
+          </Link>
           <li className="header__nav-item header__nav-item-link">Contact</li>
           <li className="header__nav-item header__nav-item-link">Account</li>
         </ul>
