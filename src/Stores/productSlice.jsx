@@ -7,66 +7,48 @@ const productSlice = createSlice({
     listItems: [],
     count: 0,
     totalPrice: 0,
-    idProductItem : {},
-    Products : [],
+    productItem : {},
   },
   reducers: {
-    callApi(state, actions) {
-      state.product = actions.payload;
-      state.Products = actions.payload;
+    callApi(state, data) {
+      state.product = data.payload;
     },
-    sort(state, actions) {
-      if (actions.payload === "0") {
-        state.product = state.Products
-        console.log(state.productRelevance)
-      } else if (actions.payload === "1") {
-        state.product = state.product.sort((a, b) =>
-          a.product_name.localeCompare(b.product_name)
-        );
-      } else if (actions.payload === "2") {
-        state.product = state.product.sort((a, b) =>
-          b.product_name.localeCompare(a.product_name)
-        );
-      } else if (actions.payload === "3") {
-        state.product = state.product.sort((a, b) => a.price - b.price);
-      } else if (actions.payload === "4") {
-        state.product = state.product.sort((a, b) => b.price - a.price);
-      }
+    setSort(state, actions) {
+      state.Sort = actions.payload;
     },
-
-    addProduct(state, actions) {
+    addProduct(state, data) {
       let dem = 0;
       state.listItems.forEach(element => {
-        if (element.value.id === actions.payload.id) {
+        if (element.value.id === data.payload.id) {
           element.count += 1;
           state.count += 1;
-          state.totalPrice += actions.payload.price;
+          state.totalPrice += data.payload.price;
           dem = 1;
         }
       });
       if (dem === 0) {
         state.listItems.push(
           {
-            value: actions.payload,
+            value: data.payload,
             count: 1
           }
         );
         state.count += 1;
-        state.totalPrice += actions.payload.price;
+        state.totalPrice += data.payload.price;
       }
     },
-    removeItem(state, actions) {
+    removeItem(state, id) {
       const idx = state.listItems.findIndex(element => {
-        return element.value.id == actions.payload
+        return element.value.id == id.payload
 
       })
       state.count -= state.listItems[idx].count;
       state.totalPrice = state.totalPrice - state.listItems[idx].count * state.listItems[idx].value.price;
       state.listItems.splice(idx, 1);
     },
-    increaseItem(state, actions) {
+    increaseItem(state, id) {
       state.listItems.forEach(element => {
-        if (element.value.id == actions.payload) {
+        if (element.value.id == id.payload) {
           element.count += 1;
           state.count += 1;
           state.totalPrice += element.value.price;
@@ -74,9 +56,9 @@ const productSlice = createSlice({
       })
       
     },
-    decreaseItem(state, actions) {
+    decreaseItem(state, id) {
       state.listItems.forEach(element => {
-        if (element.value.id == actions.payload) {
+        if (element.value.id == id.payload) {
           element.count -= 1;
           state.count -= 1;
           state.totalPrice += element.value.price;
@@ -84,12 +66,10 @@ const productSlice = createSlice({
 
       })
     },
-    addIdProductItems(state, actions){
-        state.idProductItem = actions.payload;
-        // localStorage.setItem('items',JSON.stringify( data.payload));
-
+    productItems(state, data){
+        state.productItem = data.payload;
     }
   },
 });
-export const { callApi, sort, addProduct, removeItem, increaseItem, decreaseItem, addIdProductItems } = productSlice.actions;
+export const { callApi, setSort, addProduct, removeItem, increaseItem, decreaseItem, productItems } = productSlice.actions;
 export default productSlice.reducer;

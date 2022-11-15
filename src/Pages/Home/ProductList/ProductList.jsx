@@ -7,10 +7,12 @@ import {
   addProduct,
   addIdProductItems,
 } from "../../../Stores/productSlice";
+import {mainProduct} from '../../../Stores/Selector'
 import { Link } from "react-router-dom";
 // import ProductItem from "../ProductItem/ProductItem";
 export default function ProductList() {
-  const product = useSelector((state) => state.product.product);
+  const productList = useSelector(mainProduct);
+  const product = [...productList];
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const [newsPerPage, setNewsPerPage] = useState(12);
@@ -46,6 +48,7 @@ export default function ProductList() {
   };
   // const ProductItems = useSelector(state => state.product.productItem);
   //   console.log(ProductItems)
+  console.log(productList);
   return (
     <>
       <div className="product-list">
