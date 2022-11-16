@@ -9,6 +9,7 @@ import {
 } from "../../../Stores/productSlice";
 import { mainProduct } from "../../../Stores/Selector";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 // import ProductItem from "../ProductItem/ProductItem";
 export default function ProductList() {
   const productList = useSelector(mainProduct);
@@ -47,6 +48,7 @@ export default function ProductList() {
   const infoProducts = (element) => {
     dispatch(addIdProductItems(element));
   };
+  const {t} = useTranslation()
   // const ProductItems = useSelector(state => state.product.productItem);
   //   console.log(ProductItems)
   console.log(productList);
@@ -101,7 +103,7 @@ export default function ProductList() {
       <div className="footer_wrap">
         <div className="news-per-page">
           <label className="form-title" htmlFor="item/page">
-            Item/Page
+            {t("content.Item")}/{t("content.Page")}
           </label>
           <select className="select-page" defaultValue="0" onChange={select}>
             {/* <option value="0" disabled>12</option> */}
