@@ -53,10 +53,10 @@ export default function ProductList() {
   return (
     <>
       <div className="product-list">
-        {currentProducts.map((res) => (
-          <div className="product" key={res.id}>
+        <div className="product row">
+          {currentProducts.map((res) => (
             <React.Fragment>
-              <div className="col l-3 m-4 s-6">
+              <div className="product col-lg-3 col-md-4 col-sm-6">
                 <div className="product-item">
                   <Link to="/ProductItem">
                     <div
@@ -95,8 +95,8 @@ export default function ProductList() {
                 </div>
               </div>
             </React.Fragment>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <div className="footer_wrap">
         <div className="news-per-page">
@@ -115,9 +115,9 @@ export default function ProductList() {
             {/* <div className="btn-pagination">
               <i class="bi bi-chevron-double-left"></i>
             </div> */}
-              <div className="btn-pagination">
-                <i class="bi bi-chevron-left"></i>
-              </div>
+            <div className="btn-pagination">
+              <i class="bi bi-chevron-left"></i>
+            </div>
             {pageNumbers.map((number) => {
               if (currentPage === number) {
                 return (
@@ -142,9 +142,9 @@ export default function ProductList() {
                 );
               }
             })}
-              <div className="btn-pagination">
-                <i class="bi bi-chevron-right"></i>
-              </div>
+            <div className="btn-pagination">
+              <i class="bi bi-chevron-right"></i>
+            </div>
 
             {/* <div className="btn-pagination">
               <i class="bi bi-chevron-double-right"></i>
