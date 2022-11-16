@@ -37,7 +37,7 @@ export default function Cart() {
                                     {/* <div className="cart-total-price">{(items.count * items.value.price).toLocaleString('vi')}đ</div> */}
                                 </div>
                                 <div className="cart_title">
-                                    <h3>{listItems[counts].value.product_name}</h3>
+                                    <h5>{listItems[counts].value.product_name}</h5>
                                     <p>{listItems[counts].value.description}</p>
                                     <div className="cart-price"> {listItems[counts].value.price.toLocaleString('vi')}đ x {listItems[counts].count}</div>
                                     <div className="cart-total-price">{(listItems[counts].count * listItems[counts].value.price).toLocaleString('vi')}đ</div>
