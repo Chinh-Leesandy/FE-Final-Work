@@ -1,0 +1,17 @@
+{
+    "content": {
+        "theme": "Đổi chủ đề",
+        "lang_en": "Tiếng Anh",
+        "lang_vn": "Tiếng Việt",
+        "login": "Đăng nhập",
+        "logout": "Đăng xuất",
+        "home": "Trang chủ",
+        "shop": "Sản phẩm",
+        "cart": "Giỏ hàng",
+        "contact": "Liên hệ",
+        "account": "Tài khoản",
+        "title_text": "Điền thông tin tìm kiếm",
+        "Item" : "Sản phẩm",
+        "Page" : "Trang"
+    }
+}

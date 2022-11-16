@@ -139,3 +139,8 @@ i{
 .product{
     padding: 0.5rem 1rem!important;
 }
+.footer_wrap{
+    background-color : #f6f9fc;
+    padding-left: 7rem;
+    padding-right: 7rem;
+}
