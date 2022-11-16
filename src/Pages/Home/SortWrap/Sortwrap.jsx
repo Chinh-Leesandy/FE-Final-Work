@@ -12,7 +12,7 @@ export default function Sortwrap (){
             <div className="header_wrap">
                 <div className="sort_wrap">
                     <div className="sort_select">
-                        <label className='form-label' htmlFor="sort-by">Sort by: </label>
+                        <label className='form__label' htmlFor="sort-by">Sort by: </label>
                         <select className='form-select' onChange={handleSelect} id="sort-by">
                             <option value="0">Relevance</option>
                             <option value="1">Name: A-Z</option>

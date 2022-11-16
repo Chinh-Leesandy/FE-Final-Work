@@ -100,7 +100,7 @@
     color: #fafafa;
     /* width: 4.75em; */
     padding: 6px 20px;
-    line-height: 1.1em;
+    line-height: 1.375rem;
     border: 1px solid #e69646;
     border-radius: 3px;
     align-items: center;
@@ -183,6 +183,9 @@
 .btn__search-submit{
     text-align: center;
     align-items: center;
+    background-color: #e69646;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
 }
 .form__search{
     display: flex;
