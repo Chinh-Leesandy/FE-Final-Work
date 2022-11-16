@@ -12,7 +12,6 @@ const Chage = () => {
     };
   
     const currentLang = i18n.language;
-    console.log(currentLang)
   return (
     <OverlayTrigger
       rootClose={true}
@@ -57,7 +56,7 @@ const Chage = () => {
       <div
         className="change-lang-btn lang-thumbnail lang-img"
         style={{
-          backgroundImage: `url(${currentLang === "en" ? usFlag : vnFlag})`,
+          backgroundImage: `url(${currentLang === "vi" ? vnFlag : usFlag})`,
 
         }}
       ></div>

@@ -1,7 +1,9 @@
 .active {
     color: rgb(230, 150, 70) !important;
 }
-
+a{
+    text-decoration: none !important;
+}
 /* Header Higher */
 .header__higher {
     display: flex;
