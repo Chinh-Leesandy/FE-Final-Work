@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MenuCart from "../MenuCart/MenuCart";
 import { useSelector, useDispatch } from "react-redux";
 import "./Header.css";
 // import {Input} from 'antd'
 import { setSearchText } from "../../Stores/FilterSlice";
+import DarkModeTogge  from "../DrakMode/Theme";
 function Header() {
   const [styleMenuCart, setStyleMenuCart] = useState({ right: "-400px" });
   const count = useSelector((state) => state.product.count);
@@ -65,9 +66,10 @@ function Header() {
               <div className="btn-language-wrap">
                 <i className="fa-solid fa-earth-americas"></i>
               </div>
-              <div className="btn-theme-wrap">
+              {/* <div className="btn-theme-wrap" checked={isDarkMode} onChange={(e) => setIsDarkMode(e.target.checked)}>
                 <i className="fa-solid fa-moon"></i>
-              </div>
+              </div> */}
+              <DarkModeTogge/>
               <div className="btn-auth-wrap">
                 <Link to="/Login">
                   <i className="fa-solid fa-arrow-right-to-bracket"></i>
