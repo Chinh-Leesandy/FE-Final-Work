@@ -22,7 +22,8 @@
 }
 .footer__contain-wrap {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
 }
 .footer__contain-wrap > div {
     padding-top: 1.5rem;

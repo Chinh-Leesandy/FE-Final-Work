@@ -1,0 +1,31 @@
+.cart_main{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 20rem;
+}
+.cart_items{
+    width: 70%;
+    border: 1px solid #000;
+    /* flex-wrap: nowrap; */
+    overflow-y: scroll;
+    height: calc(100% - 1241px);
+    max-height: calc(100% - 1241px);;
+}
+.cart-item{
+    width: 100%;
+    padding: 2rem 2rem;
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+.cart_img{
+    width: 50%;
+}
+.cart_title{
+    width: 40%;
+}
+.cart_check{
+    width: 25%;
+    border: 1px solid #000;
+}
