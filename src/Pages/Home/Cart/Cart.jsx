@@ -7,7 +7,7 @@ import { increaseItem, decreaseItem, removeItem } from "../../../Stores/productS
 // import { set } from 'immer/dist/internal';
 function getItem(target) {
     let item = target
-    while (!item.classList.contains("menu-cart-item")) {
+    while (!item.classList.contains("cart-item")) {
         item = item.parentElement
     }
     return item
