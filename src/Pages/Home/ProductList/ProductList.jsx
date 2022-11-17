@@ -48,56 +48,58 @@ export default function ProductList() {
   const infoProducts = (element) => {
     dispatch(addIdProductItems(element));
   };
-  const {t} = useTranslation()
+  const { t } = useTranslation()
   // const ProductItems = useSelector(state => state.product.productItem);
   //   console.log(ProductItems)
   console.log(productList);
   return (
     <>
-      <div className="product-list">
-        <div className="product row">
-          {currentProducts.map((res) => (
-            <React.Fragment>
-              <div className="product col-lg-3 col-md-4 col-sm-6">
-                <div className="product-item">
-                  <Link to="/ProductItem">
-                    <div
-                      onClick={() => infoProducts(res)}
-                      className="avt"
-                      style={{
-                        backgroundImage: `url(https://petsla-api.herokuapp.com${res.images})`,
-                        backgroundSize: "cover",
-                        backgroundRepeat: "no-repeat",
-                        paddingTop: "100%",
-                      }}
-                    ></div>
-                  </Link>
-                  <div className="product-content">
-                    <div
-                      onClick={() => infoProducts(res)}
-                      className="text-product-content"
-                    >
-                      <span className="title">{res.product_name}</span>
-                    </div>
-                    <div className="price">{res.price.toLocaleString()} đ</div>
-                    <div className="btn-product-content">
-                      <div className="buy button-wrap">
-                        <i className="bi bi-bag" style={{padding : "0 2px"}}></i>
-                        <span>Buy Now</span>
-                      </div>
+      <div className="product-list ">
+        <div className="container">
+          <div className="product row">
+            {currentProducts.map((res) => (
+              <React.Fragment>
+                <div className="product col-lg-3 col-md-4 col-sm-6">
+                  <div className="product-item">
+                    <Link to="/ProductItem">
                       <div
-                        className="car button-wrap"
-                        onClick={() => handleClick(res)}
+                        onClick={() => infoProducts(res)}
+                        className="avt"
+                        style={{
+                          backgroundImage: `url(https://petsla-api.herokuapp.com${res.images})`,
+                          backgroundSize: "cover",
+                          backgroundRepeat: "no-repeat",
+                          paddingTop: "100%",
+                        }}
+                      ></div>
+                    </Link>
+                    <div className="product-content">
+                      <div
+                        onClick={() => infoProducts(res)}
+                        className="text-product-content"
                       >
-                        <i className="bi bi-cart3" style={{padding : "0 2px"}}></i>
-                        <span> Add to Cart</span>
+                        <span className="title">{res.product_name}</span>
+                      </div>
+                      <div className="price">{res.price.toLocaleString()} đ</div>
+                      <div className="btn-product-content">
+                        <div className="buy button-wrap">
+                          <i className="icon-buy bi bi-bag" style={{ padding: "0 2px" }}></i>
+                          <span>Buy Now</span>
+                        </div>
+                        <div
+                          className="car button-wrap"
+                          onClick={() => handleClick(res)}
+                        >
+                          <i className="bi bi-cart3" style={{ padding: "0 2px" }}></i>
+                          <span className="title_cart"> Add to Cart</span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </React.Fragment>
-          ))}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </div>
       <div className="footer_wrap">
