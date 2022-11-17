@@ -38,6 +38,7 @@ a{
 
 .header__higher-btn-wrap {
     display: flex;
+    justify-content: space-around;
 }
 
 .divide {
@@ -79,6 +80,7 @@ a{
 .header__search {
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     line-height: 1.5;
 }
@@ -192,6 +194,7 @@ a{
 .form__search{
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 /* Header Nav */

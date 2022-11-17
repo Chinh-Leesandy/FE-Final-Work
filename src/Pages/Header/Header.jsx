@@ -35,122 +35,123 @@ function Header() {
   const { t } = useTranslation();
   return (
     <React.Fragment>
-      <div
-        style={{ borderBottom: "2px solid hsla(0,0%,66.7%,.3)", width: "100%" }}
-      >
-        <div className="grid wide">
-          <div className="header__higher" style={{ display: "flex" }}>
-            <div className="header__higher-info">
+      <div className="container">
+
+        <div
+          style={{ borderBottom: "2px solid hsla(0,0%,66.7%,.3)", width: "100%" }}
+        >
+          <div className="grid wide">
+            <div className="header__higher" style={{ display: "flex" }}>
+              <div className="header__higher-info">
+                <div
+                  className="header__higher-info-mail"
+                >
+                  <i className="fa-solid fa-envelope"></i>
+                  <span>petsla.vn@gmail.com</span>
+                </div>
+                <div className="divide"></div>
+                <div className="header__higher-info-phone">
+                  <i className="fa-solid fa-phone"></i>
+                  <span>01234 456 789</span>
+                </div>
+                <div className="header__higher-info-img">
+                  <img
+                    src={
+                      "https://www.leoasher.dev/static/media/logofull.f2aa3784.png"
+                    }
+                    alt="Logo Pesla"
+                  />
+                </div>
+              </div>
               <div
-                className="header__higher-info-mail"
-                style={{ paddingLeft: "3rem" }}
+                className="header__higher-btn-wrap"
               >
-                <i className="fa-solid fa-envelope"></i>
-                <span>petsla.vn@gmail.com</span>
-              </div>
-              <div className="divide"></div>
-              <div className="header__higher-info-phone">
-                <i className="fa-solid fa-phone"></i>
-                <span>01234 456 789</span>
-              </div>
-              <div className="header__higher-info-img">
-                <img
-                  src={
-                    "https://www.leoasher.dev/static/media/logofull.f2aa3784.png"
-                  }
-                  alt="Logo Pesla"
-                />
-              </div>
-            </div>
-            <div
-              className="header__higher-btn-wrap"
-              style={{ paddingRight: "3rem" }}
-            >
-              {/* <div className="btn-language-wrap">
+                {/* <div className="btn-language-wrap">
                 <i className="fa-solid fa-earth-americas"></i>
               </div> */}
-              <Chage />
+                <Chage />
 
-              {/* <div className="btn-theme-wrap" checked={isDarkMode} onChange={(e) => setIsDarkMode(e.target.checked)}>
+                {/* <div className="btn-theme-wrap" checked={isDarkMode} onChange={(e) => setIsDarkMode(e.target.checked)}>
                 <i className="fa-solid fa-moon"></i>
               </div> */}
-              <DarkModeTogge />
-              <div className="btn-auth-wrap">
-                <Link to="/Login">
-                  <i className="fa-solid fa-arrow-right-to-bracket"></i>
-                </Link>
+                <DarkModeTogge />
+                <div className="btn-auth-wrap">
+                  <Link to="/Login">
+                    <i className="fa-solid fa-arrow-right-to-bracket"></i>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <header className="header">
-        <div className="header__top" style={{ padding: "0 3rem" }}>
-          <div className="header__wrap">
-            <div className="header__logo">
-              <a href="/Shop">
-                <img
-                  className="header__logo__img"
-                  src={
-                    "https://www.leoasher.dev/static/media/logofull.f2aa3784.png"
-                  }
-                  alt="Logo Pesla"
-                />
-              </a>
-            </div>
-            <div className="header__search">
-              <form action="" className="form__search">
-                <input
-                  onChange={handleInputChange}
-                  className="header__search__input"
-                  placeholder="Everything here is better than your ex"
-                  type="text"
-                />
-                <button
-                  onClick={handleSearch}
-                  type="submit"
-                  className="btn__search-submit"
-                >
-                  <i className="header__search__icon fa-solid fa-magnifying-glass"></i>
-                </button>
-              </form>
-            </div>
-            <div className="header__cart" onClick={ClickOpenMenuCart}>
-              <i className="header__cart__icon fa-solid fa-cart-shopping"></i>
-              <div className="header__cart__count-items"> {count} </div>
+        <header className="header">
+          <div className="header__top">
+            <div className="header__wrap">
+              <div className="header__logo">
+                <a href="/Shop">
+                  <img
+                    className="header__logo__img"
+                    src={
+                      "https://www.leoasher.dev/static/media/logofull.f2aa3784.png"
+                    }
+                    alt="Logo Pesla"
+                  />
+                </a>
+              </div>
+              <div className="header__search">
+                <form action="" className="form__search">
+                  <input
+                    onChange={handleInputChange}
+                    className="header__search__input"
+                    placeholder="Everything here is better than your ex"
+                    type="text"
+                  />
+                  <button
+                    onClick={handleSearch}
+                    type="submit"
+                    className="btn__search-submit"
+                  >
+                    <i className="header__search__icon fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </form>
+              </div>
+              <div className="header__cart" onClick={ClickOpenMenuCart}>
+                <i className="header__cart__icon fa-solid fa-cart-shopping"></i>
+                <div className="header__cart__count-items"> {count} </div>
+              </div>
             </div>
           </div>
+        </header>
+        <div className="header__nav">
+          <ul className="header__nav-list">
+            <Link to="/">
+              <li className="header__nav-item header__nav-item-link">
+                {t("content.home")}
+              </li>
+            </Link>
+            <Link to="/Shop">
+              <li className="header__nav-item header__nav-item-link">
+                {t("content.shop")}
+              </li>
+            </Link>
+            <Link to="/Cart">
+              <li className="header__nav-item header__nav-item-link">
+                {t("content.cart")}
+              </li>
+            </Link>
+            <li className="header__nav-item header__nav-item-link">
+              {t("content.contact")}
+            </li>
+            <li className="header__nav-item header__nav-item-link">
+              {t("content.account")}
+            </li>
+          </ul>
         </div>
-      </header>
-      <div className="header__nav" style={{ padding: "0 3rem" }}>
-        <ul className="header__nav-list">
-          <Link to="/">
-            <li className="header__nav-item header__nav-item-link">
-              {t("content.home")}
-            </li>
-          </Link>
-          <Link to="/Shop">
-            <li className="header__nav-item header__nav-item-link">
-              {t("content.shop")}
-            </li>
-          </Link>
-          <Link to="/Cart">
-            <li className="header__nav-item header__nav-item-link">
-              {t("content.cart")}
-            </li>
-          </Link>
-          <li className="header__nav-item header__nav-item-link">
-            {t("content.contact")}
-          </li>
-          <li className="header__nav-item header__nav-item-link">
-            {t("content.account")}
-          </li>
-        </ul>
+        <MenuCart
+          styleMenuCart={styleMenuCart}
+          setStyleMenuCart={setStyleMenuCart}
+        />
       </div>
-      <MenuCart
-        styleMenuCart={styleMenuCart}
-        setStyleMenuCart={setStyleMenuCart}
-      />
     </React.Fragment>
   );
 }
