@@ -5,7 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import "./Header.css";
 // import {Input} from 'antd'
 import { setSearchText } from "../../Stores/FilterSlice";
-import DarkModeTogge  from "../DrakMode/Theme";
+import DarkModeTogge from "../DrakMode/Theme";
+import { useTranslation } from "react-i18next";
+import Chage from "../Language/Change/chage";
 function Header() {
   const [styleMenuCart, setStyleMenuCart] = useState({ right: "-400px" });
   const count = useSelector((state) => state.product.count);
@@ -15,7 +17,7 @@ function Header() {
       const styleMenuCart = { ...preStyleMenuCart, right: "0px" };
       return styleMenuCart;
     });
-  };
+  }
   const [keyword, setKeyword] = useState("");
   const handleInputChange = (e) => {
     setKeyword(e.target.value);
@@ -30,6 +32,7 @@ function Header() {
   //     console.log('enter press here! ')
   //   }
   // }
+  const { t } = useTranslation();
   return (
     <React.Fragment>
       <div
@@ -63,13 +66,15 @@ function Header() {
               className="header__higher-btn-wrap"
               style={{ paddingRight: "3rem" }}
             >
-              <div className="btn-language-wrap">
+              {/* <div className="btn-language-wrap">
                 <i className="fa-solid fa-earth-americas"></i>
-              </div>
+              </div> */}
+              <Chage />
+
               {/* <div className="btn-theme-wrap" checked={isDarkMode} onChange={(e) => setIsDarkMode(e.target.checked)}>
                 <i className="fa-solid fa-moon"></i>
               </div> */}
-              <DarkModeTogge/>
+              <DarkModeTogge />
               <div className="btn-auth-wrap">
                 <Link to="/Login">
                   <i className="fa-solid fa-arrow-right-to-bracket"></i>
@@ -101,10 +106,13 @@ function Header() {
                   placeholder="Everything here is better than your ex"
                   type="text"
                 />
-                <button onClick={handleSearch} type="submit" className="btn__search-submit">
+                <button
+                  onClick={handleSearch}
+                  type="submit"
+                  className="btn__search-submit"
+                >
                   <i className="header__search__icon fa-solid fa-magnifying-glass"></i>
                 </button>
-
               </form>
             </div>
             <div className="header__cart" onClick={ClickOpenMenuCart}>
@@ -117,16 +125,26 @@ function Header() {
       <div className="header__nav" style={{ padding: "0 3rem" }}>
         <ul className="header__nav-list">
           <Link to="/">
-            <li className="header__nav-item header__nav-item-link">Home</li>
+            <li className="header__nav-item header__nav-item-link">
+              {t("content.home")}
+            </li>
           </Link>
           <Link to="/Shop">
-            <li className="header__nav-item header__nav-item-link">Shop</li>
+            <li className="header__nav-item header__nav-item-link">
+              {t("content.shop")}
+            </li>
           </Link>
           <Link to="/Cart">
-            <li className="header__nav-item header__nav-item-link">Cart</li>
+            <li className="header__nav-item header__nav-item-link">
+              {t("content.cart")}
+            </li>
           </Link>
-          <li className="header__nav-item header__nav-item-link">Contact</li>
-          <li className="header__nav-item header__nav-item-link">Account</li>
+          <li className="header__nav-item header__nav-item-link">
+            {t("content.contact")}
+          </li>
+          <li className="header__nav-item header__nav-item-link">
+            {t("content.account")}
+          </li>
         </ul>
       </div>
       <MenuCart
