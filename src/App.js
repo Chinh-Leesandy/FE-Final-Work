@@ -13,6 +13,7 @@ import ProductItem from "./Pages/Home/ProductItem/ProductItem";
 import Home from "./Pages/Home/Home/Home";
 import Cart from "./Pages/Home/Cart/Cart/Cart";
 import CustomerInfo from "./Pages/Home/Cart/CustomerInfo/CustomerInfo";
+import Account from "./Pages/Home/Account/Account";
  function Shop() {
   return (
     <div>
@@ -34,6 +35,7 @@ function App() {
         <Route path="/Login" element = {<Login />} />
         <Route path="/Shop" element = {<Shop/>} />
         <Route path="/Cart" element = {<Cart/>} />
+        <Route path="/Account" element = {<Account/>} />
         <Route path="/MenuCart" element = {<MenuCart/>} />
         <Route path="/ProductItem/:productId" element = {<ProductItem/>} />
       </Routes>
