@@ -36,16 +36,16 @@ function Header() {
   return (
     <React.Fragment>
       <div className="container">
-
         <div
-          style={{ borderBottom: "2px solid hsla(0,0%,66.7%,.3)", width: "100%" }}
+          style={{
+            borderBottom: "2px solid hsla(0,0%,66.7%,.3)",
+            width: "100%",
+          }}
         >
           <div className="grid wide">
             <div className="header__higher" style={{ display: "flex" }}>
               <div className="header__higher-info">
-                <div
-                  className="header__higher-info-mail"
-                >
+                <div className="header__higher-info-mail">
                   <i className="fa-solid fa-envelope"></i>
                   <span>petsla.vn@gmail.com</span>
                 </div>
@@ -63,9 +63,7 @@ function Header() {
                   />
                 </div>
               </div>
-              <div
-                className="header__higher-btn-wrap"
-              >
+              <div className="header__higher-btn-wrap">
                 {/* <div className="btn-language-wrap">
                 <i className="fa-solid fa-earth-americas"></i>
               </div> */}
@@ -142,9 +140,11 @@ function Header() {
             <li className="header__nav-item header__nav-item-link">
               {t("content.contact")}
             </li>
-            <li className="header__nav-item header__nav-item-link">
-              {t("content.account")}
-            </li>
+            <Link to="/Account">
+              <li className="header__nav-item header__nav-item-link">
+                {t("content.account")}
+              </li>
+            </Link>
           </ul>
         </div>
         <MenuCart

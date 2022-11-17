@@ -48,7 +48,7 @@ export default function ProductList() {
   const infoProducts = (element) => {
     dispatch(addIdProductItems(element));
   };
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   // const ProductItems = useSelector(state => state.product.productItem);
   //   console.log(ProductItems)
   console.log(productList);
@@ -80,17 +80,25 @@ export default function ProductList() {
                       >
                         <span className="title">{res.product_name}</span>
                       </div>
-                      <div className="price">{res.price.toLocaleString()} đ</div>
+                      <div className="price">
+                        {res.price.toLocaleString()} đ
+                      </div>
                       <div className="btn-product-content">
                         <div className="buy button-wrap">
-                          <i className="icon-buy bi bi-bag" style={{ padding: "0 2px" }}></i>
+                          <i
+                            className="icon-buy bi bi-bag"
+                            style={{ padding: "0 2px" }}
+                          ></i>
                           <span>Buy Now</span>
                         </div>
                         <div
                           className="car button-wrap"
                           onClick={() => handleClick(res)}
                         >
-                          <i className="bi bi-cart3" style={{ padding: "0 2px" }}></i>
+                          <i
+                            className="bi bi-cart3"
+                            style={{ padding: "0 2px" }}
+                          ></i>
                           <span className="title_cart"> Add to Cart</span>
                         </div>
                       </div>
@@ -100,62 +108,67 @@ export default function ProductList() {
               </React.Fragment>
             ))}
           </div>
-        </div>
-      </div>
-      <div className="footer_wrap">
-        <div className="news-per-page">
-          <label className="form-title" htmlFor="item/page">
-            {t("content.Item")}/{t("content.Page")}
-          </label>
-          <select className="select-page" defaultValue="0" onChange={select}>
-            {/* <option value="0" disabled>12</option> */}
-            <option value="12">12</option>
-            <option value="24">24</option>
-            <option value="36">36</option>
-          </select>
-        </div>
-        <div className="pagination-custom">
-          <ul className="page-numbers">
-            {/* <div className="btn-pagination">
+          <div className="footer_wrap">
+            <div className="pagination-custom">
+              <ul className="page-numbers">
+                {/* <div className="btn-pagination">
               <i class="bi bi-chevron-double-left"></i>
             </div> */}
-            <div className="btn-pagination">
-              <i class="bi bi-chevron-left"></i>
-            </div>
-            {pageNumbers.map((number) => {
-              if (currentPage === number) {
-                return (
-                  <li
-                    key={number}
-                    id={number}
-                    className="active_wrap pagination-wrap"
-                  >
-                    {number}
-                  </li>
-                );
-              } else {
-                return (
-                  <li
-                    className="pagination-wrap"
-                    key={number}
-                    id={number}
-                    onClick={chosePage}
-                  >
-                    {number}
-                  </li>
-                );
-              }
-            })}
-            <div className="btn-pagination">
-              <i class="bi bi-chevron-right"></i>
-            </div>
+                <div className="btn-pagination">
+                  <i class="bi bi-chevron-left"></i>
+                </div>
+                {pageNumbers.map((number) => {
+                  if (currentPage === number) {
+                    return (
+                      <li
+                        key={number}
+                        id={number}
+                        className="active_wrap pagination-wrap"
+                      >
+                        {number}
+                      </li>
+                    );
+                  } else {
+                    return (
+                      <li
+                        className="pagination-wrap"
+                        key={number}
+                        id={number}
+                        onClick={chosePage}
+                      >
+                        {number}
+                      </li>
+                    );
+                  }
+                })}
+                <div className="btn-pagination">
+                  <i class="bi bi-chevron-right"></i>
+                </div>
 
-            {/* <div className="btn-pagination">
+                {/* <div className="btn-pagination">
               <i class="bi bi-chevron-double-right"></i>
             </div> */}
-          </ul>
+              </ul>
+            </div>
+            <div className="news-per-page">
+              <label className="form-title" htmlFor="item/page">
+                {t("content.Item")}/{t("content.Page")}
+              </label>
+              <select
+                className="select-page"
+                defaultValue="0"
+                onChange={select}
+              >
+                {/* <option value="0" disabled>12</option> */}
+                <option value="12">12</option>
+                <option value="24">24</option>
+                <option value="36">36</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
+
       {/* <ProductItem/> */}
     </>
   );
