@@ -45,7 +45,7 @@ function ProductItem() {
                 <div className="product__title">
                   <h2>{item.product_name}</h2>
                 </div>
-                <div className="product__price">{item.price} đ</div>
+                <div className="product__price">{item.price.toLocaleString()} đ</div>
                 <div className="product__btn-wrap">
                   <div className="product__btn-buy-wrap">
                     <button className="product__btn product__btn-buy">
