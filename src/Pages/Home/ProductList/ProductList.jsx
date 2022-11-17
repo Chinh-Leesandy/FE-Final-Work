@@ -82,14 +82,14 @@ export default function ProductList() {
                     <div className="price">{res.price.toLocaleString()} đ</div>
                     <div className="btn-product-content">
                       <div className="buy button-wrap">
-                        <i className="bi bi-bag"></i>
+                        <i className="bi bi-bag" style={{padding : "0 2px"}}></i>
                         <span>Buy Now</span>
                       </div>
                       <div
                         className="car button-wrap"
                         onClick={() => handleClick(res)}
                       >
-                        <i className="bi bi-cart3"></i>
+                        <i className="bi bi-cart3" style={{padding : "0 2px"}}></i>
                         <span> Add to Cart</span>
                       </div>
                     </div>
