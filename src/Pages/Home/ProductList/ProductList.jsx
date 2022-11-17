@@ -61,7 +61,7 @@ export default function ProductList() {
               <React.Fragment>
                 <div className="product col-lg-3 col-md-4 col-sm-6">
                   <div className="product-item">
-                    <Link to="/ProductItem">
+                    <Link to={`/ProductItem/${res.id}`}>
                       <div
                         onClick={() => infoProducts(res)}
                         className="avt"
@@ -85,20 +85,14 @@ export default function ProductList() {
                       </div>
                       <div className="btn-product-content">
                         <div className="buy button-wrap">
-                          <i
-                            className="icon-buy bi bi-bag"
-                            style={{ padding: "0 2px" }}
-                          ></i>
+                          <i className="icon-buy bi bi-bag" style={{ padding: "0 2px" }}></i>
                           <span>Buy Now</span>
                         </div>
                         <div
                           className="car button-wrap"
                           onClick={() => handleClick(res)}
                         >
-                          <i
-                            className="bi bi-cart3"
-                            style={{ padding: "0 2px" }}
-                          ></i>
+                          <i className="bi bi-cart3" style={{ padding: "0 2px" }}></i>
                           <span className="title_cart"> Add to Cart</span>
                         </div>
                       </div>

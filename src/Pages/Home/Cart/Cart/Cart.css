@@ -8,18 +8,12 @@
 i {
     padding: 0 0;
 }
-.cart_main{
-    max-width: 1200px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 .cart_main-items{
-    width: 70%;
+    /* width: 66.66667%; */
     border: 1px solid #dfdfdf;
-    margin: 1rem 1rem;
     background-color: #fff;
+    padding: 0;
+    margin-bottom: .5rem;
 }
 .cart_main-items--header{
     border-bottom: 1px solid #dfdfdf;
@@ -29,21 +23,16 @@ i {
     font-weight: 600;
     background-color: #f7f7f7;
 }
-.cart_main-checkout{
-    width: 30%;
-    border: 1px solid #dfdfdf;
-    margin: 1rem 1rem;
-}
 .cart-item {
     border-bottom: 1px solid hsla(0,0%,66.7%,.6);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 1rem;
     padding: 1rem 1rem;
     transition: all .5s;
     border: 1px solid #dfdfdf;
     border-radius: 10px;
+    margin: 1rem;
 }
 .cart-quantity {
     display: flex;
@@ -77,7 +66,6 @@ i {
 .cart-img {
     margin: 0rem 1rem;
     padding-top: 4.5rem;
-
     width: 4.5rem;
     min-width: 4.5rem;
     height: 100%;
@@ -107,4 +95,61 @@ i {
 }
 .cart-button-close {
     cursor: pointer;
+}
+
+
+
+
+
+
+.cart-page-content{
+    border: 1px solid #dfdfdf;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+.cart-page-content--header{
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.header-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.voucher-wrap{
+    padding: 1rem;
+}
+.cart-page-btn{
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 10px;
+    border: 1px solid #e69646;
+    padding: .5rem .5rem;
+    background-color: #fff;
+    color: #e69646;
+}
+.voucher-btn{
+    color: #e69646;
+}
+.voucher-btn:hover{
+    background-color: #e69646;
+    color: #ffff;
+}
+.checkout-btn{
+    color: #fff;
+    width: 100%;
+    margin: 0rem 1rem;
+    margin-bottom: 1rem;
+    background-color: #e69646;
 }

@@ -1,0 +1,34 @@
+.card-header{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.shop-note-wrap{
+    padding: 1rem 1rem;
+    padding-top: 0;
+}
+.note-title{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.cart-page-btn-wrap{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    align-items: center;
+}
+.btn-cus{
+    padding: .7rem 3rem;
+    color: #e69646;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #e69646;
+    background-color: #fff;
+    color: #e69646;
+}
+.btn-cus:hover{
+    background-color: #e69646;
+    color: #fff;
+}
