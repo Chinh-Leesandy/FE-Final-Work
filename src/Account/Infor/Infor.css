@@ -1,0 +1,27 @@
+.Backgr{
+}
+.Body{
+    position: relative;
+}
+.Infor_Header{
+    position: relative;
+}
+.Header{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+.Infor{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 25px;
+}
+.IpFirstName{
+    margin-left: 10px;
+}

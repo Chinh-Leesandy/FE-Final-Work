@@ -95,7 +95,9 @@ function Header() {
             <li className="header__nav-item header__nav-item-link">Shop</li>
           <li className="header__nav-item header__nav-item-link">Cart</li>
           <li className="header__nav-item header__nav-item-link">Contact</li>
-          <li className="header__nav-item header__nav-item-link">Account</li>
+           <Link to="/Infor">
+                <li className="header__nav-item header__nav-item-link">Account</li>
+           </Link>
         </ul>
       </div>
       <MenuCart styleMenuCart = {styleMenuCart} setStyleMenuCart = {setStyleMenuCart} />
