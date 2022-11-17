@@ -142,3 +142,32 @@ i{
     padding-left: 7rem;
     padding-right: 7rem;
 }
+@media (max-width: 769px) {
+    .icon-buy{
+        display: none;
+    }
+    .title_cart{
+        display: none;
+    }
+}
+@media (min-width: 1024px) and (max-width: 1106px) {
+    .icon-buy{
+        display: none;
+    }
+}
+/* Tablet - PC low resolution */
+@media (min-width: 770px) and (max-width: 1023px) {
+    .title_cart{
+        display: none;
+    }
+    .icon-buy{
+        display: none;
+    }
+}
+
+/* > PC low resolution */
+@media (min-width: 1024px) and (max-width: 1239px) {
+    .title_cart{
+        display: none;
+    }
+}

@@ -61,7 +61,7 @@ ul{
     margin: 0 !important;
 }
 /* bottom__nav-mobile */
-@media (max-width: 739px) {
+@media (max-width: 769px) {
     .bottom__nav-mobile {
         display: block !important;
         background-color: #fafafa;
