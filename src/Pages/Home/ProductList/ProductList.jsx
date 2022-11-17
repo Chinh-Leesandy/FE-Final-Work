@@ -61,7 +61,7 @@ export default function ProductList() {
               <React.Fragment>
                 <div className="product col-lg-3 col-md-4 col-sm-6">
                   <div className="product-item">
-                    <Link to="/ProductItem">
+                    <Link to={`/ProductItem/${res.id}`}>
                       <div
                         onClick={() => infoProducts(res)}
                         className="avt"
