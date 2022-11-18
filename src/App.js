@@ -11,7 +11,12 @@ import Infor from "./Account/Infor/Infor";
 import MenuCart from "./Pages/MenuCart/MenuCart";
 import ProductItem from "./Pages/Home/ProductItem/ProductItem";
 import Home from "./Pages/Home/Home/Home";
-import Cart from "./Pages/Home/Cart/Cart";
+import Cart from "./Pages/Home/Cart/Cart/Cart";
+import CustomerInfo from "./Pages/Home/Cart/CustomerInfo/CustomerInfo";
+import Account from "./Pages/Home/Account/Profile/Account";
+import Contact from "./Pages/Home/Contact";
+import { Redirect } from 'react-router-dom';
+
  function Shop() {
   return (
     <div>
@@ -27,13 +32,16 @@ function App() {
     <div className="App">
       <Routes>
         <Route path ="/" element = {<Home />} />
+        <Route path ="/CustomerInfo" element = {<CustomerInfo/>} />
         <Route path="/Infor" element = {<Infor />} />
         <Route path="/Register" element = {<Register />} />
         <Route path="/Login" element = {<Login />} />
         <Route path="/Shop" element = {<Shop/>} />
         <Route path="/Cart" element = {<Cart/>} />
+        <Route path="/Contact" element = {<Contact/>} />
+        <Route path="/Account" element = {<Account/>} />
         <Route path="/MenuCart" element = {<MenuCart/>} />
-        <Route path="/ProductItem" element = {<ProductItem/>} />
+        <Route path="/ProductItem/:productId" element = {<ProductItem/>} />
       </Routes>
     </div>
   );

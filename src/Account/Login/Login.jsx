@@ -6,12 +6,12 @@ import ApiCaller from "../Utills/ApiCaller";
 import LoginSlice, { loginSuccess } from "../../Stores/LoginSlice";
 import { useDispatch } from 'react-redux'
 import { tuple } from "antd/lib/_util/type";
-
+import { Redirect } from 'react-router-dom';
 const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const dispatch = useDispatch();
-  const checkLogin = false
+  var checkLogin = false
   function handleLogin(e) {
     e.preventDefault()
     const newUse = {
@@ -26,16 +26,26 @@ const Login = () => {
       setPassword("")
     }).catch(e => {
       alert("Tên đăng nhập hoặc tài khoản không chính xác")
-  })
-
+    })
   }
+  const user = useSelector(state => state.login.login.currenUser)
+  console.log(user)
   function onChangeUsername(e) {
     setUsername(e.target.value)
   }
   function onChangePass(e) {
     setPassword(e.target.value)
   }
+  // if(user){
+  //   console.log("OKOK")
+  //   return (<Link to = "/Shop"></Link>)
+  // }
   return (
+    // (
+    //   {
+    //     if(user)
+    //   }
+    // )
     <div className="Background">
       <form className="Login" onSubmit={(e) => handleLogin(e)} >
         <div className="Login_Header">
@@ -58,7 +68,7 @@ const Login = () => {
               className="form-control"
               required
               value={username}
-              onChange={ (e) => onChangeUsername(e)}
+              onChange={(e) => onChangeUsername(e)}
             />
           </div>
           <div className="Use-Pass">
@@ -70,7 +80,7 @@ const Login = () => {
               className="form-control"
               required
               value={password}
-              onChange={ (e) => onChangePass(e)}
+              onChange={(e) => onChangePass(e)}
             />
           </div>
           <div className="Remember">
@@ -119,3 +129,21 @@ const Login = () => {
   );
 };
 export default Login;
+
+
+
+/*
+return 
+(
+  {
+    (
+      1>2 &&
+      div
+    )
+    ||
+    (
+      div
+    )
+  }
+)
+*/
