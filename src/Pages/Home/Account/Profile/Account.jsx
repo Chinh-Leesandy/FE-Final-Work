@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../../Header/Header";
-import Footer from "../../Footer/Footer";
-import "./Accout.css";
+import Header from "../../../Header/Header";
+import Footer from "../../../Footer/Footer";
+import "./Account.css";
 const Account = () => {
   return (
     <React.Fragment>
       <Header></Header>
-      <div className="accout_page">
-        <div className="accout_page-container container">
+      <div className="account_page">
+        <div className="account_page-container container">
           <div className="row">
             <div className="d-none d-lg-block col-3">
               <div class="shadow-sm rounded dashboard-col">
