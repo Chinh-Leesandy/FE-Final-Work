@@ -1,9 +1,16 @@
-import React, {useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
 import "./ProductItem.css";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { mainProduct } from "../../../Stores/Selector";
+import {
+  callApi,
+  addProduct,
+  addIdProductItems,
+} from "../../../Stores/productSlice";
 function ProductItem() {
    const item = useSelector(state => state.product.idProductItem)
   // const items = useSelector((state) => state.product.idProductItem);
@@ -16,18 +23,23 @@ function ProductItem() {
   //         setItem(item)
   //     })
   // },[]) 
-  
-  // const id = localStorage.getItem('items');
-  // const [item,setItem] = useState({});
-  //   useEffect(() => {
-  //       fetch(`https://petsla-api.herokuapp.com/product/${id}`)
-  //       .then(response => response.json())
-  //       .then(value => {
-  //           const item = value
-  //           setItem(item)
-  //       })
-  //   },[]) 
-  //   console.log(item);
+  // const dispatch = useDispatch();
+  // const productList = useSelector(mainProduct);
+  // const product = [...productList];
+  // const { id } = useParams();
+  // const [item, setItem] = useState({});
+  // useEffect(() => {
+  //   axios
+  //     .get("https://petsla-api.herokuapp.com/products")
+  //     .then((res) => {
+  //       const products = res.data;
+  //       dispatch(callApi(products));
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
+  // const selected = product.filter(ele => ele.id == id)
+  // console.log(id)
+  // console.log(selected)
   return (
     <React.Fragment>
       <Header></Header>
@@ -59,7 +71,7 @@ function ProductItem() {
                   </div>
                 </div>
                 <div className="info">
-                  <h3 style={{marginTop: "0.75rem",fontSize:"1.125rem", fontWeight: "600"}}>Thông tin sản phẩm</h3>
+                  <h3 style={{ marginTop: "0.75rem", fontSize: "1.125rem", fontWeight: "600" }}>Thông tin sản phẩm</h3>
                   <div className="info-title">{item.description}</div>
                 </div>
               </div>
