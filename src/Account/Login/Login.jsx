@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault()
     const newUse = {
       username: username,
-      password: password
+      password: password,
     }
     ApiCaller("/login/", 'POST', newUse).then(res => {
       dispatch(loginSuccess(res.data))

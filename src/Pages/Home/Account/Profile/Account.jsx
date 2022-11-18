@@ -129,7 +129,7 @@ const Account = () => {
                             className="form-control"
                             name="first-name"
                             placeholder={userName.first_name}
-                            disabled = {check}
+                            disabled ={check}
                           />
                         </div>
                         <div className="mt-3 form-gr">
@@ -163,7 +163,6 @@ const Account = () => {
                             Phone number:
                           </label>
                           <input
-                            disabled=""
                             type="text"
                             className="form-control"
                             name="phone-number"
