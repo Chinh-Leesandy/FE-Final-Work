@@ -11,12 +11,12 @@ const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const dispatch = useDispatch();
-  var checkLogin = false
+  const checkLogin = false
   function handleLogin(e) {
     e.preventDefault()
     const newUse = {
       username: username,
-      password: password
+      password: password,
     }
     ApiCaller("/login/", 'POST', newUse).then(res => {
       dispatch(loginSuccess(res.data))
@@ -36,10 +36,6 @@ const Login = () => {
   function onChangePass(e) {
     setPassword(e.target.value)
   }
-  // if(user){
-  //   console.log("OKOK")
-  //   return (<Link to = "/Shop"></Link>)
-  // }
   return (
     // (
     //   {
@@ -68,7 +64,7 @@ const Login = () => {
               className="form-control"
               required
               value={username}
-              onChange={(e) => onChangeUsername(e)}
+              onChange={ (e) => onChangeUsername(e)}
             />
           </div>
           <div className="Use-Pass">
@@ -80,7 +76,7 @@ const Login = () => {
               className="form-control"
               required
               value={password}
-              onChange={(e) => onChangePass(e)}
+              onChange={ (e) => onChangePass(e)}
             />
           </div>
           <div className="Remember">
@@ -129,21 +125,3 @@ const Login = () => {
   );
 };
 export default Login;
-
-
-
-/*
-return 
-(
-  {
-    (
-      1>2 &&
-      div
-    )
-    ||
-    (
-      div
-    )
-  }
-)
-*/

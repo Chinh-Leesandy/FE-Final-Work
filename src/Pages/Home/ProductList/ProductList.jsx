@@ -10,6 +10,7 @@ import {
 import { mainProduct } from "../../../Stores/Selector";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { success } from "../../../util/toastify";
 // import ProductItem from "../ProductItem/ProductItem";
 export default function ProductList() {
   const productList = useSelector(mainProduct);
@@ -28,6 +29,7 @@ export default function ProductList() {
   }, []);
   const handleClick = (element) => {
     dispatch(addProduct(element));
+    success("Add to cart sucessfully")
   };
   const chosePage = (event) => {
     setCurrentPage(Number(event.target.id));
@@ -48,10 +50,23 @@ export default function ProductList() {
   const infoProducts = (element) => {
     dispatch(addIdProductItems(element));
   };
+  const next = () => {
+      if (currentPage !== Math.ceil(product.length / newsPerPage))
+      {
+        setCurrentPage(currentPage => currentPage + 1);
+        window.scrollTo(0, 0);
+      }
+  }
+  const previous = () => {
+    if (currentPage !== 1){
+      setCurrentPage(currentPage => currentPage - 1);
+      window.scrollTo(0, 0);
+    }
+}
+  
   const { t } = useTranslation();
   // const ProductItems = useSelector(state => state.product.productItem);
-  //   console.log(ProductItems)
-  console.log(productList);
+    // console.log(currentPage)
   return (
     <>
       <div className="product-list ">
@@ -108,7 +123,7 @@ export default function ProductList() {
                 {/* <div className="btn-pagination">
               <i class="bi bi-chevron-double-left"></i>
             </div> */}
-                <div className="btn-pagination">
+                <div className="btn-pagination active_wrap" onClick={previous}>
                   <i class="bi bi-chevron-left"></i>
                 </div>
                 {pageNumbers.map((number) => {
@@ -135,7 +150,7 @@ export default function ProductList() {
                     );
                   }
                 })}
-                <div className="btn-pagination">
+                <div className="btn-pagination active_wrap" onClick={next}>
                   <i class="bi bi-chevron-right"></i>
                 </div>
 
@@ -162,8 +177,6 @@ export default function ProductList() {
           </div>
         </div>
       </div>
-
-      {/* <ProductItem/> */}
     </>
   );
 }

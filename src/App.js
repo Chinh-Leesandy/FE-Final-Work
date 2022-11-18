@@ -17,6 +17,7 @@ import Account from "./Pages/Home/Account/Profile/Account";
 import Contact from "./Pages/Home/Contact";
 import { Redirect } from 'react-router-dom';
 
+import { ToastContainer } from "react-toastify";
  function Shop() {
   return (
     <div>
@@ -43,6 +44,7 @@ function App() {
         <Route path="/MenuCart" element = {<MenuCart/>} />
         <Route path="/ProductItem/:productId" element = {<ProductItem/>} />
       </Routes>
+      <ToastContainer/>
     </div>
   );
 }

@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../../Header/Header";
 import Footer from "../../../Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 
 import "./Account.css";
+<<<<<<< HEAD
 import LoginSlice from "../../../../Stores/LoginSlice";
 const Account = () => {
   // const username = useSelector(LoginSlice.initialState.login.currenUser)
+=======
+import axios from "axios";
+const Account = () => {
+  const [userName, setUserName] = useState({});
+  const accessToken = localStorage.getItem("token");
+  const [check, setCheck] = useState("notEditMode"); //set check = true
+  useEffect(() => {
+    axios
+      .get("https://petsla-api.herokuapp.com/profile",{
+        headers: {
+          Authorization: 'Bearer ' + accessToken ,
+        },
+      })
+      .then((res) => {
+        setUserName(res.data)
+      })
+      .catch((err) => console.log(err));
+  }, []);
+>>>>>>> 774c3c8dfaca2ebb003ebff533072edff01b087e
   return (
     <React.Fragment>
       <Header></Header>
@@ -53,7 +73,9 @@ const Account = () => {
                         <span className="text">My Profile</span>
                       </div>
                       <div className="btn-wrap">
-                        <button type="button" className="btn-edit">Edit Profile</button>
+                        <button type="button" className="btn-edit">
+                          Edit Profile
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -70,8 +92,17 @@ const Account = () => {
                                 />
                               </div>
                               <div className="name-wrap">
+<<<<<<< HEAD
                                 {/* <span className="full-name">{username.name}</span> */}
                                 <span className="use-name">CallApi</span>
+=======
+                                <span className="full-name">
+                                  {userName.name}
+                                </span>
+                                <span className="use-name">
+                                  {userName.username}
+                                </span>
+>>>>>>> 774c3c8dfaca2ebb003ebff533072edff01b087e
                               </div>
                             </div>
                             <div className="member-type">Diamond User</div>
@@ -102,58 +133,71 @@ const Account = () => {
                     <div className="personal-info mt-4">
                       <form class>
                         <div className="mt-3 form-gr">
-                          <label className="form-label" htmlFor="first-name">First name:</label>
+                          <label className="form-label" htmlFor="first-name">
+                            First name:
+                          </label>
                           <input
-                            disabled=""
                             type="text"
                             id="first-name"
                             className="form-control"
                             name="first-name"
+                            placeholder={userName.first_name}
+                            disabled ={check}
                           />
                         </div>
                         <div className="mt-3 form-gr">
-                          <label className="form-label" htmlFor="last-name">Last name:</label>
+                          <label className="form-label" htmlFor="last-name">
+                            Last name:
+                          </label>
                           <input
-                            disabled=""
                             type="text"
                             className="form-control"
                             name="last-name"
                             id="last-name"
+                            placeholder={userName.last_name}
+                            disabled = {check}
                           />
                         </div>
                         <div className="mt-3 form-gr">
-                          <label className="form-label" htmlFor="email">Email:</label>
+                          <label className="form-label" htmlFor="email">
+                            Email:
+                          </label>
                           <input
-                            disabled=""
                             type="text"
                             className="form-control"
                             name="email"
                             id="email"
+                            placeholder={userName.email}
+                            disabled = {check}
                           />
                         </div>
                         <div className="mt-3 form-gr">
-                          <label className="form-label" htmlFor="phone-number">Phone number:</label>
+                          <label className="form-label" htmlFor="phone-number">
+                            Phone number:
+                          </label>
                           <input
-                            disabled=""
                             type="text"
                             className="form-control"
                             name="phone-number"
-                            id="phone-number"
+                            id="phone-number" 
+                            disabled = {check}
                           />
                         </div>
                         <div className="mt-3 form-gr">
-                          <label className="form-label" htmlFor="gender">Gender:</label>
+                          <label className="form-label" htmlFor="gender">
+                            Gender:
+                          </label>
                           <div className="from-check">
                             <input
-                              disabled=""
                               name="gender"
                               type="radio"
                               id="gender-0"
                               className="form-check-input"
                               value="0"
+                              disabled = {check}
                             />
                             <label
-                                htmlFor="gender-0"
+                              htmlFor="gender-0"
                               className="gender-item form-check-label"
                             >
                               male
@@ -161,12 +205,12 @@ const Account = () => {
                           </div>
                           <div className="from-check">
                             <input
-                              disabled=""
                               name="gender"
                               type="radio"
                               id="gender-1"
                               className="form-check-input"
                               value="1"
+                              disabled = {check}
                             />
                             <label
                               htmlFor="gender-1"
@@ -177,12 +221,13 @@ const Account = () => {
                           </div>
                           <div className="from-check">
                             <input
-                              disabled=""
                               name="gender"
                               type="radio"
                               id="gender-2"
                               className="form-check-input"
                               value="2"
+                              disabled = {check}
+                              checked
                             />
                             <label
                               htmlFor="gender-2"
