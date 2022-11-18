@@ -152,9 +152,10 @@ a {
 }
 
 .header__nav-item {
-  margin: 0.625rem;
-  align-items: center;
-  font-size: 1.25em;
+    margin: .625rem;
+    align-items: center;
+    font-size: 1.25em;
+    cursor: pointer;
 }
 
 .header__nav-item-link {

@@ -1,11 +1,25 @@
 import "./Infor.css"
-import "../../Pages/Header/Header.jsx"
-
+import Header from "../../Pages/Header/Header.jsx"
 const Infor =()=>{
     return(
         <div className="Backgr">
-            {/* <Header/> */}
-            hello demo
+            <Header/>
+            <div className="Body">
+                <div className="Header">
+                    My Profile
+                </div>
+                <div className="Infor">
+                    <form action="">
+                        <div className="FirstName">
+                            <label htmlFor="">FirstName</label>
+                            <input
+                                className="IpFirstName"
+                                type="text" 
+                            />
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
