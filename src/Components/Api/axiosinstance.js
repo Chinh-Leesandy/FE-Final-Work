@@ -1,7 +1,8 @@
 import axios from "axios"
 const axoisinstance = axios.create({
+    withCredentials: false,
     baseURL : "https://petsla-api.herokuapp.com",
     timeout : 5000,
-    headers : {"X-Cumtor-Header" : "foobar"},
+    headers : {'Content-Type': 'application/json',},
 })
-export default axoisinstance
+export default axoisinstance;
