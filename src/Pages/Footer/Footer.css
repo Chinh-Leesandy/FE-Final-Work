@@ -22,7 +22,8 @@
 }
 .footer__contain-wrap {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
 }
 .footer__contain-wrap > div {
     padding-top: 1.5rem;
@@ -55,9 +56,12 @@
     box-shadow: inset 1.8rem 1.8rem 0 #e69646, inset -1.8rem -1.8rem 0 #e69646;
     cursor: pointer;
 }
-
+ul{
+    padding: 0 !important;
+    margin: 0 !important;
+}
 /* bottom__nav-mobile */
-@media (max-width: 739px) {
+@media (max-width: 769px) {
     .bottom__nav-mobile {
         display: block !important;
         background-color: #fafafa;

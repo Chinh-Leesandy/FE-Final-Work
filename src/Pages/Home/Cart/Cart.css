@@ -1,0 +1,110 @@
+.cart__container{
+    background-color: #f6f9fc;
+    padding: 2rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+i {
+    padding: 0 0;
+}
+.cart_main{
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart_main-items{
+    width: 70%;
+    border: 1px solid #dfdfdf;
+    margin: 1rem 1rem;
+    background-color: #fff;
+}
+.cart_main-items--header{
+    border-bottom: 1px solid #dfdfdf;
+    text-align: center;
+    padding: .5rem .5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: #f7f7f7;
+}
+.cart_main-checkout{
+    width: 30%;
+    border: 1px solid #dfdfdf;
+    margin: 1rem 1rem;
+}
+.cart-item {
+    border-bottom: 1px solid hsla(0,0%,66.7%,.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 1rem;
+    padding: 1rem 1rem;
+    transition: all .5s;
+    border: 1px solid #dfdfdf;
+    border-radius: 10px;
+}
+.cart-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.quantity-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(118, 118, 118, 0.3);
+    background-color: unset;
+    width: 1.625rem;
+    height: 1.625rem;
+    border-radius: .375rem;
+}
+.quantity-btn--active {
+    border: 1px solid #e69646;
+}
+.quantity-btn--active:hover {
+    cursor: pointer;
+    background-color: #e69646;
+    color: #fafafa;
+    transition: all .4s;
+}
+
+.cart-info {
+    display: flex;
+    flex: 1 1;
+}
+.cart-img {
+    margin: 0rem 1rem;
+    padding-top: 4.5rem;
+
+    width: 4.5rem;
+    min-width: 4.5rem;
+    height: 100%;
+    
+    background-size: cover;
+}
+.cart-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cart-name {
+    font-size: 1rem;
+    line-height: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.cart-price {
+    font-size: .825rem;
+}
+.cart-total-price {
+    font-size: .9rem;
+    font-weight: 600;
+    color: #e69646;
+}
+.cart-button-close {
+    cursor: pointer;
+}

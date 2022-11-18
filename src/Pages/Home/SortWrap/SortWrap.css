@@ -1,12 +1,29 @@
 .header_wrap {
   display: flex;
   justify-content: flex-end;
-  padding: 1rem 5rem;
+  padding: 1.5rem 1.2rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: #c2dbfe;
 }
 .sort_select {
   display: flex;
 }
-.form-label {
-  width: 80px;
-  padding-top: 5px;
+.form__label {
+  width: 6.5rem;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+.form-select {
+  padding: 5px;
+}
+.form-select :focus {
+  outline: outset 3px #c2dbfe;
+}
+.header_sortWrap {
+  padding-top: 2.5rem;
+  padding-left: 6.5rem;
+  padding-right: 6.5rem;
+  background-color: #f6f9fc;
 }
