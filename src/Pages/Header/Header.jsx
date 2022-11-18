@@ -137,9 +137,11 @@ function Header() {
                 {t("content.cart")}
               </li>
             </Link>
-            <li className="header__nav-item header__nav-item-link">
-              {t("content.contact")}
-            </li>
+            <Link to="/Contact">
+              <li className="header__nav-item header__nav-item-link">
+                {t("content.contact")}
+              </li>
+            </Link>
             <Link to="/Account">
               <li className="header__nav-item header__nav-item-link">
                 {t("content.account")}
