@@ -7,18 +7,32 @@ const Account = () => {
   const [userName, setUserName] = useState({});
   const accessToken = localStorage.getItem("token");
   const [check, setCheck] = useState("notEditMode"); //set check = true
+  const [textEdit, setTextEdit] = useState("Edit Profile");
   useEffect(() => {
     axios
-      .get("https://petsla-api.herokuapp.com/profile",{
+      .get("https://petsla-api.herokuapp.com/profile", {
         headers: {
-          Authorization: 'Bearer ' + accessToken ,
+          Authorization: "Bearer " + accessToken,
         },
       })
       .then((res) => {
-        setUserName(res.data)
+        setUserName(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
+  const Edit = () => {
+    // setCheck("");
+    if (textEdit === "Edit Profile") 
+    {
+      setCheck("");
+      setTextEdit("Save");
+    }
+    else if (textEdit === "Save") {
+      setCheck("notEditMode");
+      setTextEdit("Edit Profile");
+    }
+    console.log("run");
+  };
   return (
     <React.Fragment>
       <Header></Header>
@@ -64,9 +78,9 @@ const Account = () => {
                         ></i>
                         <span className="text">My Profile</span>
                       </div>
-                      <div className="btn-wrap">
+                      <div className="btn-wrap" onClick={Edit}>
                         <button type="button" className="btn-edit">
-                          Edit Profile
+                          {textEdit}
                         </button>
                       </div>
                     </div>
@@ -166,8 +180,8 @@ const Account = () => {
                             type="text"
                             className="form-control"
                             name="phone-number"
-                            id="phone-number" 
-                            disabled = {check}
+                            id="phone-number"
+                            disabled={check}
                           />
                         </div>
                         <div className="mt-3 form-gr">
@@ -213,8 +227,7 @@ const Account = () => {
                               id="gender-2"
                               className="form-check-input"
                               value="2"
-                              disabled = {check}
-                              checked
+                              disabled={check}
                             />
                             <label
                               htmlFor="gender-2"
