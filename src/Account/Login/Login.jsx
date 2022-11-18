@@ -1,69 +1,50 @@
 import "./Login.css";
 import React, { useState, useRef, useContext } from "react";
-import { connect } from 'react-redux';
-import { Link, useNavigate } from "react-router-dom";
-import * as actions from '../action/index';
+import { connect, useSelector } from 'react-redux';
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import ApiCaller from "../Utills/ApiCaller";
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-const Login = (props) => {
-  let check = true;
-  let change = () => {
-    if (check === true) check = false;
-    if (check === false) check = true;
-  };
-  // const navigate = useNavigate();
-  //   const [inputUserName, setInputUsername] = useState("")
-  //   const [inputPassWord, setInputPassWord] = useState("")
-  //   const [isLoading,setLoading] = useState(false)
-  //   const MySwal = withReactContent(Swal)
-  //   async function HandlerSubmit(e) {
-  //       e.preventDefault();
-  //       let user = {
-  //           username: inputUserName,
-  //           password: inputPassWord
-            
-  //       }
-  //       setLoading(true)
-  //       ApiCaller('/login/', 'POST', user).then(res => {
-  //           setLoading(false)
-  //           props.onLogin(res.data.token)
-  //           props.onCHangeStatus(true)
-  //           setInputUsername("")
-  //           setInputPassWord("")
-  //           MySwal.fire({
-  //               title: <strong>Thành Công!</strong>,
-  //               html: <i>You clicked the button!</i>,
-  //               icon: 'success'
-  //           })
-  //           navigate("/")
-  //       })
-  //           .catch(err => {
-  //               setLoading(false)
-  //               MySwal.fire({
-  //                   title: <strong>Tài khoản mật khẩu không chính xác!</strong>,
-  //                   html: <i>You clicked the button!</i>,
-  //                   icon: 'error'
-  //               })
-  //           })
-  //   }
-  //   function onChange(e) {
-  //       if (e.target.name === "username") {
-  //           setInputUsername(e.target.value)
-  //       } else {
-  //           setInputPassWord(e.target.value)
-  //       }
-  //   }
+import LoginSlice, { loginSuccess } from "../../Stores/LoginSlice";
+import { useDispatch } from 'react-redux'
+import { tuple } from "antd/lib/_util/type";
+
+const Login = () => {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const dispatch = useDispatch();
+  const checkLogin = false
+  function handleLogin(e) {
+    e.preventDefault()
+    const newUse = {
+      username: username,
+      password: password,
+    }
+    ApiCaller("/login/", 'POST', newUse).then(res => {
+      dispatch(loginSuccess(res.data))
+      alert("Đăng nhập thành công !")
+      checkLogin = true
+      setUsername("")
+      setPassword("")
+    }).catch(e => {
+      alert("Tên đăng nhập hoặc tài khoản không chính xác")
+  })
+
+  }
+  function onChangeUsername(e) {
+    setUsername(e.target.value)
+  }
+  function onChangePass(e) {
+    setPassword(e.target.value)
+  }
   return (
     <div className="Background">
-      <form className="Login" style={{ display: check ? "block" : "none" }} >
+      <form className="Login" onSubmit={(e) => handleLogin(e)} >
         <div className="Login_Header">
           <span className="Title">Login</span>
           <div className="Div_Exit">
             <span className="Login_Exit">
-            <Link to="/Shop">
-              x
-            </Link>
+              <Link to="/Shop">
+                x
+              </Link>
             </span>
           </div>
         </div>
@@ -75,6 +56,9 @@ const Login = (props) => {
               type="text"
               id="username"
               className="form-control"
+              required
+              value={username}
+              onChange={ (e) => onChangeUsername(e)}
             />
           </div>
           <div className="Use-Pass">
@@ -84,6 +68,9 @@ const Login = (props) => {
               type="password"
               id="password"
               className="form-control"
+              required
+              value={password}
+              onChange={ (e) => onChangePass(e)}
             />
           </div>
           <div className="Remember">
@@ -121,9 +108,9 @@ const Login = (props) => {
         </div>
         <div className="Login_footer">
           <div className="change-to-register">
-          <Link to="/Register">
-          Do not have an account? Register
-          </Link>
+            <Link to="/Register">
+              Do not have an account? Register
+            </Link>
           </div>
           <div className="forgot-password">Forgot password?</div>
         </div>
@@ -132,19 +119,3 @@ const Login = (props) => {
   );
 };
 export default Login;
-// const mapStateToProps = (state) => {
-//   return {
-
-//   }
-// }
-// const mapDispatchToProps = (dispatch, props) => {
-//   return {
-//       onLogin: (token) => {
-//           dispatch(actions.saveLogin(token))
-//       },
-//       onCHangeStatus : (status) => {
-//           dispatch(actions.changeStatus(status))
-//       }
-//   }
-// }
-// export default connect(mapStateToProps, mapDispatchToProps)(Login)

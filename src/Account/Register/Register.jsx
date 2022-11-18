@@ -2,8 +2,6 @@ import './Register.css'
 import React, { useState, useRef, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import ApiCaller from "../Utills/ApiCaller";
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
 const Register = () => {
 
 const [ipFirstname,setIpFirstName] = useState("")
@@ -11,7 +9,6 @@ const [ipFirstname,setIpFirstName] = useState("")
     const [ipEmail,setIpEmail] = useState("")
     const [ipUserName,setIpUserName] = useState("")
     const [ipPass,setIpPass] = useState("")
-    const MySwal = withReactContent(Swal)
     function handleSubmit(e){
         e.preventDefault()
         let res = {
@@ -27,35 +24,25 @@ const [ipFirstname,setIpFirstName] = useState("")
             setIpPass("")
             setIpEmail("")
             setIpUserName("")
-            // MySwal.fire({
-            //     title: <strong>Thành Công!</strong>,
-            //     html: <i>You clicked the button!</i>,
-            //     icon: 'success'
-            // })
             alert("Đăng kí thành công !")
         }).catch(e => {
-            // MySwal.fire({
-            //     title: <strong>Lỗi không đăng ký được!</strong>,
-            //     html: <i>You clicked the button!</i>,
-            //     icon: 'error'
-            // })
             alert("Đăng kí không thành công !")
         })
     }
-    function onChange(e){
-       
-        if(e.target.className === "firstNameSignup"){
-            setIpFirstName(e.target.value)
-        }
-        else if(e.target.className === "lastNameSignup"){
-            setIpLasttName(e.target.value)
-        }else if(e.target.className === "emailSignup"){
-            setIpEmail(e.target.value)
-        }else if(e.target.className === "usernameSignup"){
-            setIpUserName(e.target.value)
-        }else if(e.target.className === "passwordSignup"){
-            setIpPass(e.target.value)
-        }
+    function onChangeFirstName(e){      
+        setIpFirstName(e.target.value)
+    }
+    function onChangeLasttName(e){      
+        setIpLasttName(e.target.value)
+    }
+    function onChangePass(e){      
+        setIpPass(e.target.value)
+    }
+    function onChangeEmail(e){      
+        setIpEmail(e.target.value)
+    }
+    function onChangeUserName(e){      
+        setIpUserName(e.target.value)
     }
 //
     return (
@@ -79,9 +66,8 @@ const [ipFirstname,setIpFirstName] = useState("")
                         className="firstNameSignup"
                         placeholder="FirstName" 
                         type="text" 
-                        // className="form-control firstName"
                         required value={ipFirstname} 
-                        onChange={ (e) => onChange(e)}
+                        onChange={ (e) => onChangeFirstName(e)}
                         />
                     </div>
                     <div className='Use-Pass'>
@@ -89,9 +75,8 @@ const [ipFirstname,setIpFirstName] = useState("")
                         className="lastNameSignup"
                         placeholder="LastName" 
                         type="text" 
-                        // className="form-control lastName"
                         required value={ipLastName} 
-                        onChange={ (e) => onChange(e)}
+                        onChange={ (e) => onChangeLasttName(e)}
                         />
                     </div>
                     {/*  */}
@@ -100,9 +85,8 @@ const [ipFirstname,setIpFirstName] = useState("")
                         className="emailSignup"
                         placeholder="Email" 
                         type="email" 
-                        // className="form-control email"
                         required value={ipEmail} 
-                        onChange={ (e) => onChange(e)}
+                        onChange={ (e) => onChangeEmail(e)}
                         />
                     </div>
                     <div className='Use-Pass'>
@@ -110,9 +94,8 @@ const [ipFirstname,setIpFirstName] = useState("")
                         className="usernameSignup"
                         placeholder="Usename" 
                         type="text"  
-                        // className="form-control usename"
                         required value={ipUserName} 
-                        onChange={ (e) => onChange(e)}
+                        onChange={ (e) => onChangeUserName(e)}
                         />
                     </div>
                     <div className='Use-Pass'>
@@ -120,9 +103,8 @@ const [ipFirstname,setIpFirstName] = useState("")
                         className="passwordSignup"
                         placeholder="Password" 
                         type="password"  
-                        // className="form-control password"
                         required value={ipPass} 
-                        onChange={ (e) => onChange(e)}
+                        onChange={ (e) => onChangePass(e)}
                         />
                     </div>
                     {/*  */}
