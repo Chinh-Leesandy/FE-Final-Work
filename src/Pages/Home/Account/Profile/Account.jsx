@@ -124,13 +124,12 @@ const Account = () => {
                             First name:
                           </label>
                           <input
-                            disabled=""
                             type="text"
                             id="first-name"
                             className="form-control"
                             name="first-name"
                             placeholder={userName.first_name}
-                            disabled = {check}
+                            disabled ={check}
                           />
                         </div>
                         <div className="mt-3 form-gr">
@@ -138,7 +137,6 @@ const Account = () => {
                             Last name:
                           </label>
                           <input
-                            disabled=""
                             type="text"
                             className="form-control"
                             name="last-name"
@@ -152,7 +150,6 @@ const Account = () => {
                             Email:
                           </label>
                           <input
-                            disabled=""
                             type="text"
                             className="form-control"
                             name="email"
@@ -166,7 +163,6 @@ const Account = () => {
                             Phone number:
                           </label>
                           <input
-                            disabled=""
                             type="text"
                             className="form-control"
                             name="phone-number"
@@ -180,7 +176,6 @@ const Account = () => {
                           </label>
                           <div className="from-check">
                             <input
-                              disabled=""
                               name="gender"
                               type="radio"
                               id="gender-0"
@@ -197,7 +192,6 @@ const Account = () => {
                           </div>
                           <div className="from-check">
                             <input
-                              disabled=""
                               name="gender"
                               type="radio"
                               id="gender-1"
@@ -214,7 +208,6 @@ const Account = () => {
                           </div>
                           <div className="from-check">
                             <input
-                              disabled=""
                               name="gender"
                               type="radio"
                               id="gender-2"
