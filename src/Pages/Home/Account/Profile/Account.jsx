@@ -163,7 +163,6 @@ const Account = () => {
                             Phone number:
                           </label>
                           <input
-                            disabled=""
                             type="text"
                             className="form-control"
                             name="phone-number"
