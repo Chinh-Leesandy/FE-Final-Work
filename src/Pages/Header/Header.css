@@ -158,6 +158,7 @@ a{
     margin: .625rem;
     align-items: center;
     font-size: 1.25em;
+    cursor: pointer;
 }
 
 .header__nav-item-link {
