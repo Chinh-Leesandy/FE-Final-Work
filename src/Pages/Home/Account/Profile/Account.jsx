@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../../Header/Header";
 import Footer from "../../../Footer/Footer";
-import { useDispatch, useSelector } from "react-redux";
-
 import "./Account.css";
-<<<<<<< HEAD
-import LoginSlice from "../../../../Stores/LoginSlice";
-const Account = () => {
-  // const username = useSelector(LoginSlice.initialState.login.currenUser)
-=======
 import axios from "axios";
 const Account = () => {
   const [userName, setUserName] = useState({});
@@ -26,7 +19,6 @@ const Account = () => {
       })
       .catch((err) => console.log(err));
   }, []);
->>>>>>> 774c3c8dfaca2ebb003ebff533072edff01b087e
   return (
     <React.Fragment>
       <Header></Header>
@@ -92,17 +84,12 @@ const Account = () => {
                                 />
                               </div>
                               <div className="name-wrap">
-<<<<<<< HEAD
-                                {/* <span className="full-name">{username.name}</span> */}
-                                <span className="use-name">CallApi</span>
-=======
                                 <span className="full-name">
                                   {userName.name}
                                 </span>
                                 <span className="use-name">
                                   {userName.username}
                                 </span>
->>>>>>> 774c3c8dfaca2ebb003ebff533072edff01b087e
                               </div>
                             </div>
                             <div className="member-type">Diamond User</div>
@@ -250,5 +237,3 @@ const Account = () => {
     </React.Fragment>
   );
 };
-
-export default Account;
