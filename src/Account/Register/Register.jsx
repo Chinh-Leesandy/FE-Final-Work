@@ -61,7 +61,7 @@ const Register = () => {
                         </span>
                         <div className='Div_Exit'>
                             <span className='Register_Exit'>
-                                <Link to="/Shop">
+                                <Link to="/">
                                     x
                                 </Link>
                             </span>
