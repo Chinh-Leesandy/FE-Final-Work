@@ -15,6 +15,8 @@ import Cart from "./Pages/Home/Cart/Cart/Cart";
 import CustomerInfo from "./Pages/Home/Cart/CustomerInfo/CustomerInfo";
 import Account from "./Pages/Home/Account/Profile/Account";
 import Contact from "./Pages/Home/Contact";
+import { Redirect } from 'react-router-dom';
+
 import { ToastContainer } from "react-toastify";
 import Order from "./Pages/Home/Account/Order/Order";
  function Shop() {
