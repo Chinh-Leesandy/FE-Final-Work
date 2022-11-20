@@ -15,8 +15,8 @@ export default function Footer() {
                             <div className="about-us">
                                 <h3>Về PetLa</h3>
                                 <p>
-                                    PetsLa ra đời với sứ mệnh Pets hóa thế giới loài người <br></br>
-                                    bằng cách mang đến cho cộng đồng những content thú <br></br>
+                                    PetsLa ra đời với sứ mệnh Pets hóa thế giới loài người
+                                    bằng cách mang đến cho cộng đồng những content thú
                                     vị, đáng yêu về pets.
                                 </p>
                             </div>
