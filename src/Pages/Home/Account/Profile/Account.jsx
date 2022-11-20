@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import Header from "../../../Header/Header";
 import Footer from "../../../Footer/Footer";
@@ -237,3 +238,4 @@ const Account = () => {
     </React.Fragment>
   );
 };
+export default Account
