@@ -19,12 +19,15 @@ import { Redirect } from 'react-router-dom';
 
 import { ToastContainer } from "react-toastify";
 import Order from "./Pages/Home/Account/Order/Order";
+import OrderDetal from "./Pages/Home/Account/Order/OrderDetal";
  function Shop() {
   return (
     <div>
       <Header />
-      <Sortwrap />
-      <ProductList />
+      <div className="container" style={{backgroundColor: "#f6f9fc", maxWidth : "100%"}}>
+        <Sortwrap />
+        <ProductList />
+      </div>
       <Footer />
     </div>
   );
@@ -43,10 +46,11 @@ function App() {
         <Route path="/Contact" element = {<Contact/>} />
         <Route path="/Account" element = {<Account/>} />
         <Route path="/Account/Order" element = {<Order/>} />
+        <Route path="/Acount/Order-detal" element = {<OrderDetal/>} />
         <Route path="/MenuCart" element = {<MenuCart/>} />
         <Route path="/ProductItem/:productId" element = {<ProductItem/>} />
       </Routes>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

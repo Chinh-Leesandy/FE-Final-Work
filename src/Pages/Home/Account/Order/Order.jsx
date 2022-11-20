@@ -3,6 +3,7 @@ import Header from "../../../Header/Header";
 import Footer from "../../../Footer/Footer";
 import "./Order.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Order = () => {
   const accessToken = localStorage.getItem("token");
   const [orderList, setOrderList] = useState([]);
@@ -49,6 +50,9 @@ const Order = () => {
       window.scrollTo(0, 0);
     }
   };
+  const order = () =>{
+    <Link to= "/Acount/Order-detal"></Link>
+  }
   return (
     <React.Fragment>
       <Header></Header>
@@ -94,6 +98,9 @@ const Order = () => {
                         ></i>
                         <span className="text">My Order</span>
                       </div>
+                      <div className="show-dashboard-btn">
+                        <i className="bi bi-list"></i>
+                      </div>
                     </div>
                   </div>
                   <div className="order-table">
@@ -109,7 +116,7 @@ const Order = () => {
                         return (
                           <React.Fragment>
                             <div className="order-item shadow-sm rounded">
-                              <div className="order-row">
+                              <div className="order-row" onClick={order}>
                                 <div class="order-cell order-index">
                                   {orderList.indexOf(res) + 1}
                                 </div>

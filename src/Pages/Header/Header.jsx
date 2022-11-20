@@ -57,6 +57,14 @@ function Header() {
 
     }
   }
+  function handleHeaderCart() {
+    if (localStorage.getItem('islogin') === "true") {
+      navigate("/Cart")
+    } else {
+      navigate("/Login")
+    }
+    console.log(isLogin)
+  }
   const dispatch = useDispatch();
   const handleSearch = (e) => {
     e.preventDefault();
@@ -68,6 +76,15 @@ function Header() {
   //   }
   // }
   const { t } = useTranslation();
+  // const [logInOut, setLogInOut] = useState("bi bi-box-arrow-left");
+  // const checkout = (accessToken) => {
+  //   if (accessToken !== "")
+  //     {setLogInOut("bi bi-box-arrow-right")
+  //   }
+  //   else
+  //     {setLogInOut("bi bi-box-arrow-left")
+  //   }
+  // }
   return (
     <React.Fragment>
       <div className="container">
@@ -108,9 +125,9 @@ function Header() {
                 <i className="fa-solid fa-moon"></i>
               </div> */}
                 <DarkModeTogge />
-                <div className="btn-auth-wrap" onClick={handleInOut}>
+                <div className="btn-auth-wrap">
                   {/* <Link to="/Login"> */}
-                    <i className="fa-solid fa-arrow-right-to-bracket"></i>
+                    <i className="bi bi-box-arrow-left" onClick={handleInOut}></i>
                   {/* </Link> */}
                 </div>
               </div>
@@ -149,7 +166,7 @@ function Header() {
                 </form>
               </div>
               <div className="header__cart" onClick={ClickOpenMenuCart}>
-                <i className="header__cart__icon fa-solid fa-cart-shopping"></i>
+                <i class="bi bi-cart"></i>
                 <div className="header__cart__count-items"> {count} </div>
               </div>
             </div>
@@ -162,25 +179,25 @@ function Header() {
                 {t("content.home")}
               </li>
             </Link>
-            {/* <Link to="/Shop"> */}
-              <li className="header__nav-item header__nav-item-link" onClick={handleProduct}>
+            <Link to="/Shop">
+              <li className="header__nav-item header__nav-item-link">
                 {t("content.shop")}
               </li>
-            {/* </Link> */}
-            {/* <Link to="/Cart"> */}
-              <li className="header__nav-item header__nav-item-link" onClick={handleCart}>
-                {t("content.cart")}
-              </li>
-            {/* </Link> */}
+            </Link>
+            <Link to="/Cart">
+            <li className="header__nav-item header__nav-item-link">
+              {t("content.cart")}
+            </li>
+            </Link>
             <Link to="/Contact">
               <li className="header__nav-item header__nav-item-link">
                 {t("content.contact")}
               </li>
             </Link>
             {/* <Link to="/Account"> */}
-              <li className="header__nav-item header__nav-item-link" onClick={handleAccount}>
-                {t("content.account")}
-              </li>
+            <li className="header__nav-item header__nav-item-link" onClick={handleAccount}>
+              {t("content.account")}
+            </li>
             {/* </Link> */}
           </ul>
         </div>
