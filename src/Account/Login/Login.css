@@ -1,23 +1,26 @@
 .Background{
-    height: 100vh;
     width: 100vw;
     position: relative;
-    background-color: rgba(6, 0, 0, 0.2);
+    background-color: #f6f9fc;
 }
+/* .Div_login{
+    position: relative;
+} */
 .Login{
     position: absolute;
     background-color: white;
     width: 400px;
-    top: 50%;
+    top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
 }
 .Login_Header{
     padding: 16px 24px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .Title{
     font-size: 32px;

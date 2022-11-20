@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MenuCart from "../MenuCart/MenuCart";
 import { useSelector, useDispatch } from "react-redux";
 import "./Header.css";
@@ -11,7 +11,7 @@ import Chage from "../Language/Change/chage";
 function Header() {
   const [styleMenuCart, setStyleMenuCart] = useState({ right: "-400px" });
   const count = useSelector((state) => state.product.count);
-
+  const isLogin = localStorage.getItem('islogin')
   function ClickOpenMenuCart() {
     setStyleMenuCart((preStyleMenuCart) => {
       const styleMenuCart = { ...preStyleMenuCart, right: "0px" };
@@ -22,6 +22,41 @@ function Header() {
   const handleInputChange = (e) => {
     setKeyword(e.target.value);
   };
+  const navigate = useNavigate()
+  function handleAccount (){
+    if(localStorage.getItem('islogin')==="true"){
+      navigate("/Account")
+    }else{
+      navigate("/Login")
+    }
+    console.log(localStorage.getItem('islogin'))
+  }
+  function handleProduct (){
+    if(localStorage.getItem('islogin')==="true"){
+      navigate("/Shop")
+    }else{
+      navigate("/Login")
+    }
+    console.log(isLogin)
+  }
+  function handleCart (){
+    if(localStorage.getItem('islogin')==="true"){
+      navigate("/Cart")
+    }else{
+      navigate("/Login")
+    }
+    console.log(isLogin)
+  }
+  function handleInOut(){
+    if(localStorage.getItem('islogin')==="true"){
+      localStorage.setItem('islogin',"false")
+      alert("Đã đăng xuất")
+      navigate("/Login")
+    }else{
+      navigate("/Login")
+
+    }
+  }
   const dispatch = useDispatch();
   const handleSearch = (e) => {
     e.preventDefault();
@@ -136,26 +171,26 @@ function Header() {
                 {t("content.home")}
               </li>
             </Link>
-            <Link to="/Shop">
-              <li className="header__nav-item header__nav-item-link">
+            {/* <Link to="/Shop"> */}
+              <li className="header__nav-item header__nav-item-link" onClick={handleProduct}>
                 {t("content.shop")}
               </li>
-            </Link>
-            <Link to="/Cart">
-              <li className="header__nav-item header__nav-item-link">
+            {/* </Link> */}
+            {/* <Link to="/Cart"> */}
+              <li className="header__nav-item header__nav-item-link" onClick={handleCart}>
                 {t("content.cart")}
               </li>
-            </Link>
+            {/* </Link> */}
             <Link to="/Contact">
               <li className="header__nav-item header__nav-item-link">
                 {t("content.contact")}
               </li>
             </Link>
-            <Link to="/Account">
-              <li className="header__nav-item header__nav-item-link">
+            {/* <Link to="/Account"> */}
+              <li className="header__nav-item header__nav-item-link" onClick={handleAccount}>
                 {t("content.account")}
               </li>
-            </Link>
+            {/* </Link> */}
           </ul>
         </div>
         <MenuCart
