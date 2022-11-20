@@ -18,7 +18,7 @@ const DarkModeTogge = () => {
       checked={isDarkMode}
       onChange={(e) => setIsDarkMode(e.target.checked)}
     >
-      <i className="fa-solid fa-moon"></i>
+      <i class="bi bi-moon"></i>
     </div>
   );
 };

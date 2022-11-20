@@ -23,8 +23,10 @@ import Order from "./Pages/Home/Account/Order/Order";
   return (
     <div>
       <Header />
-      <Sortwrap />
-      <ProductList />
+      <div className="container" style={{backgroundColor: "#f6f9fc", maxWidth : "100%"}}>
+        <Sortwrap />
+        <ProductList />
+      </div>
       <Footer />
     </div>
   );
@@ -46,7 +48,7 @@ function App() {
         <Route path="/MenuCart" element = {<MenuCart/>} />
         <Route path="/ProductItem/:productId" element = {<ProductItem/>} />
       </Routes>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }
