@@ -23,36 +23,36 @@ function Header() {
     setKeyword(e.target.value);
   };
   const navigate = useNavigate()
-  function handleAccount() {
-    if (localStorage.getItem('islogin') === "true") {
+  function handleAccount (){
+    if(localStorage.getItem('islogin')==="true"){
       navigate("/Account")
-    } else {
+    }else{
       navigate("/Login")
     }
     console.log(localStorage.getItem('islogin'))
   }
-  function handleProduct() {
-    if (localStorage.getItem('islogin') === "true") {
+  function handleProduct (){
+    if(localStorage.getItem('islogin')==="true"){
       navigate("/Shop")
-    } else {
+    }else{
       navigate("/Login")
     }
     console.log(isLogin)
   }
-  function handleCart() {
-    if (localStorage.getItem('islogin') === "true") {
+  function handleCart (){
+    if(localStorage.getItem('islogin')==="true"){
       navigate("/Cart")
-    } else {
+    }else{
       navigate("/Login")
     }
     console.log(isLogin)
   }
-  function handleInOut() {
-    if (localStorage.getItem('islogin') === "true") {
-      localStorage.setItem('islogin', "false")
+  function handleInOut(){
+    if(localStorage.getItem('islogin')==="true"){
+      localStorage.setItem('islogin',"false")
       alert("Đã đăng xuất")
       navigate("/Login")
-    } else {
+    }else{
       navigate("/Login")
 
     }
@@ -76,6 +76,15 @@ function Header() {
   //   }
   // }
   const { t } = useTranslation();
+  // const [logInOut, setLogInOut] = useState("bi bi-box-arrow-left");
+  // const checkout = (accessToken) => {
+  //   if (accessToken !== "")
+  //     {setLogInOut("bi bi-box-arrow-right")
+  //   }
+  //   else
+  //     {setLogInOut("bi bi-box-arrow-left")
+  //   }
+  // }
   return (
     <React.Fragment>
       <div className="container">
@@ -116,10 +125,10 @@ function Header() {
                 <i className="fa-solid fa-moon"></i>
               </div> */}
                 <DarkModeTogge />
-                <div className="btn-auth-wrap" onClick={handleInOut}>
-                  {/* <Link to="/Login"> */}
-                  <i className="fa-solid fa-arrow-right-to-bracket"></i>
-                  {/* </Link> */}
+                <div className="btn-auth-wrap">
+                  <Link to="/Login">
+                    <i className="bi bi-box-arrow-left"></i>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -157,7 +166,7 @@ function Header() {
                 </form>
               </div>
               <div className="header__cart" onClick={ClickOpenMenuCart}>
-                <i className="header__cart__icon fa-solid fa-cart-shopping"></i>
+                <i class="bi bi-cart"></i>
                 <div className="header__cart__count-items"> {count} </div>
               </div>
             </div>
