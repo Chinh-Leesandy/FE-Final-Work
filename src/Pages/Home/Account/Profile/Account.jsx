@@ -3,6 +3,7 @@ import Header from "../../../Header/Header";
 import Footer from "../../../Footer/Footer";
 import "./Account.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Account = () => {
   const [userName, setUserName] = useState({});
   const accessToken = localStorage.getItem("token");
@@ -45,17 +46,19 @@ const Account = () => {
                   <h5 class="dashboard-header">Dashboard</h5>
                   <ul class="dashboard-nav-list" style={{ listStyle: "none" }}>
                     <li class="dashboard-nav-item">
-                      <a className="action" href="/account/profile">
+                      <a className="action" href="/Account">
                         <i class="bi bi-person"></i>
                         <span class="title">Profile</span>
                       </a>
                     </li>
+                    <Link to = "/Account/Order">
                     <li class="dashboard-nav-item">
-                      <a className="no_action" href="/account/orders">
+                      <a className="no_action" href="/Account/Order">
                         <i class="bi bi-bag"></i>
                         <span class="title">Orders</span>
                       </a>
                     </li>
+                    </Link>
                     <li class="dashboard-nav-item">
                       <a className="no_action" href="/account/wish_list">
                         <i class="bi bi-heart"></i>
