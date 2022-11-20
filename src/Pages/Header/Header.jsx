@@ -23,39 +23,47 @@ function Header() {
     setKeyword(e.target.value);
   };
   const navigate = useNavigate()
-  function handleAccount (){
-    if(localStorage.getItem('islogin')==="true"){
+  function handleAccount() {
+    if (localStorage.getItem('islogin') === "true") {
       navigate("/Account")
-    }else{
+    } else {
       navigate("/Login")
     }
     console.log(localStorage.getItem('islogin'))
   }
-  function handleProduct (){
-    if(localStorage.getItem('islogin')==="true"){
+  function handleProduct() {
+    if (localStorage.getItem('islogin') === "true") {
       navigate("/Shop")
-    }else{
+    } else {
       navigate("/Login")
     }
     console.log(isLogin)
   }
-  function handleCart (){
-    if(localStorage.getItem('islogin')==="true"){
+  function handleCart() {
+    if (localStorage.getItem('islogin') === "true") {
       navigate("/Cart")
-    }else{
+    } else {
       navigate("/Login")
     }
     console.log(isLogin)
   }
-  function handleInOut(){
-    if(localStorage.getItem('islogin')==="true"){
-      localStorage.setItem('islogin',"false")
+  function handleInOut() {
+    if (localStorage.getItem('islogin') === "true") {
+      localStorage.setItem('islogin', "false")
       alert("Đã đăng xuất")
       navigate("/Login")
-    }else{
+    } else {
       navigate("/Login")
 
     }
+  }
+  function handleHeaderCart() {
+    if (localStorage.getItem('islogin') === "true") {
+      navigate("/Cart")
+    } else {
+      navigate("/Login")
+    }
+    console.log(isLogin)
   }
   const dispatch = useDispatch();
   const handleSearch = (e) => {
@@ -110,7 +118,7 @@ function Header() {
                 <DarkModeTogge />
                 <div className="btn-auth-wrap" onClick={handleInOut}>
                   {/* <Link to="/Login"> */}
-                    <i className="fa-solid fa-arrow-right-to-bracket"></i>
+                  <i className="fa-solid fa-arrow-right-to-bracket"></i>
                   {/* </Link> */}
                 </div>
               </div>
@@ -162,25 +170,25 @@ function Header() {
                 {t("content.home")}
               </li>
             </Link>
-            {/* <Link to="/Shop"> */}
-              <li className="header__nav-item header__nav-item-link" onClick={handleProduct}>
+            <Link to="/Shop">
+              <li className="header__nav-item header__nav-item-link">
                 {t("content.shop")}
               </li>
-            {/* </Link> */}
-            {/* <Link to="/Cart"> */}
-              <li className="header__nav-item header__nav-item-link" onClick={handleCart}>
-                {t("content.cart")}
-              </li>
-            {/* </Link> */}
+            </Link>
+            <Link to="/Cart">
+            <li className="header__nav-item header__nav-item-link">
+              {t("content.cart")}
+            </li>
+            </Link>
             <Link to="/Contact">
               <li className="header__nav-item header__nav-item-link">
                 {t("content.contact")}
               </li>
             </Link>
             {/* <Link to="/Account"> */}
-              <li className="header__nav-item header__nav-item-link" onClick={handleAccount}>
-                {t("content.account")}
-              </li>
+            <li className="header__nav-item header__nav-item-link" onClick={handleAccount}>
+              {t("content.account")}
+            </li>
             {/* </Link> */}
           </ul>
         </div>
