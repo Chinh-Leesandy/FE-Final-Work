@@ -4,22 +4,37 @@ import Header from "../../../Header/Header";
 import Footer from "../../../Footer/Footer";
 import "./Account.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Account = () => {
   const [userName, setUserName] = useState({});
   const accessToken = localStorage.getItem("token");
   const [check, setCheck] = useState("notEditMode"); //set check = true
+  const [textEdit, setTextEdit] = useState("Edit Profile");
   useEffect(() => {
     axios
-      .get("https://petsla-api.herokuapp.com/profile",{
+      .get("https://petsla-api.herokuapp.com/profile", {
         headers: {
-          Authorization: 'Bearer ' + accessToken ,
+          Authorization: "Bearer " + accessToken,
         },
       })
       .then((res) => {
-        setUserName(res.data)
+        setUserName(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
+  const Edit = () => {
+    // setCheck("");
+    if (textEdit === "Edit Profile") 
+    {
+      setCheck("");
+      setTextEdit("Save");
+    }
+    else if (textEdit === "Save") {
+      setCheck("notEditMode");
+      setTextEdit("Edit Profile");
+    }
+    console.log("run");
+  };
   return (
     <React.Fragment>
       <Header></Header>
@@ -32,17 +47,19 @@ const Account = () => {
                   <h5 class="dashboard-header">Dashboard</h5>
                   <ul class="dashboard-nav-list" style={{ listStyle: "none" }}>
                     <li class="dashboard-nav-item">
-                      <a className="action" href="/account/profile">
+                      <a className="action" href="/Account">
                         <i class="bi bi-person"></i>
                         <span class="title">Profile</span>
                       </a>
                     </li>
+                    <Link to = "/Account/Order">
                     <li class="dashboard-nav-item">
-                      <a className="no_action" href="/account/orders">
+                      <a className="no_action" href="/Account/Order">
                         <i class="bi bi-bag"></i>
                         <span class="title">Orders</span>
                       </a>
                     </li>
+                    </Link>
                     <li class="dashboard-nav-item">
                       <a className="no_action" href="/account/wish_list">
                         <i class="bi bi-heart"></i>
@@ -65,9 +82,9 @@ const Account = () => {
                         ></i>
                         <span className="text">My Profile</span>
                       </div>
-                      <div className="btn-wrap">
+                      <div className="btn-wrap" onClick={Edit}>
                         <button type="button" className="btn-edit">
-                          Edit Profile
+                          {textEdit}
                         </button>
                       </div>
                     </div>
@@ -167,8 +184,8 @@ const Account = () => {
                             type="text"
                             className="form-control"
                             name="phone-number"
-                            id="phone-number" 
-                            disabled = {check}
+                            id="phone-number"
+                            disabled={check}
                           />
                         </div>
                         <div className="mt-3 form-gr">
@@ -214,8 +231,7 @@ const Account = () => {
                               id="gender-2"
                               className="form-check-input"
                               value="2"
-                              disabled = {check}
-                              checked
+                              disabled={check}
                             />
                             <label
                               htmlFor="gender-2"

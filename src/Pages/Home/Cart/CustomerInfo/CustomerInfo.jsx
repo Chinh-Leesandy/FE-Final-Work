@@ -4,9 +4,57 @@ import Footer from '../../../Footer/Footer';
 import "./CustomerInfo.css"
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 export default function CustomerInfo() {
     const totalPrice = useSelector(state => state.product.totalPrice);
     const listItems = useSelector(state => state.product.listItems);
+    const [address, setAddress] = useState("");
+    const [note, setNote] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [orderItems, setOrderItems] = useState([]);
+    const listItem =[];
+    const accessToken = localStorage.getItem("token");
+    function onChangeAddress(e) {
+        setAddress(e.target.value);
+    }
+    function onChangeNote(e) {
+        setNote(e.target.value);
+    }
+    function onChangePhongeNumber(e) {
+        setPhoneNumber(e.target.value);
+    }
+    function handleCheckout(e) {
+        e.preventDefault()
+        listItems.map((res)=>{
+            listItem.push(
+                {
+                    product_id: res.value.id,
+                    quantity: res.count, 
+                    price: res.value.price
+                }
+        )
+        }
+        )
+        console.log(listItem)
+        let dataRequest = {
+            address: address,
+            note: note,
+            number_phone: phoneNumber,
+            total_price: totalPrice,
+            orderItems: listItem
+        }
+        axios
+            .post("https://petsla-api.herokuapp.com/add-order/",dataRequest, {
+                headers: {
+                    Authorization: 'Bearer ' + accessToken,
+                },
+            })
+            .then((res) => {
+                console.log(res.data)
+            })
+            .catch((err) => console.log(err));
+      
+    }
     return (
         <React.Fragment>
             <Header></Header>
@@ -37,17 +85,17 @@ export default function CustomerInfo() {
                                     </div>
                                     <div class="my-3">
                                         <label class="form-label"> Phone number </label>
-                                        <input placeholder="Phone number" name="phoneNumber" type="text" class="form-control" />
+                                        <input placeholder="Phone number" name="phoneNumber" type="text" class="form-control" onChange={(e) => onChangePhongeNumber(e)} />
                                         <small class="text-danger form-text"></small>
                                     </div>
                                     <div class="my-3">
                                         <label class="form-label"> Address </label>
-                                        <input placeholder="Address" name="address" type="text" class="form-control" />
+                                        <input placeholder="Address" name="address" type="text" class="form-control" onChange={(e) => onChangeAddress(e)} />
                                         <small class="text-danger form-text"></small>
                                     </div>
                                     <label class="form-label"> Note </label>
                                     <div class="form-floating">
-                                        <textarea name="note" placeholder="Brief Note" type="text" class="cart-page-note form-control"></textarea>
+                                        <textarea name="note" placeholder="Brief Note" type="text" class="cart-page-note form-control" onChange={(e) => onChangeNote(e)}></textarea>
                                         <label>Note</label>
                                     </div>
                                 </div>
@@ -73,11 +121,11 @@ export default function CustomerInfo() {
                                     <div class="row">
                                         <div class="col">
                                             <Link to="/Cart">
-                                            <button type="button" class=" btn-cus ">Back</button>
+                                                <button type="button" class=" btn-cus ">Back</button>
                                             </Link>
                                         </div>
                                         <div class="col">
-                                            <button style={{ backgroundColor: "#e69646", color: "#fff" }} type="submit" class=" btn-cus ">Next</button>
+                                            <button style={{ backgroundColor: "#e69646", color: "#fff" }} type="submit" class=" btn-cus " onClick={(e) => handleCheckout(e)}>Next</button>
                                         </div>
                                     </div>
                                 </div>
