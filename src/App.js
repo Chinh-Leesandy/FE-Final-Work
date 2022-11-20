@@ -16,6 +16,7 @@ import CustomerInfo from "./Pages/Home/Cart/CustomerInfo/CustomerInfo";
 import Account from "./Pages/Home/Account/Profile/Account";
 import Contact from "./Pages/Home/Contact";
 import { ToastContainer } from "react-toastify";
+import Order from "./Pages/Home/Account/Order/Order";
  function Shop() {
   return (
     <div>
@@ -39,6 +40,7 @@ function App() {
         <Route path="/Cart" element = {<Cart/>} />
         <Route path="/Contact" element = {<Contact/>} />
         <Route path="/Account" element = {<Account/>} />
+        <Route path="/Account/Order" element = {<Order/>} />
         <Route path="/MenuCart" element = {<MenuCart/>} />
         <Route path="/ProductItem/:productId" element = {<ProductItem/>} />
       </Routes>
