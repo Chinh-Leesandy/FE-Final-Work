@@ -50,7 +50,7 @@ const Login = () => {
             <span className="Title">Login</span>
             <div className="Div_Exit">
               <span className="Login_Exit">
-                <Link to="/Shop">
+                <Link to="/">
                   x
                 </Link>
               </span>

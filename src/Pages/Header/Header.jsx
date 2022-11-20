@@ -57,6 +57,14 @@ function Header() {
 
     }
   }
+  function handleHeaderCart() {
+    if (localStorage.getItem('islogin') === "true") {
+      navigate("/Cart")
+    } else {
+      navigate("/Login")
+    }
+    console.log(isLogin)
+  }
   const dispatch = useDispatch();
   const handleSearch = (e) => {
     e.preventDefault();
@@ -171,25 +179,25 @@ function Header() {
                 {t("content.home")}
               </li>
             </Link>
-            {/* <Link to="/Shop"> */}
-              <li className="header__nav-item header__nav-item-link" onClick={handleProduct}>
+            <Link to="/Shop">
+              <li className="header__nav-item header__nav-item-link">
                 {t("content.shop")}
               </li>
-            {/* </Link> */}
-            {/* <Link to="/Cart"> */}
-              <li className="header__nav-item header__nav-item-link" onClick={handleCart}>
-                {t("content.cart")}
-              </li>
-            {/* </Link> */}
+            </Link>
+            <Link to="/Cart">
+            <li className="header__nav-item header__nav-item-link">
+              {t("content.cart")}
+            </li>
+            </Link>
             <Link to="/Contact">
               <li className="header__nav-item header__nav-item-link">
                 {t("content.contact")}
               </li>
             </Link>
             {/* <Link to="/Account"> */}
-              <li className="header__nav-item header__nav-item-link" onClick={handleAccount}>
-                {t("content.account")}
-              </li>
+            <li className="header__nav-item header__nav-item-link" onClick={handleAccount}>
+              {t("content.account")}
+            </li>
             {/* </Link> */}
           </ul>
         </div>
