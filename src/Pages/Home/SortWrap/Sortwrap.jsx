@@ -8,7 +8,7 @@ export default function Sortwrap (){
         dispatch(setSort(e.target.value))
     }
     return (
-        <div className="header_sortWrap">
+        <div className="header_sortWrap ">
             <div className="header_wrap">
                 <div className="sort_wrap">
                     <div className="sort_select">
