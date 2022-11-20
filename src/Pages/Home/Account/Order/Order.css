@@ -5,6 +5,7 @@
   display: flex;
   width: 100%;
   padding: 1rem 0.5rem;
+  align-items: center;
 }
 .orders-header {
   padding-bottom: 0;
@@ -35,6 +36,7 @@
   font-size: 0.875rem;
   font-weight: 600;
   margin-left: 1.2rem;
+  max-height: 1.7rem;
 }
 .order-time {
   flex: 4 1;
@@ -49,3 +51,12 @@
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
 }
+.show-dashboard-btn{
+  font-size: 2rem;
+  opacity: 0;
+}
+ @media (max-width: 991px) {
+  .show-dashboard-btn{
+    opacity: 1;
+  }
+ }

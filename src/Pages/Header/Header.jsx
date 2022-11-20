@@ -126,9 +126,9 @@ function Header() {
               </div> */}
                 <DarkModeTogge />
                 <div className="btn-auth-wrap">
-                  <Link to="/Login">
-                    <i className="bi bi-box-arrow-left"></i>
-                  </Link>
+                  {/* <Link to="/Login"> */}
+                    <i className="bi bi-box-arrow-left" onClick={handleInOut}></i>
+                  {/* </Link> */}
                 </div>
               </div>
             </div>
