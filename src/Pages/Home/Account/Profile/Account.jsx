@@ -146,7 +146,7 @@ const Account = () => {
                             className="form-control"
                             name="first-name"
                             placeholder={userName.first_name}
-                            disabled={check}
+                            disabled ={check}
                           />
                         </div>
                         <div className="mt-3 form-gr">
@@ -159,7 +159,7 @@ const Account = () => {
                             name="last-name"
                             id="last-name"
                             placeholder={userName.last_name}
-                            disabled={check}
+                            disabled = {check}
                           />
                         </div>
                         <div className="mt-3 form-gr">
@@ -172,7 +172,7 @@ const Account = () => {
                             name="email"
                             id="email"
                             placeholder={userName.email}
-                            disabled={check}
+                            disabled = {check}
                           />
                         </div>
                         <div className="mt-3 form-gr">
@@ -198,7 +198,7 @@ const Account = () => {
                               id="gender-0"
                               className="form-check-input"
                               value="0"
-                              disabled={check}
+                              disabled = {check}
                             />
                             <label
                               htmlFor="gender-0"
@@ -214,7 +214,7 @@ const Account = () => {
                               id="gender-1"
                               className="form-check-input"
                               value="1"
-                              disabled={check}
+                              disabled = {check}
                             />
                             <label
                               htmlFor="gender-1"
