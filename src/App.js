@@ -15,9 +15,11 @@ import Cart from "./Pages/Home/Cart/Cart/Cart";
 import CustomerInfo from "./Pages/Home/Cart/CustomerInfo/CustomerInfo";
 import Account from "./Pages/Home/Account/Profile/Account";
 import Contact from "./Pages/Home/Contact";
+import { Redirect } from 'react-router-dom';
+
 import { ToastContainer } from "react-toastify";
 import Order from "./Pages/Home/Account/Order/Order";
-function Shop() {
+ function Shop() {
   return (
     <div>
       <Header />
@@ -33,18 +35,18 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/CustomerInfo" element={<CustomerInfo />} />
-        <Route path="/Infor" element={<Infor />} />
-        <Route path="/Register" element={<Register />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Shop" element={<Shop />} />
-        <Route path="/Cart" element={<Cart />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/Account" element={<Account />} />
-        <Route path="/Account/Order" element={<Order />} />
-        <Route path="/MenuCart" element={<MenuCart />} />
-        <Route path="/ProductItem/:productId" element={<ProductItem />} />
+        <Route path ="/" element = {<Home />} />
+        <Route path ="/CustomerInfo" element = {<CustomerInfo/>} />
+        <Route path="/Infor" element = {<Infor />} />
+        <Route path="/Register" element = {<Register />} />
+        <Route path="/Login" element = {<Login />} />
+        <Route path="/Shop" element = {<Shop/>} />
+        <Route path="/Cart" element = {<Cart/>} />
+        <Route path="/Contact" element = {<Contact/>} />
+        <Route path="/Account" element = {<Account/>} />
+        <Route path="/Account/Order" element = {<Order/>} />
+        <Route path="/MenuCart" element = {<MenuCart/>} />
+        <Route path="/ProductItem/:productId" element = {<ProductItem/>} />
       </Routes>
       <ToastContainer />
     </div>
