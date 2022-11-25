@@ -1,9 +1,12 @@
+// import React, {useState} from "react";
+import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 export const productAllSeclector = state => state.product.product
 export const sortSelector = state => state.product.Sort
 export const textSelector = state => state.filter.searchText
+
 export const mainProduct = createSelector(
-    productAllSeclector, sortSelector,textSelector,(product, Sort, text) => {
+  productAllSeclector, sortSelector,textSelector,(product, Sort, text) => {
         const productList = product.filter((product) => product.product_name.toLowerCase().includes(text.toLowerCase()))
         if (Sort === "0") {
             return productList
