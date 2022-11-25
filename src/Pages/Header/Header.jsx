@@ -8,6 +8,7 @@ import { setSearchText } from "../../Stores/FilterSlice";
 import DarkModeTogge from "../DrakMode/Theme";
 import { useTranslation } from "react-i18next";
 import Chage from "../Language/Change/chage";
+import { notifyLogin } from "../../util/toastify";
 function Header() {
   const [styleMenuCart, setStyleMenuCart] = useState({ right: "-400px" });
   const count = useSelector((state) => state.product.count);
@@ -47,14 +48,15 @@ function Header() {
     }
     console.log(isLogin)
   }
-  function handleInOut(){
+  const handleInOut = () => {
     if(localStorage.getItem('islogin')==="true"){
       localStorage.setItem('islogin',"false")
       alert("Đã đăng xuất")
       navigate("/Login")
+      notifyLogin("Đã đăng xuất")
     }else{
       navigate("/Login")
-
+      
     }
   }
   function handleHeaderCart() {
