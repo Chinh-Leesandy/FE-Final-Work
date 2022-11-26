@@ -64,7 +64,7 @@ ul{
 @media (max-width: 769px) {
     .bottom__nav-mobile {
         display: block !important;
-        background-color: #fafafa;
+        background-color: #fff;
         position: fixed;
         width: 100%;
         z-index: 1;
