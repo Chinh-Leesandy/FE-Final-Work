@@ -4,12 +4,10 @@ import Header from "../../../Header/Header";
 import Footer from "../../../Footer/Footer";
 import "./Account.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
 const Account = () => {
   const [userName, setUserName] = useState({});
   const accessToken = localStorage.getItem("token");
   const [check, setCheck] = useState("notEditMode"); //set check = true
-  const [textEdit, setTextEdit] = useState("Edit Profile");
   useEffect(() => {
     axios
       .get("https://petsla-api.herokuapp.com/profile", {
@@ -22,19 +20,6 @@ const Account = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  const Edit = () => {
-    // setCheck("");
-    if (textEdit === "Edit Profile") 
-    {
-      setCheck("");
-      setTextEdit("Save");
-    }
-    else if (textEdit === "Save") {
-      setCheck("notEditMode");
-      setTextEdit("Edit Profile");
-    }
-    console.log("run");
-  };
   return (
     <React.Fragment>
       <Header></Header>
@@ -52,14 +37,12 @@ const Account = () => {
                         <span class="title">Profile</span>
                       </a>
                     </li>
-                    <Link to = "/Account/Order">
                     <li class="dashboard-nav-item">
                       <a className="no_action" href="/Account/Order">
                         <i class="bi bi-bag"></i>
                         <span class="title">Orders</span>
                       </a>
                     </li>
-                    </Link>
                     <li class="dashboard-nav-item">
                       <a className="no_action" href="/account/wish_list">
                         <i class="bi bi-heart"></i>
