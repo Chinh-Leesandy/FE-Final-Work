@@ -29,7 +29,7 @@ export default function ProductList() {
   }, []);
   const handleClick = (element) => {
     dispatch(addProduct(element));
-    success("Add to cart sucessfully")
+    success("Add to cart sucessfully");
   };
   const chosePage = (event) => {
     setCurrentPage(Number(event.target.id));
@@ -43,30 +43,33 @@ export default function ProductList() {
   const indexOfLastNews = currentPage * newsPerPage;
   const indexOfFirstNews = indexOfLastNews - newsPerPage;
   const currentProducts = product.slice(indexOfFirstNews, indexOfLastNews);
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(product.length / newsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+  const pageNumbers = [...Array(Math.ceil(product.length / newsPerPage)).keys()];
+  // for (let i = 1; i <= Math.ceil(product.length / newsPerPage); i++) {
+  //   pageNumbers.push(i);
+  // }
   const infoProducts = (element) => {
     dispatch(addIdProductItems(element));
   };
   const next = () => {
-      if (currentPage !== Math.ceil(product.length / newsPerPage))
-      {
-        setCurrentPage(currentPage => currentPage + 1);
-        window.scrollTo(0, 0);
-      }
-  }
-  const previous = () => {
-    if (currentPage !== 1){
-      setCurrentPage(currentPage => currentPage - 1);
+    if (currentPage !== Math.ceil(product.length / newsPerPage)) {
+      setCurrentPage((currentPage) => currentPage + 1);
       window.scrollTo(0, 0);
     }
-}
-  
+  };
+  const previous = () => {
+    if (currentPage !== 1) {
+      setCurrentPage((currentPage) => currentPage - 1);
+      window.scrollTo(0, 0);
+    }
+  };
+
   const { t } = useTranslation();
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [productList]);
+
   // const ProductItems = useSelector(state => state.product.productItem);
-    // console.log(currentPage)
+  // console.log(currentPage)
   return (
     <>
       <div className="product-list ">
@@ -93,21 +96,29 @@ export default function ProductList() {
                         onClick={() => infoProducts(res)}
                         className="text-product-content"
                       >
-                        <span className="title">{res.product_name}</span>
+                        <span className="title" style={{ marginLeft: "0" }}>
+                          {res.product_name}
+                        </span>
                       </div>
                       <div className="price">
                         {res.price.toLocaleString()} đ
                       </div>
                       <div className="btn-product-content">
                         <div className="buy button-wrap">
-                          <i className="icon-buy bi bi-bag" style={{ padding: "0 2px" }}></i>
+                          <i
+                            className="icon-buy bi bi-bag"
+                            style={{ padding: "0 2px" }}
+                          ></i>
                           <span>Buy Now</span>
                         </div>
                         <div
                           className="car button-wrap"
                           onClick={() => handleClick(res)}
                         >
-                          <i className="bi bi-cart3" style={{ padding: "0 2px" }}></i>
+                          <i
+                            className="bi bi-cart3"
+                            style={{ padding: "0 2px" }}
+                          ></i>
                           <span className="title_cart"> Add to Cart</span>
                         </div>
                       </div>
@@ -127,25 +138,25 @@ export default function ProductList() {
                   <i class="bi bi-chevron-left"></i>
                 </div>
                 {pageNumbers.map((number) => {
-                  if (currentPage === number) {
+                  if (currentPage === number+1 ) {
                     return (
                       <li
-                        key={number}
-                        id={number}
+                        key={number+1}
+                        id={number + 1}
                         className="active_wrap pagination-wrap"
                       >
-                        {number}
+                        {number + 1} 
                       </li>
                     );
                   } else {
                     return (
                       <li
                         className="pagination-wrap"
-                        key={number}
-                        id={number}
+                        key={number + 1}
+                        id={number + 1}
                         onClick={chosePage}
                       >
-                        {number}
+                        {number + 1}
                       </li>
                     );
                   }
