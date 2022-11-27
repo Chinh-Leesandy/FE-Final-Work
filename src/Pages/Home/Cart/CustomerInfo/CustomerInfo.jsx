@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Header from '../../../Header/Header';
 import Footer from '../../../Footer/Footer';
 import "./CustomerInfo.css"
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 export default function CustomerInfo() {
@@ -55,6 +55,15 @@ export default function CustomerInfo() {
             .catch((err) => console.log(err));
       
     }
+    const navigate = useNavigate()
+  function handleNext(e){
+    if(localStorage.getItem('islogin')==="true"){
+        handleCheckout(e);
+    }else{
+      navigate("/Login")
+    }
+    console.log(localStorage.getItem('islogin'))
+  }
     return (
         <React.Fragment>
             <Header></Header>
@@ -125,7 +134,7 @@ export default function CustomerInfo() {
                                             </Link>
                                         </div>
                                         <div class="col">
-                                            <button style={{ backgroundColor: "#e69646", color: "#fff" }} type="submit" class=" btn-cus " onClick={(e) => handleCheckout(e)}>Next</button>
+                                            <button style={{ backgroundColor: "#e69646", color: "#fff" }} type="submit" class=" btn-cus " onClick={(e) => handleNext(e)}>Next</button>
                                         </div>
                                     </div>
                                 </div>

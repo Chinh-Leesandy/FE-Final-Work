@@ -73,5 +73,5 @@ const productSlice = createSlice({
     },
   },
 });
-export const { callApi, setSort, addProduct, removeItem, increaseItem, decreaseItem, addIdProductItems} = productSlice.actions;
+export const {callApi, setSort, addProduct, removeItem, increaseItem, decreaseItem, addIdProductItems} = productSlice.actions;
 export default productSlice.reducer;
