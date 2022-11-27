@@ -8,7 +8,7 @@ import {
   decreaseItem,
   removeItem,
 } from "../../../../Stores/productSlice";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 // import { set } from 'immer/dist/internal';
 function getItem(target) {
   let item = target;
@@ -35,6 +35,15 @@ export default function Cart() {
     let item = getItem(e.target);
     dispatch(decreaseItem(item.getAttribute("id")));
     console.log(item.getAttribute("id"));
+  }
+  const navigate = useNavigate()
+  function handleCheckout (){
+    if(localStorage.getItem('islogin')==="true"){
+      navigate("/CustomerInfo")
+    }else{
+      navigate("/Login")
+    }
+    console.log(localStorage.getItem('islogin'))
   }
   return (
     <React.Fragment>
@@ -166,7 +175,7 @@ export default function Cart() {
                     </form>
                   </div>
                 </div>
-                <button type="button" class="cart-page-btn checkout-btn">
+                <button onClick={handleCheckout} type="button" class="cart-page-btn checkout-btn">
                   Checkout
                 </button>
               </div>

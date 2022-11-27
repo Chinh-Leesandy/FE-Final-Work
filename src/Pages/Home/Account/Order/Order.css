@@ -60,3 +60,41 @@
     opacity: 1;
   }
  }
+ .shipping-info{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    border: 1px solid  #dfdfdf;
+    background-color: #fff;
+ }
+ .shipping-info-body{
+  display: flex;
+  flex-direction: column;
+  list-style: inside;
+ }
+ .info-item{
+  display: flex;
+  flex-direction: row;
+ }
+ .title{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 1rem;
+ }
+ .value{
+  font-size: 1rem;
+ }
+ .info-total-summary{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem;
+  border: 1px solid  #dfdfdf;
+  background-color: #fff;
+ }
+ .total-title {
+  font-size: 1rem;
+  font-weight: 600;
+ }
+ .total-value{
+  color: #e69646;;
+ }
