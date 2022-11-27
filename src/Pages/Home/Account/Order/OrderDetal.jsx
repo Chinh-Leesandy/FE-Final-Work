@@ -11,7 +11,7 @@ const OrderDetal = () => {
   console.log(idOder)
    useEffect(() => {
       axios
-        .get("https://petsla-api.herokuapp.com/get-order/", 
+        .get(`https://petsla-api.herokuapp.com/order/${idOder}`,
         {
           headers: {
             Authorization: "Bearer " + accessToken,
@@ -23,6 +23,7 @@ const OrderDetal = () => {
         })
         .catch((err) => console.log(err));
     }, []);
+    console.log(items)
   return (
     <React.Fragment>
       <Header></Header>
