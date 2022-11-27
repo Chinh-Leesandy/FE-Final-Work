@@ -11,6 +11,7 @@ import Header from "../../Pages/Header/Header";
 const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const chosePage = (event) => {
@@ -22,6 +23,7 @@ const Login = () => {
       username: username,
       password: password,
     }
+    setLoading(true)
     ApiCaller("/login/", 'POST', newUse).then(res => {
       dispatch(loginSuccess(res.data))
       alert("Đăng nhập thành công !")
@@ -29,10 +31,11 @@ const Login = () => {
       setUsername("")
       setPassword("")
     }).catch(e => {
+      setLoading(false)
       alert("Tên đăng nhập hoặc tài khoản không chính xác")
     })
   }
-  const user = useSelector(state => state.login.login.currenUser)
+  // const user = useSelector(state => state.login.login.currenUser)
   function onChangeUsername(e) {
     setUsername(e.target.value)
   }
@@ -41,10 +44,10 @@ const Login = () => {
   }
   return (
     <>
-    <Header />
-    <div className="Background">
-    <img src="https://www.leoasher.dev/static/media/bannerFooter.4b09af08.png"/>
-      {/* <div className="Div_login"> */}
+      <Header />
+      <div className="Background">
+        <img src="https://www.leoasher.dev/static/media/bannerFooter.4b09af08.png" />
+        {/* <div className="Div_login"> */}
         <form className="Login" onSubmit={(e) => handleLogin(e)} >
           <div className="Login_Header">
             <span className="Title">Login</span>
@@ -99,9 +102,17 @@ const Login = () => {
             </div>
           </div>
           <div className="Login_Action">
-            <button type="submit" className="btn_submit">
+            {/* <button type="submit" className="btn_submit">
               Login
-            </button>
+            </button> */}
+            {loading ? <div className="Loading-main"  >
+              <div className="loading">
+              </div>
+            </div> :
+              <button type="submit" className="btn_submit">
+                Login
+              </button>
+            }
             <div className="Login_With">
               <div className="separate"></div>
               <div className="separate_text">or</div>
@@ -116,7 +127,7 @@ const Login = () => {
           </div>
           <div className="Login_footer">
             <div className="change-to-register">
-              <Link to="/Register" onClick = {chosePage}>
+              <Link to="/Register" onClick={chosePage}>
                 Do not have an account? Register
               </Link>
             </div>
