@@ -3,19 +3,23 @@ import Header from "../../../Header/Header";
 import Footer from "../../../Footer/Footer";
 import "./Order.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 const Order = () => {
   const accessToken = localStorage.getItem("token");
   const [orderList, setOrderList] = useState([]);
+  localStorage.removeItem('idOrderDetail');
   useEffect(() => {
     axios
-      .get("https://petsla-api.herokuapp.com/get-order", {
+      .get("https://petsla-api.herokuapp.com/get-order/", 
+      {
         headers: {
           Authorization: "Bearer " + accessToken,
         },
-      })
+      }
+      )
       .then((res) => {
         setOrderList(res.data);
+        console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -50,8 +54,15 @@ const Order = () => {
       window.scrollTo(0, 0);
     }
   };
+   const navigate=useNavigate();
   const order = () =>{
-    <Link to= "/Acount/Order-detal"></Link>
+    navigate("/Acount/Order-detal");
+    // localStorage.setItem('idOrderDetail',id);
+  }
+  function ID(id) 
+  {
+     localStorage.setItem('idOrderDetail',id);
+    //  navigate("/Acount/Order-detal");
   }
   return (
     <React.Fragment>
@@ -115,8 +126,8 @@ const Order = () => {
                       {currentOrder.map((res) => {
                         return (
                           <React.Fragment>
-                            <div className="order-item shadow-sm rounded">
-                              <div className="order-row" onClick={order}>
+                            <div className="order-item shadow-sm rounded" onClick={order} >
+                              <div className="order-row" onClick={ID(res.id)}>
                                 <div class="order-cell order-index">
                                   {orderList.indexOf(res) + 1}
                                 </div>
@@ -130,6 +141,7 @@ const Order = () => {
                                 <div class="order-cell order-price">
                                   {res.total_price} đ
                                 </div>
+                                
                               </div>
                             </div>
                           </React.Fragment>
