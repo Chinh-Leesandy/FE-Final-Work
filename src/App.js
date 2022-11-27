@@ -1,7 +1,6 @@
 import "./App.css";
 import Footer from "./Pages/Footer/Footer";
 import Header from "./Pages/Header/Header";
-// import Login from './Account/Login/Login';
 import Register from "./Account/Register/Register";
 import ProductList from "./Pages/Home/ProductList/ProductList";
 import Sortwrap from "./Pages/Home/SortWrap/Sortwrap";
@@ -15,7 +14,6 @@ import Cart from "./Pages/Home/Cart/Cart/Cart";
 import CustomerInfo from "./Pages/Home/Cart/CustomerInfo/CustomerInfo";
 import Account from "./Pages/Home/Account/Profile/Account";
 import Contact from "./Pages/Home/Contact";
-import { Redirect } from 'react-router-dom';
 
 import { ToastContainer } from "react-toastify";
 import Order from "./Pages/Home/Account/Order/Order";
@@ -45,7 +43,7 @@ function App() {
         <Route path="/Cart" element = {<Cart/>} />
         <Route path="/Contact" element = {<Contact/>} />
         <Route path="/Account" element = {<Account/>} />
-        <Route path="/Account/Order" element = {<Order/>} />
+        <Route path="/Account/Orders" element = {<Order/>} />
         <Route path="/Acount/Order-detal" element = {<OrderDetal/>} />
         <Route path="/MenuCart" element = {<MenuCart/>} />
         <Route path="/ProductItem/:productId" element = {<ProductItem/>} />
