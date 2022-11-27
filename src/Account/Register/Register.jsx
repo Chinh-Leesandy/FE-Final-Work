@@ -10,9 +10,10 @@ const Register = () => {
     const [ipEmail, setIpEmail] = useState("")
     const [ipUserName, setIpUserName] = useState("")
     const [ipPass, setIpPass] = useState("")
+    const [loading, setLoading] = useState(false)
     const chosePage = (event) => {
         window.scrollTo(0, 0);
-      };
+    };
     function handleSubmit(e) {
         e.preventDefault()
         let res = {
@@ -22,16 +23,20 @@ const Register = () => {
             username: ipUserName,
             password: ipPass
         }
-        ApiCaller("/register/", 'POST', res).then(e => {
-            setIpFirstName("")
-            setIpLasttName("")
-            setIpPass("")
-            setIpEmail("")
-            setIpUserName("")
-            alert("Đăng kí thành công !")
-        }).catch(e => {
-            alert("Đăng kí không thành công !")
-        })
+        setLoading(true)
+        ApiCaller("/register/", 'POST', res)
+            .then(e => {
+                setIpFirstName("")
+                setIpLasttName("")
+                setIpPass("")
+                setIpEmail("")
+                setIpUserName("")
+                alert("Đăng kí thành công !")
+                setLoading(false)
+            }).catch(e => {
+                setLoading(false)
+                alert("Đăng kí không thành công !")
+            })
     }
     function onChangeFirstName(e) {
         setIpFirstName(e.target.value)
@@ -51,9 +56,9 @@ const Register = () => {
     //
     return (
         <>
-            <Header/>
+            <Header />
             <div className="Background">
-                <img src="https://www.leoasher.dev/static/media/bannerFooter.4b09af08.png"/>
+                <img src="https://www.leoasher.dev/static/media/bannerFooter.4b09af08.png" />
                 <form className='Register' onSubmit={(e) => handleSubmit(e)}>
                     <div className='Register_Header'>
                         <span className='Title'>
@@ -118,11 +123,21 @@ const Register = () => {
 
                     </div>
                     <div className='Register_Action'>
-                        <button
+                        {/* <button
                             type="submit"
                             className="btn_submit">
                             Register
-                        </button>
+                        </button> */}
+                        {loading ? <div className="Loading-main"  >
+                            <div className="loading">
+                            </div>
+                        </div> :
+                            <button
+                                type="submit"
+                                className="btn_submit">
+                                Register
+                            </button>
+                        }
                         <div className='Register_With'>
                             <div className='separate'></div>
                             <div className='separate_text'>or</div>
