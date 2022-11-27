@@ -32,13 +32,13 @@ const Account = () => {
                   <h5 class="dashboard-header">Dashboard</h5>
                   <ul class="dashboard-nav-list" style={{ listStyle: "none" }}>
                     <li class="dashboard-nav-item">
-                      <a className="action" href="/account/profile">
+                      <a className="action" href="/Account/Profile">
                         <i class="bi bi-person"></i>
                         <span class="title">Profile</span>
                       </a>
                     </li>
                     <li class="dashboard-nav-item">
-                      <a className="no_action" href="/account/orders">
+                      <a className="no_action" href="/Account/Orders">
                         <i class="bi bi-bag"></i>
                         <span class="title">Orders</span>
                       </a>

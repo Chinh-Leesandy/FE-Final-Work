@@ -11,7 +11,7 @@ const OrderDetal = () => {
   console.log(idOder)
    useEffect(() => {
       axios
-        .get(`https://petsla-api.herokuapp.com/order/${idOder}`,
+        .get(`https://petsla-api.herokuapp.com/order/`,
         {
           headers: {
             Authorization: "Bearer " + accessToken,

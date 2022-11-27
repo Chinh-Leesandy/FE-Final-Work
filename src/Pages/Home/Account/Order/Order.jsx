@@ -82,7 +82,7 @@ const Order = () => {
                       </a>
                     </li>
                     <li class="dashboard-nav-item">
-                      <a className="action" href="/Account/Order">
+                      <a className="action" href="/Account/Orders">
                         <i class="bi bi-bag"></i>
                         <span class="title">Orders</span>
                       </a>
